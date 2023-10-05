@@ -6,6 +6,27 @@
   100% { padding: 16px 26px;  }
 }
 
+@font-face {
+  font-family: 'chaloops';
+  src: url('../fonts/chaloops/Chaloops-Regular.ttf') format('woff2'),
+       url('../fonts/chaloops/Chaloops-Regular.ttf') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'chaloops';
+  src: url('../fonts/chaloops/Chaloops-Medium.ttf') format('woff2'),
+       url('../fonts/chaloops/Chaloops-Medium.ttf') format('woff');
+  font-weight: 600
+}
+
+@font-face {
+  font-family: 'chaloops';
+  src: url('../fonts/chaloops/Chaloops-Bold.ttf') format('woff2'),
+       url('../fonts/chaloops/Chaloops-Bold.ttf') format('woff');
+  font-weight: 900;
+}
+
 .buttonPulseClass{
     -webkit-animation-name: buttonPulse;
     -webkit-animation-iteration-count: infinite;
