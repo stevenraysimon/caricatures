@@ -105,6 +105,7 @@ header{
 
 #fade{
   height: 100%;
+  background-color: #FF6600;
 	background: linear-gradient(175deg,#CE4703, #FF6600);
 }
 
@@ -124,6 +125,9 @@ nav{
 
 nav a{
   color: #fda;
+}
+
+nav a:not(:first-child){
   padding-left: 20px;
 }
 
@@ -149,10 +153,10 @@ nav a:active{
   font-style: normal;
   color: white;
   /* font-size: 2vw; */
-  font-size: 1.5em;
-  line-height: 1.7em;
+  font-size: 1.7em;
+  line-height: 1.5em;
   text-align: center;
-  padding: 50px 20px;
+  padding: 30px 20px;
 }
 
 .inside-wrapper a{
@@ -353,6 +357,44 @@ hr{
 }
 
 
+.pricing{
+  background-color: #4D4D4D;
+  background: linear-gradient(175deg,#0F0F0F, #4D4D4D);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  padding: 40px 0;
+  justify-content: center;
+  font-family: "chaloops", sans-serif;
+}
+
+.pricing h3{
+  font-weight: 900;
+  font-size: 2em;
+  line-height: 2em;
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.pricing p{
+  font-weight: 400;
+  font-size: 1.7em;
+  line-height: 1.5em;
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.pricing img{
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.pricing nav{
+  justify-content: left;
+  padding-left: 20px;
+}
+
+
 /************* Footer *******************/
 
 footer{
@@ -501,10 +543,10 @@ footer div{
 
   .inside-wrapper p{
     font-family: "chaloops", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-weight: 400;
+    font-style: normal;
     color: white;
-    font-size: 1.1em;
+    font-size: 1.3em;
     line-height: 1.5em;
     text-align: center;
     padding: 25px 20px;
@@ -541,7 +583,6 @@ footer div{
 	}
 
   .row .text{
-    max-width: 90%;
     width: 100%;
   }
 
@@ -583,6 +624,36 @@ footer div{
   
   .modal img{
     margin-top: 20px;
+  }
+
+  .pricing{
+    flex-direction: column;
+  }
+
+  .pricing img{
+    padding:  10px 50px;
+    box-sizing: border-box;
+  }
+
+  .pricing h3{
+    font-weight: 900;
+    font-size: 1.7em;
+    line-height: 1.6em;
+    text-align: center;
+    padding: 10px 20px;
+  }
+  
+  .pricing p{
+    font-weight: 400;
+    font-size: 1.3em;
+    line-height: 1.5em;
+    text-align: center;
+    padding: 10px 20px;
+  }
+
+  .pricing nav{
+    justify-content: center;
+    padding: 0;
   }
 
 }
