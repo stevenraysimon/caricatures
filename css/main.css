@@ -114,6 +114,16 @@ header{
   background-repeat: repeat;
 }
 
+#pricing{
+  background-color: #4D4D4D;
+  background: linear-gradient(175deg,#181818, #2e2e2e);
+}
+
+#pattern-two{
+  background-image: url(../images/pattern-two.png);
+  background-repeat: repeat;
+}
+
 nav{
   display: inline-flex;
   /* font-size: 2.4vw; */
@@ -156,7 +166,7 @@ nav a:active{
   font-size: 1.7em;
   line-height: 1.5em;
   text-align: center;
-  padding: 30px 20px;
+  padding: 50px 20px;
 }
 
 .inside-wrapper a{
@@ -357,9 +367,7 @@ hr{
 }
 
 
-.pricing{
-  background-color: #4D4D4D;
-  background: linear-gradient(175deg,#0F0F0F, #4D4D4D);
+.pricing-content{
   color: white;
   display: flex;
   flex-direction: row;
@@ -368,7 +376,7 @@ hr{
   font-family: "chaloops", sans-serif;
 }
 
-.pricing h3{
+.pricing-content h3{
   font-weight: 900;
   font-size: 2em;
   line-height: 2em;
@@ -376,7 +384,7 @@ hr{
   padding: 10px 20px;
 }
 
-.pricing p{
+.pricing-content p{
   font-weight: 400;
   font-size: 1.7em;
   line-height: 1.5em;
@@ -384,12 +392,12 @@ hr{
   padding: 10px 20px;
 }
 
-.pricing img{
+.pricing-content img{
   padding: 10px;
   box-sizing: border-box;
 }
 
-.pricing nav{
+.pricing-content nav{
   justify-content: left;
   padding-left: 20px;
 }
@@ -626,16 +634,16 @@ footer div{
     margin-top: 20px;
   }
 
-  .pricing{
+  .pricing-content{
     flex-direction: column;
   }
 
-  .pricing img{
+  .pricing-content img{
     padding:  10px 50px;
     box-sizing: border-box;
   }
 
-  .pricing h3{
+  .pricing-content h3{
     font-weight: 900;
     font-size: 1.7em;
     line-height: 1.6em;
@@ -643,7 +651,7 @@ footer div{
     padding: 10px 20px;
   }
   
-  .pricing p{
+  .pricing-content p{
     font-weight: 400;
     font-size: 1.3em;
     line-height: 1.5em;
@@ -651,7 +659,7 @@ footer div{
     padding: 10px 20px;
   }
 
-  .pricing nav{
+  .pricing-content nav{
     justify-content: center;
     padding: 0;
   }
