@@ -128,8 +128,18 @@ header{
   background: linear-gradient(180deg,#0f0f0f, #202020);
 }
 
-#pattern-two{
+#travel{
+  background-color: #0099ff;
+  background: linear-gradient(180deg,#31b8fc, #0099ff);
+}
+
+#pattern-pricing{
   background-image: url(../images/pattern-pricing.png);
+  background-repeat: repeat;
+}
+
+#pattern-travel{
+  background-image: url(../images/pattern-travel.png);
   background-repeat: repeat;
 }
 
@@ -212,9 +222,6 @@ nav a:active{
 	filter: brightness(10%);
 	transition: 0s;
 }
-
-
-/************* Projects *****************/
 
 img, iframe{
   width: 100%;
@@ -375,17 +382,24 @@ hr{
   transition: 0.4s;
 }
 
-
-.pricing-content{
+.content{
   color: white;
   display: flex;
-  flex-direction: row;
   padding: 40px 0;
   justify-content: center;
   font-family: "chaloops", sans-serif;
+  align-items: center;
 }
 
-.pricing-content h3{
+#pricing .content{
+  flex-direction: row;
+}
+
+#travel .content{
+  flex-direction: row-reverse;
+}
+
+.content h3{
   font-weight: 900;
   font-size: 2em;
   line-height: 2em;
@@ -393,7 +407,7 @@ hr{
   padding: 10px 20px;
 }
 
-.pricing-content p{
+.content p{
   font-weight: 400;
   font-size: 1.7em;
   line-height: 1.5em;
@@ -401,14 +415,19 @@ hr{
   padding: 10px 20px;
 }
 
-.pricing-content img{
+.content img{
   padding: 10px;
   box-sizing: border-box;
 }
 
-.pricing-content nav{
+.content nav{
   justify-content: left;
   padding-left: 20px;
+}
+
+.text{
+  max-width: 600px;
+  width: 100%;
 }
 
 
@@ -647,16 +666,20 @@ footer div{
     margin-top: 20px;
   }
 
-  .pricing-content{
+  #pricing .content{
+    flex-direction: column;
+  }
+  
+  #travel .content{
     flex-direction: column;
   }
 
-  .pricing-content img{
+  .content img{
     padding:  10px 50px;
     box-sizing: border-box;
   }
 
-  .pricing-content h3{
+  .content h3{
     font-weight: 900;
     font-size: 1.7em;
     line-height: 1.6em;
@@ -664,7 +687,7 @@ footer div{
     padding: 10px 20px;
   }
   
-  .pricing-content p{
+  .content p{
     font-weight: 400;
     font-size: 1.3em;
     line-height: 1.5em;
@@ -672,7 +695,7 @@ footer div{
     padding: 10px 20px;
   }
 
-  .pricing-content nav{
+  .content nav{
     justify-content: center;
     padding: 0;
   }
