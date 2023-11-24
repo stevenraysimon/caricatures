@@ -45,6 +45,7 @@
   --links: #333333;
   --linksHover: #777777;
   --linksActive: #444444;
+  --linksBackgroundHover: #DDDDDD;
 }
 
 body{
@@ -55,7 +56,6 @@ body{
 
 .my-body-noscroll-class{
     overflow: hidden;
-    /*height: 100%;*/
     -webkit-overflow-scrolling: touch !important;
     touch-action: none;
     height: calc(100% + 1px);
@@ -82,15 +82,77 @@ a{
   visibility: hidden;
 }
 
-.rawLogo{
-  font-family:'Montserrat', 'Open Sans', Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  /* font-size: 2.4vw; */
-  font-size: 2em;
-  color: var(--white);
-  text-transform:lowercase;
-  align-self: center;
+.menu-icon{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  padding: 20px;
+  width: 30px;
+  z-index: 1000;
+  cursor: pointer;
+  display: block;
+}
+
+.menu-icon .bar{
+  width: 100%;
+  height: 2px;
+  background-color: var(--black);
+}
+
+#barTwo{
+  margin-top: 5px;
+}
+
+.invert{
+  background-color: var(--white) !important;
+}
+
+.blackOverlay{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background:rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: none;
+}
+
+.mainnav{
+  background-color: white;
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  left: -300px;
+  z-index: 999;
+  display: none;
+  overflow: scroll;
+}
+
+.mainnav ul{
   text-align: center;
+  width: 100%;
+}
+
+.mainnav ul li a{
+  color: var(--black);
+  font-family: "chaloops", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+  padding: 20px 0;
+  display: block;
+  font-size: 2em;
+}
+
+.mainnav ul li a:hover{
+  background-color: var(--linksBackgroundHover);
+  transition: 0.4s;
+}
+
+.mainnav ul li a:active{
+  background-color: var(--linksActive);
+  transition: 0.4s;
 }
 
 /************* Hero *********************/

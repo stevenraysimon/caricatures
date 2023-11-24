@@ -16,7 +16,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
   <title>Caricatures by Steven Simon</title>
 
-  <meta name="viewport" content="initial-scale=1, width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/main.css" type="text/css" charset="utf-8" />
   <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
   <link rel="stylesheet" href="css/font-awesome.min.css" />
@@ -41,6 +41,21 @@
 </head>
 
 <body>
+  <div class="menu-icon">
+    <div class="bar" id="barOne"></div>
+    <div class="bar" id="barTwo"></div>
+  </div><!--menu icon-->
+  <div class="blackOverlay"></div>
+  <div class="mainnav">
+    <ul>
+        <li><a href="#pricing" title="Pricing">Pricing</a></li>
+        <li><a href="#travel" title="Travel">Travel</a></li>
+        <li><a href="mailto:stevenraysimon@gmail.com" title="Email" target="_top" onClick="playSound('sounds/smallPop.wav');">Email</a></li>
+        <li><a href="tel:3463730801" title="Call" target="_top" onClick="playSound('sounds/smallPop.wav');">Call</a></li>
+        <li><a href="#travel" title="Travel">Instagram</a></li>
+        <li><a href="https://paypal.me/stevensimon50" title="paypal" target="_blank" onclick="playSound('sounds/smallPop.wav');">PayPal</a></li>
+    </ul>
+  </div>
   <!-- Index -->
   <a name="jump-to-top"></a>
   <div id="hero">
@@ -126,6 +141,7 @@
     </div><!--row-->
   </div><!--portraits-->
   <div id="pricing" class="information">
+    <a name="pricing"></a>
     <div id="pattern-pricing">
       <div class="content">
         <div>
@@ -151,6 +167,7 @@
     </div><!--pattern-two-->
   </div><!--pricing-->
   <div id="travel" class="information">
+    <a name="travel"></a>
     <div id="pattern-travel">
       <div class="content">
         <div>

@@ -4,3 +4,8 @@
 	overflow-y: hidden;
 	z-index: 1;
 }
+
+/* Hide the button when JavaScript is disabled */
+.menu-icon{
+	display: none;
+  }
