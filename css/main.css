@@ -569,7 +569,7 @@ hr {
   border-bottom: solid;
   border-bottom-color: var(--black);
   border-bottom-width: 1px;
-  margin: 0 10px;
+  margin: 15px 10px 0;
 }
 
 .question .fa {
