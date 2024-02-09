@@ -234,6 +234,16 @@
             color: #000;
             transition: 0s;
         }
+
+        @media (prefers-color-scheme: dark) {
+            .dark-theme {
+                display: block !important;
+            }
+
+            .light-theme {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -359,7 +369,12 @@
                                                 style="text-decoration: none;"><img
                                                     src="https://stevenraysimon.github.io/caricatures/images/logo.png"
                                                     alt="Steven Simon Logo"
-                                                    style="max-width: 200px; padding: 30px;"></a></td>
+                                                    style="max-width: 200px; padding: 30px; display: block;"
+                                                    class="dark-theme"><img
+                                                    src="https://stevenraysimon.github.io/caricatures/images/logo-white.png"
+                                                    alt="Steven Simon Logo"
+                                                    style="max-width: 200px; padding: 30px; display: none;"
+                                                    class="light-theme"></a></td>
                                     </tr>
                                 </table>
                             </td>

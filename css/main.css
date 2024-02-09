@@ -190,7 +190,7 @@ header {
   position: relative;
 }
 
-#logo {
+.logo {
   max-width: 250px;
   width: 100%;
   margin: auto;
@@ -711,7 +711,7 @@ footer div {
     position: relative;
   }
 
-  #logo {
+  .logo {
     max-width: 180px;
   }
 
