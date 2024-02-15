@@ -252,6 +252,26 @@
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
 
+        $('#elyssa').css('display', 'none');
+        $('#elyssa-name').css('display', 'none');
+
+        // If Elyssa
+        $('#elyssa-check').change(function () {
+
+            if ($('#elyssa-check').is(':checked')) {
+                $('#steven').css('display', 'none');
+                $('#steven-name').css('display', 'none');
+                $('#elyssa').css('display', 'block');
+                $('#elyssa-name').css('display', 'block');
+            } else {
+                $('#elyssa').css('display', 'none');
+                $('#elyssa-name').css('display', 'none');
+                $('#steven').css('display', 'block');
+                $('#steven-name').css('display', 'block');
+            }
+
+        });//Elyssa checked
+
         $('#submito').click(function () {
 
             $('#copyMe').css('display', 'block');
@@ -280,7 +300,19 @@
 
                         var event = prompt("Event:");
                         var eventDate = prompt("Date:");
-                        message = message.replace('iliner', 'My name is Steven and I do caricatures. I was wondering if I could do caricatures at ' + event + ' on ' + eventDate + '. This would be of no cost to you. You can learn more about me by visiting my website ');
+                        var name = 'Steven';
+                        var work = 'do caricatures';
+                        var noun = 'I';
+                        if ($('#elyssa-check').is(':checked')) {
+                            name = 'Elyssa';
+                            work = 'manage caricature events';
+                            noun = 'we';
+                        } else {
+                            name = 'Steven';
+                            work = 'draw caricatures';
+                            noun = 'I';
+                        }
+                        message = message.replace('iliner', 'My name is ' + name + ' and I ' + work + '. I was wondering if ' + noun + ' could do caricatures at ' + event + ' on ' + eventDate + '. This would be of no cost to you. You can learn more about Caricatures by Steven Simon by visiting ');
                         $('#letter').text(message);
                         $('#letter').append(portfolio);
                         $('#letter').append('. ');
@@ -341,9 +373,10 @@
         <p class="formText">To:</p>
         <input id="to" type="text" placeholder="Dear Mr. Simon"><br>
         <p class="formText">Message:</p>
-        <textarea id="message" placeholder="Thank you very much for"></textarea>
+        <textarea id="message" placeholder="I was wondering if I could do caricatures at..."></textarea>
+        <label for="checkbox">Elyssa</label><input type="checkbox" id="elyssa-check" name="checkbox">
     </form>
-    <p id="hint">Enter "iliner" for default thank you.</p>
+    <p id="hint">Enter "iliner" for default message.</p>
     <input id="submito" type="submit" value="Submit">
 </div>
 
@@ -409,12 +442,29 @@
                                             message</td>
                                     </tr>
                                     <tr>
-                                        <td
-                                            style="font-family:Verdana, sans-serif;font-weight: 300;font-size: 1em;color: #222;line-height: 27px;-webkit-font-smoothing: antialiased !important;-moz-osx-font-smoothing: grayscale;font-weight:300; padding-top:20px;">
-                                            Thank you very much!<br>Steven Simon<br>
+                                        <td style="font-family:Verdana, sans-serif;font-weight: 300;font-size: 1em;color: #222;line-height: 27px;-webkit-font-smoothing: antialiased !important;-moz-osx-font-smoothing: grayscale;font-weight:300; padding-top:20px;"
+                                            id="elyssa-name">
+                                            Thank you very much!<br>Elyssa Tobias<br><i>Event Manager</i><br>
+                                        </td>
+                                        <td style="font-family:Verdana, sans-serif;font-weight: 300;font-size: 1em;color: #222;line-height: 27px;-webkit-font-smoothing: antialiased !important;-moz-osx-font-smoothing: grayscale;font-weight:300; padding-top:20px;"
+                                            id="steven-name">
+                                            Thank you very much!<br>Steven Simon<br><i>Caricaturist & Owner</i><br>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    <tr id="elyssa">
+                                        <td style="text-decoration:none;">
+                                            <a style="color: #437DFF;text-decoration: none; font-family:Verdana, sans-serif;font-weight: 300;font-size: 1em;"
+                                                href="tel:713.628.7966" target="_blank"
+                                                title="phone">713.628.7966</a><br>
+                                            <a style="color: #437DFF;text-decoration: none; font-family:Verdana, sans-serif;font-weight: 300;font-size: 1em;"
+                                                href="mailto:elyssateresa@gmail.com"
+                                                title="email">elyssateresa@gmail.com</a><br>
+                                            <a style="color:#437DFF;text-decoration:none; font-family:Verdana, sans-serif;font-weight: 300;font-size: 1em;"
+                                                href="https://stevenraysimon.github.io/caricatures/" target="_blank"
+                                                title="portfolio">stevenraysimon.github.io/caricatures</a>
+                                        </td>
+                                    </tr>
+                                    <tr id="steven">
                                         <td style="text-decoration:none;">
                                             <a style="color: #437DFF;text-decoration: none; font-family:Verdana, sans-serif;font-weight: 300;font-size: 1em;"
                                                 href="tel:346.373.0801" target="_blank"
