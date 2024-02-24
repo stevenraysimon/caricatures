@@ -497,6 +497,10 @@ hr {
   flex-direction: row;
 }
 
+#travel .flex {
+  flex-direction: row-reverse;
+}
+
 .content h3 {
   font-weight: 900;
   font-family: 'chaloops-bold', sans-serif;
