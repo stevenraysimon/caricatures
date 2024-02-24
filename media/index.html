@@ -106,15 +106,15 @@
         <h3 class="center">Logos</h3>
         <div id="media-logos" class="flex">
           <div class="media-item">
-            <img src="logos/black-logo.png" alt="Black Logo">
+            <img src="logos/black-logo-thumbnail.png" alt="Black Logo">
             <a id="downloadBlack" href="logos/black-logo.png" download="caricatures-steven-simon-logo-black.png">
-              <button class="center" onclick="downloadImage('downloadBlack')">Download</button>
+              <button class="center">Download</button>
             </a>
           </div><!--media-item-->
           <div class="media-item black">
-            <img src="logos/white-logo.png" alt="White Logo">
+            <img src="logos/white-logo-thumbnail.png" alt="White Logo">
             <a id="downloadWhite" href="logos/white-logo.png" download="caricatures-steven-simon-logo-white.png">
-              <button class="center" onclick="downloadImage('downloadWhite')">Download</button>
+              <button class="center">Download</button>
             </a>
           </div><!--media-item-->
         </div>
@@ -131,58 +131,32 @@
         <img src="celebrities/jeff-thumbnail.jpg" alt="Jeff Bezos">
         <p class="text">Jeff Bezos</p>
         <a id="downloadJeff" href="celebrities/jeff.png" download="caricatures-steven-simon-jeff-bezos.png">
-          <button class="center" onclick="downloadImage('downloadJeff')">Download</button>
+          <button class="center">Download</button>
         </a>
       </div><!--caricature-->
       <div class="caricature">
         <img src="celebrities/kim-thumbnail.jpg" alt="Kim Kardashian">
         <p class="text">Kim Kardashian</p>
         <a id="downloadKim" href="celebrities/kim.png" download="caricatures-steven-simon-kim-kardashian.png">
-          <button class="center" onclick="downloadImage('downloadKim')">Download</button>
+          <button class="center">Download</button>
         </a>
       </div><!--caricature-->
       <div class="caricature">
         <img src="celebrities/trump-thumbnail.jpg" alt="Donald Trump">
         <p class="text">Donald Trump</p>
         <a id="downloadTrump" href="celebrities/trump.png" download="caricatures-steven-simon-donald-trump.png">
-          <button class="center" onclick="downloadImage('downloadTrump')">Download</button>
+          <button class="center">Download</button>
         </a>
       </div><!--caricature-->
       <div class="caricature">
         <img src="celebrities/paris-thumbnail.jpg" alt="Paris Hilton">
         <p class="text">Paris Hilton</p>
         <a id="downloadParis" href="celebrities/paris.png" download="caricatures-steven-simon-paris-hilton.png">
-          <button class="center" onclick="downloadImage('downloadParis')">Download</button>
+          <button class="center">Download</button>
         </a>
       </div><!--caricature-->
     </div><!--row-->
   </div><!--media-->
-
-  <script>
-    function downloadImage(linkId) {
-      var link = document.getElementById(linkId);
-      link.click();
-    }
-
-    // Find elements with horizontal overflow
-function findOverflowElements() {
-  const elementsWithOverflow = Array.from(document.querySelectorAll('*')).filter(element => {
-    const computedStyles = window.getComputedStyle(element);
-    return element.scrollWidth > element.clientWidth || computedStyles.overflowX === 'auto' || computedStyles.overflowX === 'scroll';
-  });
-
-  return elementsWithOverflow;
-}
-
-// Log elements with horizontal overflow
-function logOverflowElements() {
-  const elementsWithOverflow = findOverflowElements();
-  console.log('Elements with horizontal overflow:', elementsWithOverflow);
-}
-
-// Call the function to log elements with horizontal overflow
-logOverflowElements();
-  </script>
 
   <footer>
     <div class="wrapper footer">
