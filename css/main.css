@@ -490,14 +490,11 @@ hr {
   align-items: center;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
 }
 
 #pricing .flex {
   flex-direction: row;
-}
-
-#travel .flex {
-  flex-direction: row-reverse;
 }
 
 .content h3 {
@@ -579,6 +576,59 @@ hr {
 
 strong {
   font-family: 'chaloops-bold', sans-serif;
+}
+
+/************* Media Items ****************/
+
+.media-item{
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+
+.media-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-item img {
+  height: 100%;
+  width: auto;
+  max-width: 100%; /* Ensure images don't exceed their container's width */
+  max-height: 700px;
+}
+
+.black{
+  background-color: var(--black);
+}
+
+button{
+  cursor: pointer;
+  padding: 10px 30px;
+  background: transparent;
+  border: solid var(--black) 1px;
+  color: var(--black);
+}
+
+button:hover{
+  background: var(--black);
+  color: var(--white);
+}
+
+.black button{
+  border: solid var(--white) 1px;
+  color: var(--white);
+}
+
+.black button:hover{
+  background: var(--white);
+  color: var(--black);
+}
+
+.center{
+  text-align: center;
+  display: block;
+  margin: auto;
 }
 
 
@@ -789,6 +839,10 @@ footer div {
     font-size: 1em;
   }
 
+  .row .center{
+    text-align: center !important;
+  }
+
   .row-cta {
     text-align: center;
   }
@@ -818,6 +872,10 @@ footer div {
 
   .modal img {
     margin-top: 20px;
+  }
+
+  .flex{
+    flex-direction: column;
   }
 
   #pricing .flex {
