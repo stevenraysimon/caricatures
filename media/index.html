@@ -163,6 +163,25 @@
       var link = document.getElementById(linkId);
       link.click();
     }
+
+    // Find elements with horizontal overflow
+function findOverflowElements() {
+  const elementsWithOverflow = Array.from(document.querySelectorAll('*')).filter(element => {
+    const computedStyles = window.getComputedStyle(element);
+    return element.scrollWidth > element.clientWidth || computedStyles.overflowX === 'auto' || computedStyles.overflowX === 'scroll';
+  });
+
+  return elementsWithOverflow;
+}
+
+// Log elements with horizontal overflow
+function logOverflowElements() {
+  const elementsWithOverflow = findOverflowElements();
+  console.log('Elements with horizontal overflow:', elementsWithOverflow);
+}
+
+// Call the function to log elements with horizontal overflow
+logOverflowElements();
   </script>
 
   <footer>

@@ -514,6 +514,7 @@ hr {
   font-size: 1.7em;
   line-height: 1.5em;
   padding: 10px 20px;
+  box-sizing: border-box;
 }
 
 .flex p {
