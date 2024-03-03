@@ -623,6 +623,18 @@ button:hover{
   margin: auto;
 }
 
+.video-container{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.video-container video{
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 
 /************* Footer *******************/
 
