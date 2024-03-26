@@ -60,6 +60,7 @@ $(document).ready(function () {
         }
     });
 
+
     // Questions and Answers
     $('.answer').slideUp(0);
     $('.qa-fa').toggleClass('fa-minus fa-plus');
