@@ -43,7 +43,9 @@
   </noscript>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/modals.js"></script>
+  <script type="text/javascript" src="../js/web-components.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.7.0/webcomponents-loader.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
 
 </head>
 
@@ -54,25 +56,7 @@
   </div>
   <!--menu icon-->
   <div class="blackOverlay"></div>
-  <div class="mainnav">
-    <ul>
-      <li><a href="https://stevenraysimon.github.io/caricatures#pricing" title="Pricing">Pricing</a></li>
-      <li><a href="https://stevenraysimon.github.io/caricatures#travel" title="Travel">Travel</a></li>
-      <li><a href="https://stevenraysimon.github.io/caricatures#questions" title="Questions">Questions</a></li>
-      <li><a href="mailto:stevenraysimon@gmail.com" title="Email" target="_top"
-          onClick="playSound('../sounds/smallPop.wav');">Email</a></li>
-      <li><a href="tel:3463730801" title="Call" target="_top" onClick="playSound('../sounds/smallPop.wav');">Call</a>
-      </li>
-      <li><a href="https://www.instagram.com/stevensimon50" title="Instagram" target="_blank"
-          onclick="trackInstagramClick();">Instagram</a></li>
-      <li><a href="https://paypal.me/stevensimon50" title="PayPal" target="_blank"
-          onclick="playSound('../sounds/smallPop.wav');">PayPal</a></li>
-      <li><a href="https://venmo.com/u/Steven-Simon-5" title="Venmo" target="_blank"
-          onclick="playSound('../sounds/smallPop.wav');">Venmo</a></li>
-      <li><a href="https://cash.app/$stevensimon50" title="Cash App" target="_blank"
-          onclick="playSound('../sounds/smallPop.wav');">Cash App</a></li>
-    </ul>
-  </div>
+  <main-nav></main-nav>
   <!-- Index -->
   <a name="jump-to-top"></a>
   <div id="hero">
@@ -180,18 +164,24 @@
     </div>
     <div class="row">
       <div class="caricature video-container">
-          <iframe src="https://www.youtube.com/embed/jRPTYMu03J8" title="Caricatures by Steven Simon Ad 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <a class="center" href="https://drive.google.com/file/d/1adNXNVq7x18kyz2enVjIIub12Ctu3OkA/view?usp=drive_link" target="_blank">
-            <button>Download</button>
-          </a>
+        <iframe src="https://www.youtube.com/embed/jRPTYMu03J8" title="Caricatures by Steven Simon Ad 1" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <a class="center" href="https://drive.google.com/file/d/1adNXNVq7x18kyz2enVjIIub12Ctu3OkA/view?usp=drive_link"
+          target="_blank">
+          <button>Download</button>
+        </a>
       </div>
       <!--video-->
       <div class="caricature video-container">
-        <iframe src="https://www.youtube.com/embed/gx-fV8klclk" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          <a class="center" href="https://drive.google.com/file/d/1asJjrbGU4imCRK2hZHr7P4ABGAGgyo2d/view?usp=drive_link" target="_blank">
-            <button>Download</button>
-          </a>
-       </div>
+        <iframe src="https://www.youtube.com/embed/gx-fV8klclk" title="" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <a class="center" href="https://drive.google.com/file/d/1asJjrbGU4imCRK2hZHr7P4ABGAGgyo2d/view?usp=drive_link"
+          target="_blank">
+          <button>Download</button>
+        </a>
+      </div>
       <!--video-->
     </div>
   </div>
