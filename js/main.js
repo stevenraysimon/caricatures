@@ -57,7 +57,7 @@ $(document).ready(function () {
             var scrollPosition = target.offset().top;
 
             // Clear the path for animation
-            window.location.pathname = '/';
+            window.location.pathname = '/caricatures/';
 
 
             // Scroll to the target section
