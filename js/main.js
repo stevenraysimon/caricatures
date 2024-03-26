@@ -57,7 +57,7 @@ $(document).ready(function () {
         if (target.length) {
             // Calculate scroll position
             var scrollPosition;
-            if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+            if (window.location.href === 'https://stevenraysimon.github.io/caricatures/' || window.location.pathname === '/index.html') {
                 // If on the homepage, simply scroll to the target section
                 scrollPosition = target.offset().top;
             } else {
