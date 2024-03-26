@@ -5,7 +5,8 @@ class MainNav extends HTMLElement {
 
     connectedCallback() {
         const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html';
-        const basePath = isHomePage ? '' : '#';
+        const baseUrl = window.location.origin;
+        const basePath = isHomePage ? '' : baseUrl + '/caricatures#';
 
         this.innerHTML = `
             <div class="mainnav">
