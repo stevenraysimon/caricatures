@@ -51,15 +51,25 @@ $(document).ready(function () {
     $('a[href^="#"]').on('click', function (event) {
         event.preventDefault();
 
-        var target = $(this.getAttribute('href'));
+        var target = $($(this).attr('href'));
 
         if (target.length) {
-            $('html, body').stop().animate({
-                scrollTop: target.offset().top
-            }, 1000);
+            var scrollPosition = target.offset().top;
+
+            // Check if the URL has a hash
+            if (window.location.hash) {
+                // Scroll to the target section
+                $('html, body').stop().animate({
+                    scrollTop: scrollPosition
+                }, 1000);
+            } else {
+                // Scroll to the top of the page
+                $('html, body').stop().animate({
+                    scrollTop: 0
+                }, 1000);
+            }
         }
     });
-
 
     // Questions and Answers
     $('.answer').slideUp(0);
