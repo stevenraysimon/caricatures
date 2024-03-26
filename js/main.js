@@ -69,6 +69,9 @@ $(document).ready(function () {
             $('html, body').stop().animate({
                 scrollTop: scrollPosition
             }, 1000);
+
+            // Prevent default anchor link behavior
+            return false;
         }
     });
 
