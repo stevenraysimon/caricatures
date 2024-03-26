@@ -4,7 +4,10 @@ class MainNav extends HTMLElement {
     }
 
     connectedCallback() {
-        const basePath = '#';
+        const isHomePage = window.location.href === 'https://stevenraysimon.github.io/caricatures/';
+        const baseUrl = window.location.origin;
+        const basePath = isHomePage ? '#' : baseUrl + '/caricatures#';
+
 
         this.innerHTML = `
             <div class="mainnav">
