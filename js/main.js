@@ -56,11 +56,9 @@ $(document).ready(function () {
         if (target.length) {
             var scrollPosition = target.offset().top;
 
-            // Check if the URL contains a hash
-            if (window.location.hash) {
-                // Remove the hash from the URL to prevent it from interfering with smooth scrolling
-                window.location.hash = '';
-            }
+            // Clear the path for animation
+            window.location.pathname = '/';
+
 
             // Scroll to the target section
             $('html, body').stop().animate({
