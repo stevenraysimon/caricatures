@@ -51,14 +51,19 @@ $(document).ready(function () {
     $('a[href^="#"]').on('click', function (event) {
         event.preventDefault();
 
-        var target = $($(this).attr('href'));
+        var targetId = $(this).attr('href');
+        var target = $(targetId);
 
         if (target.length) {
-            var scrollPosition = target.offset().top;
-
-            // Clear the path for animation
-            window.location.pathname = '/caricatures/';
-
+            // Calculate scroll position
+            var scrollPosition;
+            if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                // If on the homepage, simply scroll to the target section
+                scrollPosition = target.offset().top;
+            } else {
+                // If on a subpage, scroll to the top of the section on the homepage
+                scrollPosition = target.position().top;
+            }
 
             // Scroll to the target section
             $('html, body').stop().animate({
@@ -66,6 +71,7 @@ $(document).ready(function () {
             }, 1000);
         }
     });
+
 
 
     // Questions and Answers
