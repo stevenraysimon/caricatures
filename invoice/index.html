@@ -285,7 +285,8 @@
             }
         }
 
-        .invoice {
+        .invoice,
+        .menu-icon {
             display: none;
         }
     </style>
@@ -461,6 +462,7 @@
                     // Hide the form and display the content
                     document.getElementById('formInput').style.display = 'none';
                     document.querySelector('.invoice').style.display = 'block';
+                    document.querySelector('.menu-icon').style.display = 'block';
                 });
             });
 
