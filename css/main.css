@@ -585,16 +585,16 @@ strong {
 
 /************* Media Items ****************/
 
-.media-logo{
+.media-logo {
   padding: 20px 10px;
   box-sizing: border-box;
 }
 
-.black{
+.black {
   background-color: var(--black);
 }
 
-button{
+button {
   cursor: pointer;
   padding: 10px 30px;
   background: transparent;
@@ -602,34 +602,34 @@ button{
   color: var(--black);
 }
 
-button:hover{
+button:hover {
   background: var(--black);
   color: var(--white);
 }
 
-.black button{
+.black button {
   border: solid var(--white) 1px;
   color: var(--white);
 }
 
-.black button:hover{
+.black button:hover {
   background: var(--white);
   color: var(--black);
 }
 
-.center{
+.center {
   text-align: center;
   display: block;
   margin: auto;
 }
 
-.video-container{
+.video-container {
   display: flex;
   flex-direction: column;
   margin: 10px;
 }
 
-.video-container iframe{
+.video-container iframe {
   max-width: 300px;
   width: 100%;
   margin-bottom: 10px;
@@ -673,6 +673,35 @@ footer div {
   flex-direction: row;
   justify-content: center;
   position: relative;
+}
+
+
+/************* Invoice ********************/
+
+.invoice .right {
+  text-align: right;
+}
+
+.invoice .row {
+  justify-content: space-between;
+}
+
+.invoice #sum {
+  font-size: 10rem;
+  font-family: 'chaloops', sans-serif;
+}
+
+.invoice .end {
+  justify-content: flex-end !important;
+}
+
+.gray {
+  background-color: #DDD;
+}
+
+.invoice h3 {
+  font-size: 5rem;
+  font-family: 'chaloops', sans-serif;
 }
 
 /************* Modals ********************/
@@ -844,7 +873,7 @@ footer div {
     font-size: 1em;
   }
 
-  .row .center{
+  .row .center {
     text-align: center !important;
   }
 
@@ -879,7 +908,7 @@ footer div {
     margin-top: 20px;
   }
 
-  .flex{
+  .flex {
     flex-direction: column;
   }
 
