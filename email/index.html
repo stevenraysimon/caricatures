@@ -144,7 +144,7 @@
             font-style: italic;
         }
 
-        #to {
+        .formInput {
             font-family: Verdana, sans-serif;
             font-weight: 300;
             font-size: 1em;
@@ -306,7 +306,17 @@
 
             //Get the values
             var to = document.getElementById('to').value;
+            var event = document.getElementById('event').value;
+            var eventDate = document.getElementById("eventDate").value;
             var message = document.getElementById('message').value;
+
+            //Set the date
+            var eventDateObject = new Date(eventDate);
+            eventDateObject.setHours(0, 0, 0, 0); // Set time to midnight
+            eventDateObject.setDate(eventDateObject.getDate() + 1); // Increase date by one day
+            var formattedEventDate = convertDate(eventDateObject);
+            var dayOfWeekDay = getDayOfWeek(eventDateObject);
+            eventDate = dayOfWeekDay + ' ' + formattedEventDate;
 
             if (to == '') {
                 alert("Send to who?");
@@ -324,10 +334,9 @@
                     // mylink = mylink.style.color = '#Ff0';
                     if (message.indexOf('iliner') > -1) {
 
-                        var event = prompt("Event:");
-                        var eventDate = prompt("Date:");
+                        // var eventDate = prompt("Date:");
                         var name = 'Steven';
-                        var work = 'do caricatures';
+                        var work = 'draw caricatures';
                         var noun = 'I';
                         if ($('#elyssa-check').is(':checked')) {
                             name = 'Elyssa';
@@ -338,7 +347,7 @@
                             work = 'draw caricatures';
                             noun = 'I';
                         }
-                        message = message.replace('iliner', 'My name is ' + name + ' and I ' + work + '. I was wondering if ' + noun + ' could do caricatures at ' + event + ' on ' + eventDate + '. This would be of no cost to you. You can learn more about Caricatures by Steven Simon by visiting ');
+                        message = message.replace('iliner', 'My name is ' + name + ' and I ' + work + '. I was wondering if ' + noun + ' could draw caricatures at ' + event + ' on ' + eventDate + '. This would be of no cost to you. You can learn more about Caricatures by Steven Simon by visiting ');
                         $('#letter').text(message);
                         $('#letter').append(portfolio);
                         $('#letter').append('. ');
@@ -404,12 +413,28 @@
             window.getSelection().addRange(range);
         }
     }
+
+    // Function to format date as "Month Day, Year" (e.g., "May 1, 2024")
+    function convertDate(date) {
+        var options = { year: "numeric", month: "long", day: "numeric" };
+        return date.toLocaleDateString("en-US", options);
+    }
+
+    // Function to get the day of the week (e.g., "Monday", "Tuesday", etc.)
+    function getDayOfWeek(date) {
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        return days[date.getDay()];
+    }
 </script>
 
 <div id="formInput">
     <form>
         <p class="formText">To:</p>
-        <input id="to" type="text" placeholder="Dear Mr. Simon"><br>
+        <input id="to" type="text" placeholder="Dear Mr. Simon" class="formInput"><br>
+        <p class="formText">Event Name:</p>
+        <input id="event" type="text" placeholder="Event Name" class="formInput"><br>
+        <p class="formText">Event Date:</p>
+        <input id="eventDate" type="date" placeholder="Event Date" class="formInput"><br>
         <p class="formText">Message:</p>
         <textarea id="message" placeholder="I was wondering if I could do caricatures at..."></textarea>
         <label for="checkbox">Elyssa</label><input type="checkbox" id="elyssa-check" name="checkbox">
