@@ -188,12 +188,28 @@
             font-size: 16px;
             font-family: Verdana, sans-serif;
             outline: 0;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             -webkit-appearance: none;
             border-radius: 0px;
         }
 
-        #copyo {
+        #copyHtmlBtn {
+            font-family: Verdana, sans-serif;
+            text-align: center;
+            font-size: 90%;
+            color: #999;
+        }
+
+        #copyHtmlBtn:hover {
+            color: #777;
+        }
+
+        #copyHtmlBtn:active {
+            color: #555;
+        }
+
+        #copyo,
+        #copyHtmlBtn {
             margin: auto;
             display: block;
             margin-bottom: 40px;
@@ -242,6 +258,16 @@
 
             .light-theme {
                 display: none !important;
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .dark-theme {
+                display: none !important;
+            }
+
+            .light-theme {
+                display: block !important;
             }
         }
     </style>
@@ -336,6 +362,18 @@
 
         });//Copy Button click
 
+        // JavaScript code to copy HTML to clipboard
+        document.getElementById('copyHtmlBtn').addEventListener('click', function () {
+            var copyMe = document.getElementById('copyMe');
+            var copiedHTML = copyMe.outerHTML;
+            // Copy the HTML content to the clipboard
+            navigator.clipboard.writeText(copiedHTML).then(function () {
+                alert('HTML copied to clipboard!');
+            }, function (err) {
+                console.error('Failed to copy HTML code: ', err);
+            });
+        });//Copy HTML Button click
+
     });//Doc Ready
 
 
@@ -399,15 +437,27 @@
                                     style="text-align: center;"><!--content-->
                                     <tr>
                                         <td><a href="https://stevenraysimon.github.io/caricatures/" target="_blank"
-                                                style="text-decoration: none;"><img
-                                                    src="https://stevenraysimon.github.io/caricatures/images/logo.png"
-                                                    alt="Steven Simon Logo"
-                                                    style="max-width: 200px; padding: 30px; display: block;"
-                                                    class="dark-theme"><img
-                                                    src="https://stevenraysimon.github.io/caricatures/images/logo-white.png"
+                                                style="text-decoration: none;">
+                                                <!--[if !mso]><!-->
+                                                <img src="https://stevenraysimon.github.io/caricatures/images/logo.png"
+                                                    alt="Steven Simon Logo" style="max-width: 200px; padding: 30px;"
+                                                    class="dark-theme">
+                                                <!--<![endif]-->
+                                                <!--[if mso]>
+                                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:200px;height:200px;">
+                                                <v:fill type="frame" src="https://stevenraysimon.github.io/caricatures/images/logo.png" color="#ffffff" />
+                                                <v:textbox inset="0,0,0,0">
+                                            <![endif]-->
+                                                <img src="https://stevenraysimon.github.io/caricatures/images/logo-white.png"
                                                     alt="Steven Simon Logo"
                                                     style="max-width: 200px; padding: 30px; display: none;"
-                                                    class="light-theme"></a></td>
+                                                    class="light-theme">
+                                                <!--[if mso]>
+                                                </v:textbox>
+                                            </v:rect>
+                                            <![endif]-->
+                                            </a>
+                                        </td>
                                     </tr>
                                 </table>
                             </td>
@@ -486,6 +536,7 @@
         </table>
     </div><!--Close copyMe-->
     <input id="copyo" type="submit" value="Copy">
+    <a href="#" id="copyHtmlBtn" title="Copy HTML">Copy HTML</a>
 </body>
 
 </html>
