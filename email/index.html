@@ -229,6 +229,15 @@
             outline: 0;
         }
 
+        .radios {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        input[type="checkbox"]::-ms-check:hover {
+            cursor: pointer;
+        }
+
         .rawLogo {
             font-family: 'Montserrat', Verdana, sans-serif;
             font-size: 1.5em;
@@ -249,6 +258,10 @@
         .rawLogo:active {
             color: #000;
             transition: 0s;
+        }
+
+        #letter a {
+            display: inline;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -298,7 +311,55 @@
 
         });//Elyssa checked
 
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function () {
+                var message = document.getElementById('message');
+                if (this.id === 'default-check') {
+                    message.value = '';
+                    message.placeholder = "Type your message here...";
+                } else if (this.id === 'ask-check') {
+                    // Set the date
+                    var eventDate = document.getElementById("eventDate").value;
+                    var eventDateObject = new Date(eventDate);
+                    if (!isNaN(eventDateObject.getTime())) { // Check if the date is valid
+                        eventDateObject.setHours(0, 0, 0, 0); // Set time to midnight
+                        eventDateObject.setDate(eventDateObject.getDate() + 1); // Increase date by one day
+                        var formattedEventDate = convertDate(eventDateObject);
+                        var dayOfWeekDay = getDayOfWeek(eventDateObject);
+                        eventDate = dayOfWeekDay + ' ' + formattedEventDate;
+                    } else {
+                        eventDate = ""; // Reset eventDate if it's invalid
+                    }
+
+                    var portfolio = '<a href="https://stevenraysimon.github.io/caricatures/" target="_blank" style="color:#437DFF;text-decoration:none;">stevenraysimon.github.io/caricatures</a>';
+                    portfolio = $(portfolio);
+                    var name = 'Steven';
+                    var work = 'draw caricatures';
+                    var noun = 'I';
+                    if ($('#elyssa-check').is(':checked')) {
+                        name = 'Elyssa';
+                        work = 'manage caricature events';
+                        noun = 'we';
+                    } else {
+                        name = 'Steven';
+                        work = 'draw caricatures';
+                        noun = 'I';
+                    }
+                    message.value = 'My name is ' + name + ' and I ' + work + '. I was wondering if ' + noun + ' could draw caricatures at ' + document.getElementById('event').value + ' on ' + eventDate + '. This would be of no cost to you. You can learn more about Caricatures by Steven Simon by visiting ';
+
+                } else if (this.id === 'vendor-check') {
+                    message.value = "We're excited about the possibility of providing caricature services for your event! However, we're working with a tight budget, and vendor prices are a concern.\n\n" +
+                        "Our commitment to supporting Catholic Churches in Houston means we strive to keep our prices affordable. While our usual rate is $100 per hour, we'd like to offer a special rate of $75 per hour for a minimum of two hours, providing free caricatures for your guests.\n\n" +
+                        "We believe this will add a unique and memorable touch to your event. Let's chat more about how we can make it work for both of us!"
+
+                }
+            });
+        });
+
+
         $('#submito').click(function () {
+
+            $('html, body').scrollTop(0);
 
             $('#copyMe').css('display', 'block');
             //Put in the date
@@ -327,36 +388,23 @@
                 if (message == '') {
                     alert("Where's the message?");
                 } else {
-                    var portfolio = '<a href="https://stevenraysimon.github.io/caricatures/" target="_blank"style="color:#437DFF;text-decoration:none;">stevenraysimon.github.io/caricatures</a>';
-                    portfolio = $(portfolio);
-                    //portfolio = $('textarea').html().replace(/\n/g, "<br />")
+                    var portfolioLink = 'https://stevenraysimon.github.io/caricatures/';
+                    var portfolioHTML = '<a href="' + portfolioLink + '" target="_blank" style="color:#437DFF;text-decoration:none; display:inline-block;">stevenraysimon.github.io/caricatures</a>';
 
-                    // mylink = mylink.style.color = '#Ff0';
-                    if (message.indexOf('iliner') > -1) {
+                    $('#letter').html(message.replace(portfolioLink, portfolioHTML));
 
-                        // var eventDate = prompt("Date:");
-                        var name = 'Steven';
-                        var work = 'draw caricatures';
-                        var noun = 'I';
-                        if ($('#elyssa-check').is(':checked')) {
-                            name = 'Elyssa';
-                            work = 'manage caricature events';
-                            noun = 'we';
-                        } else {
-                            name = 'Steven';
-                            work = 'draw caricatures';
-                            noun = 'I';
-                        }
-                        message = message.replace('iliner', 'My name is ' + name + ' and I ' + work + '. I was wondering if ' + noun + ' could draw caricatures at ' + event + ' on ' + eventDate + '. This would be of no cost to you. You can learn more about Caricatures by Steven Simon by visiting ');
-                        $('#letter').text(message);
-                        $('#letter').append(portfolio);
-                        $('#letter').append('. ');
-
-                        $('#formInput').css('display', 'none');
-                    } else {
-                        $('#letter').text(message);
-                        $('#formInput').css('display', 'none');
+                    // Replace newline characters with <br> tags and set the HTML content
+                    $('#letter').html(message.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>'));
+                    if (document.getElementById('ask-check').checked) {
+                        $('#letter').append(portfolioHTML);
                     }
+
+                    // Set the text content of the element
+                    //$('#letter').text(message);
+
+                    //$('#letter').replace('https://stevenraysimon.github.io/caricatures/', portfolio);
+
+                    $('#formInput').css('display', 'none');
                 }
 
             }
@@ -435,6 +483,16 @@
         <input id="event" type="text" placeholder="Event Name" class="formInput"><br>
         <p class="formText">Event Date:</p>
         <input id="eventDate" type="date" placeholder="Event Date" class="formInput"><br>
+        <div class="radios">
+            <label for="default-check">Blank</label>
+            <input type="radio" id="default-check" name="radio" checked><br>
+
+            <label for="ask-check">Ask to do event</label>
+            <input type="radio" id="ask-check" name="radio"><br>
+
+            <label for="vendor-check">Ask to avoid vendor fee</label>
+            <input type="radio" id="vendor-check" name="radio"><br>
+        </div>
         <p class="formText">Message:</p>
         <textarea id="message" placeholder="I was wondering if I could do caricatures at..."></textarea>
         <label for="checkbox">Elyssa</label><input type="checkbox" id="elyssa-check" name="checkbox">
