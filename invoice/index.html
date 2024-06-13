@@ -289,6 +289,25 @@
         .menu-icon {
             display: none;
         }
+
+        #printButton {
+            display: block;
+            margin: auto;
+            margin-bottom: 30px;
+        }
+
+        @media print {
+            #printButton {
+                display: none;
+            }
+        }
+
+        /* Media query for smaller screen sizes (e.g., mobile devices) */
+        @media screen and (max-width: 768px) {
+            .invoice #sum {
+                font-size: 5rem; /* Adjusted font size for smaller screens */
+            }
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
         integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
@@ -391,6 +410,9 @@
         </div>
         <!--invoice-->
 
+        <button id="printButton">Print Invoice</button>
+
+
         <footer>
             <div class="wrapper footer">
                 <p>Designed and developed by Steven Simon <span id="date">2023</span></p>
@@ -463,6 +485,11 @@
                     document.getElementById('formInput').style.display = 'none';
                     document.querySelector('.invoice').style.display = 'block';
                     document.querySelector('.menu-icon').style.display = 'block';
+
+                    document.getElementById("printButton").addEventListener("click", function() {
+                        window.print(); // This triggers the browser's print dialog
+                    });
+
                 });
             });
 
