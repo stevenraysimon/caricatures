@@ -305,7 +305,8 @@
         /* Media query for smaller screen sizes (e.g., mobile devices) */
         @media screen and (max-width: 768px) {
             .invoice #sum {
-                font-size: 5rem; /* Adjusted font size for smaller screens */
+                font-size: 5rem;
+                /* Adjusted font size for smaller screens */
             }
         }
     </style>
@@ -322,6 +323,8 @@
         <input id="startTime" type="time" placeholder="Start Time" class="inputField"><br>
         <p class="formText">Hours:</p>
         <input id="hours" type="number" placeholder="Hours" class="inputField"><br>
+        <p class="formText">Invoice Number:</p>
+        <input id="invoiceNum" type="number" placeholder="Invoice Number" class="inputField"><br>
     </form>
     <input id="submito" type="submit" value="Submit">
 </div>
@@ -363,8 +366,8 @@
                 <p>Steven Simon<br>17519 Monsoon Ct.<br>Crosby, Texas 77532<br>346.373.0801</p>
             </div>
             <div class="content right">
-                <p>Invoice # <span class="invoiceNumber">0000</span><br><strong>Issued: </strong><span
-                        class="issueDate">November 27,
+                <p>Invoice # <span class="invoiceNumber" id="invoiceNumber">0000</span><br><strong>Issued:
+                    </strong><span class="issueDate">November 27,
                         2023</span><br><strong>Due: </strong><span class="dueDate">December 9, 2023</span></p>
             </div>
         </div>
@@ -436,7 +439,20 @@
                     var eventName = document.getElementById("eventName").value;
                     var eventDate = document.getElementById("eventDate").value;
                     var startTime = document.getElementById("startTime").value;
-                    var hours = parseInt(document.getElementById("hours").value); // Convert to integer
+                    var hours = parseFloat(document.getElementById("hours").value); // Use parseFloat for decimal numbers
+                    var invoiceNum = parseInt(document.getElementById("invoiceNum").value); // Parse as integer
+
+                    // Validate invoice number
+                    if (isNaN(invoiceNum) || invoiceNum < 0) {
+                        alert("Please enter a valid invoice number.");
+                        return;
+                    }
+
+                    // Format invoice number as four digits
+                    var formattedInvoiceNum = invoiceNum.toString().padStart(4, "0");
+
+                    // Update the invoice number element
+                    document.getElementById("invoiceNumber").innerText = formattedInvoiceNum;
 
                     // Validate start time and hours fields
                     if (startTime.trim() === "" || isNaN(hours) || hours <= 0) {
@@ -486,7 +502,7 @@
                     document.querySelector('.invoice').style.display = 'block';
                     document.querySelector('.menu-icon').style.display = 'block';
 
-                    document.getElementById("printButton").addEventListener("click", function() {
+                    document.getElementById("printButton").addEventListener("click", function () {
                         window.print(); // This triggers the browser's print dialog
                     });
 
@@ -495,28 +511,27 @@
 
             // Function to calculate the end time based on the start time and hours
             function calculateEndTime(startTime, hours) {
-                // Parse the start time
                 var parts = startTime.split(":");
                 var startHour = parseInt(parts[0]);
                 var startMinute = parseInt(parts[1]);
 
-                // Convert start time to 24-hour format
                 if (startTime.toLowerCase().includes("pm")) {
                     startHour += 12;
                 }
 
-                // Calculate the end time in 24-hour format
-                var endHour = startHour + hours;
-                var endMinute = startMinute;
+                var endHour = startHour + Math.floor(hours); // Calculate whole hours
+                var endMinute = startMinute + Math.round((hours % 1) * 60); // Convert fractional hours to minutes
 
-                // Adjust end hour and minute if necessary
+                if (endMinute >= 60) {
+                    endHour += 1;
+                    endMinute -= 60;
+                }
+
                 if (endHour >= 24) {
                     endHour -= 24;
                 }
 
-                // Format the end time
-                var endTime = endHour + ":" + endMinute;
-                return endTime;
+                return endHour + ":" + (endMinute < 10 ? "0" : "") + endMinute;
             }
 
             // Function to format time in AM/PM format
