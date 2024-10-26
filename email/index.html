@@ -326,13 +326,11 @@
                         eventDateObject.setDate(eventDateObject.getDate() + 1); // Increase date by one day
                         var formattedEventDate = convertDate(eventDateObject);
                         var dayOfWeekDay = getDayOfWeek(eventDateObject);
-                        eventDate = dayOfWeekDay + ' ' + formattedEventDate;
+                        eventDate = dayOfWeekDay + ', ' + formattedEventDate;
                     } else {
                         eventDate = ""; // Reset eventDate if it's invalid
                     }
 
-                    var portfolio = '<a href="https://stevenraysimon.github.io/caricatures/" target="_blank" style="color:#437DFF;text-decoration:none;">stevenraysimon.github.io/caricatures</a>';
-                    portfolio = $(portfolio);
                     var name = 'Steven';
                     var work = 'draw caricatures';
                     var noun = 'I';
@@ -352,6 +350,8 @@
                         "Our commitment to supporting Catholic Churches in Houston means we strive to keep our prices affordable. While our usual rate is $100 per hour, we'd like to offer a special rate of $75 per hour for a minimum of two hours, providing free caricatures for your guests.\n\n" +
                         "We believe this will add a unique and memorable touch to your event. Let's chat more about how we can make it work for both of us!"
 
+                }  else if (this.id === 'review-check') {
+                    message.value = "I wanted to extend a huge thank you for having me to draw caricatures at " + document.getElementById('event').value + "! I had a blast creating memorable moments with everyone.\n\nIf you could spare a moment, I'd greatly appreciate it if you could leave a review for me. Your feedback means a lot! Just follow this link: reviewReplace \n\nThanks again for having me, and I hope to work with you again in the future!"
                 }
             });
         });
@@ -390,13 +390,19 @@
                 } else {
                     var portfolioLink = 'https://stevenraysimon.github.io/caricatures/';
                     var portfolioHTML = '<a href="' + portfolioLink + '" target="_blank" style="color:#437DFF;text-decoration:none; display:inline-block;">stevenraysimon.github.io/caricatures</a>';
+                    var reviewLink = 'https://www.google.com/maps/place//data=!4m3!3m2!1s0x40d224608d0ea53:0xd3e5a6d8c1701fac!12e1?source=g.page.m.ia._&laa=nmx-review-solicitation-ia2';
+                    var reviewHTML = '<a href="'+ reviewLink +'" target="_blank" style="color:#437DFF;text-decoration:none;">Leave a Review</a>';
 
                     $('#letter').html(message.replace(portfolioLink, portfolioHTML));
 
                     // Replace newline characters with <br> tags and set the HTML content
                     $('#letter').html(message.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>'));
+
+
                     if (document.getElementById('ask-check').checked) {
                         $('#letter').append(portfolioHTML);
+                    } else if (document.getElementById('review-check').checked) {
+                        $('#letter').html($('#letter').html().replace('reviewReplace', reviewHTML));
                     }
 
                     // Set the text content of the element
@@ -492,6 +498,9 @@
 
             <label for="vendor-check">Ask to avoid vendor fee</label>
             <input type="radio" id="vendor-check" name="radio"><br>
+
+            <label for="review-check">Ask for a review</label>
+            <input type="radio" id="review-check" name="radio"><br>
         </div>
         <p class="formText">Message:</p>
         <textarea id="message" placeholder="Type your message here..."></textarea>
