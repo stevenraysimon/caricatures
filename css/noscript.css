@@ -9,3 +9,7 @@
 .menu-icon{
 	display: none;
   }
+
+  body{
+	display: block;
+  }
