@@ -728,6 +728,15 @@ button:hover {
   transition: transform 0.5s;
 }
 
+.shop .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  flex-grow: 1;
+}
+
 @media screen and (max-width: 1000px) {
   .shop .item {
     flex: 0 1 100%;
@@ -740,15 +749,10 @@ button:hover {
   .shop .content img {
     padding: 10px;
   }
-}
 
-.shop .text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-  flex-grow: 1;
+  .shop .text {
+    padding: 0;
+  }
 }
 
 .shop .text button {
