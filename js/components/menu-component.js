@@ -17,6 +17,7 @@ class MainNavComponent extends HTMLElement {
                     <li><a href="${basePath}questions" title="Questions">Questions</a></li>
                     <li><a href="${basePath}reviews" title="Reviews">Reviews</a></li>
                     <li><a href="https://stevenraysimon.github.io/caricatures/media" title="Media">Media</a></li>
+                    <li><a href="https://stevenraysimon.github.io/caricatures/shop" title="Shop">Shop</a></li>
                     <li><a href="mailto:stevenraysimon@gmail.com" title="Email" target="_top"
                         onClick="playSound('sounds/smallPop.wav');">Email</a></li>
                     <li><a href="tel:3463730801" title="Call" target="_top" onClick="playSound('sounds/smallPop.wav');">Call</a></li>

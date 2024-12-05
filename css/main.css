@@ -204,12 +204,12 @@ header {
   /* background-color: #FF6600; */
   /* background: linear-gradient(175deg,#CE4703, #FF6600); */
   /* background-color: #202020;
-  background: linear-gradient(180deg,#0f0f0f, #202020); */
+background: linear-gradient(180deg,#0f0f0f, #202020); */
 }
 
 #pattern {
   /* background-image: url(../images/pattern.png);
-  background-repeat: repeat; */
+background-repeat: repeat; */
 }
 
 #pricing {
@@ -224,12 +224,12 @@ header {
 
 #pattern-pricing {
   /* background-image: url(../images/pattern-pricing.png);
-  background-repeat: repeat; */
+background-repeat: repeat; */
 }
 
 #pattern-travel {
   /* background-image: url(../images/pattern-travel.png);
-  background-repeat: repeat; */
+background-repeat: repeat; */
 }
 
 /* Icon Navigation */
@@ -242,12 +242,17 @@ nav a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 70px; /* Adjusted width for each link */
-  height: 70px; /* Adjusted height for each link */
-  margin: 0 5px; /* Adjusted margin between links */
+  width: 70px;
+  /* Adjusted width for each link */
+  height: 70px;
+  /* Adjusted height for each link */
+  margin: 0 5px;
+  /* Adjusted margin between links */
   position: relative;
-  border-radius: 50%; /* Ensures links are circular */
-  overflow: hidden; /* Hides overflow if icons are larger than the link */
+  border-radius: 50%;
+  /* Ensures links are circular */
+  overflow: hidden;
+  /* Hides overflow if icons are larger than the link */
   transition: background-color 0.3s ease;
 }
 
@@ -260,40 +265,48 @@ nav a {
 }
 
 nav a:hover {
-  background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background on hover */
+  background-color: rgba(0, 0, 0, 0.2);
+  /* Semi-transparent background on hover */
 }
 
 nav a:active {
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background on hover */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Semi-transparent background on hover */
 }
 
 nav a i {
-  font-size: 3em; /* Increased icon size */
-  color: var(--links); /* Adjust icon color */
+  font-size: 3em;
+  /* Increased icon size */
+  color: var(--links);
+  /* Adjust icon color */
 }
 
-nav .fa{
+nav .fa {
   font-size: 2rem;
 }
 
 @media screen and (max-width: 500px) {
   nav a {
-    width: 60px; /* Adjusted width for each link */
-    height: 60px; /* Adjusted height for each link */
+    width: 60px;
+    /* Adjusted width for each link */
+    height: 60px;
+    /* Adjusted height for each link */
   }
 
-  nav .fa{
+  nav .fa {
     font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 350px) {
   nav a {
-    width: 50px; /* Adjusted width for each link */
-    height: 50px; /* Adjusted height for each link */
+    width: 50px;
+    /* Adjusted width for each link */
+    height: 50px;
+    /* Adjusted height for each link */
   }
 
-  nav .fa{
+  nav .fa {
     font-size: 1rem;
   }
 }
@@ -670,6 +683,115 @@ button:hover {
   min-height: 600px;
 }
 
+/************* Shop *********************/
+
+.shop .row {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow items to wrap on smaller screens */
+  justify-content: center;
+  align-items: stretch;
+  /* Ensure items have equal height */
+  padding: 10px 15px;
+  /* Reduced horizontal padding for better mobile view */
+  gap: 20px;
+  /* Add space between items */
+}
+
+.shop .item {
+  flex: 0 1 calc(25% - 20px);
+  /* Base width for desktop (4 items per row) */
+  max-width: 400px;
+  /* Maximum width for larger items */
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.shop .image-container {
+  position: relative;
+  width: 100%;
+  /* Make width responsive */
+  aspect-ratio: 1 / 1.1;
+  /* Maintain a consistent aspect ratio */
+  perspective: 1000px;
+}
+
+.shop .image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+@media screen and (max-width: 1000px) {
+  .shop .item {
+    flex: 0 1 100%;
+    width: 100%;
+    margin: 10px auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .shop .content img {
+    padding: 10px;
+  }
+}
+
+.shop .text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.shop .text button {
+  width: 100%;
+  max-width: 200px;
+  margin: 5px 0;
+}
+
+.shop .image-container .back {
+  transform: rotateY(180deg);
+  /* Initially rotate the back image */
+}
+
+.shop .image-container.flipped .front {
+  transform: rotateY(180deg);
+  /* Flip the front image */
+}
+
+.shop .image-container.flipped .back {
+  transform: rotateY(0deg);
+  /* Rotate the back image back to normal */
+}
+
+.shop .item form section img {
+  width: 70px;
+  height: auto !important;
+}
+
+.shop .item form input {
+  text-align: center;
+  border: none;
+  border-radius: 1.5rem;
+  min-width: 11.625rem;
+  padding: 0 2rem;
+  height: 2.625rem;
+  font-weight: bold;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  cursor: pointer;
+}
 
 /************* Footer *******************/
 
@@ -708,7 +830,6 @@ footer div {
   justify-content: center;
   position: relative;
 }
-
 
 /************* Invoice ********************/
 
@@ -818,7 +939,7 @@ footer div {
 
 }
 
-/*************  Mobile ******************/
+/************* Mobile ******************/
 
 @media screen and (max-width: 700px) {
 
