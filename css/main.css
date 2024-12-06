@@ -797,6 +797,11 @@ button:hover {
   cursor: pointer;
 }
 
+.shop .item form input:hover {
+  background-color: #333;
+  transition: 0.3s;
+}
+
 /************* Footer *******************/
 
 footer {
