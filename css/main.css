@@ -708,15 +708,6 @@ button:hover {
   flex-direction: column;
 }
 
-.shop .item-horizontal {
-  flex: 0 1 calc(50% - 20px); /* 50% width minus margin */
-  /* Removed or adjust max-width */
-  max-width: none; /* Remove the max-width constraint */
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
 .shop .image-container {
   position: relative;
   width: 100%;
