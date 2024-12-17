@@ -802,6 +802,27 @@ button:hover {
   transition: 0.3s;
 }
 
+.sorting-controls{
+  text-align: center;
+  font-family: "chaloops", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--black);
+  width: 100%;
+}
+
+.sorting-controls select{
+  padding: 8px;
+}
+
+.sorting-controls select:hover{
+  cursor: pointer;
+}
+
+.sorting-controls select option{
+  font-family: "chaloops", sans-serif;
+}
+
 /************* Footer *******************/
 
 footer {
