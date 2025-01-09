@@ -568,6 +568,10 @@ hr {
   box-sizing: border-box;
 }
 
+.shop .content p{
+  flex: 1;
+}
+
 .flex p {
   text-align: left;
 }
