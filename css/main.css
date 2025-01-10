@@ -207,29 +207,12 @@ header {
 background: linear-gradient(180deg,#0f0f0f, #202020); */
 }
 
-#pattern {
-  /* background-image: url(../images/pattern.png);
-background-repeat: repeat; */
-}
-
-#pricing {
+.home > div:nth-child(odd) {
   background-color: var(--gray);
-  /* background: linear-gradient(180deg,#0f0f0f, #202020); */
 }
 
-#travel {
+.home > div:nth-child(even) {
   background-color: var(--white);
-  /* background: linear-gradient(180deg,#31b8fc, #0099ff); */
-}
-
-#pattern-pricing {
-  /* background-image: url(../images/pattern-pricing.png);
-background-repeat: repeat; */
-}
-
-#pattern-travel {
-  /* background-image: url(../images/pattern-travel.png);
-background-repeat: repeat; */
 }
 
 /* Icon Navigation */
@@ -540,11 +523,11 @@ hr {
   flex-direction: row;
 }
 
-#pricing .flex {
+.information:nth-child(odd) .flex {
   flex-direction: row;
 }
 
-#travel .flex {
+.information:nth-child(even) .flex {
   flex-direction: row-reverse;
 }
 
@@ -589,10 +572,6 @@ hr {
 .text {
   max-width: 600px;
   width: 100%;
-}
-
-#questions {
-  background-color: var(--gray);
 }
 
 #questions .text {
@@ -831,10 +810,10 @@ button:hover {
 
 footer {
   text-align: center;
-  background-color: var(--gray);
+  background-color: var(--links);
   font-family: 'Montserrat', 'Open Sans', Helvetica, Arial, sans-serif;
   font-weight: 400;
-  color: var(--black);
+  color: var(--white);
   padding: 30px 50px;
 }
 
@@ -1101,11 +1080,7 @@ footer div {
     flex-direction: column;
   }
 
-  #pricing .flex {
-    flex-direction: column;
-  }
-
-  #travel .flex {
+  .home .flex{
     flex-direction: column;
   }
 
@@ -1148,6 +1123,14 @@ footer div {
   .question .fa {
     padding-left: 10px;
     box-sizing: border-box;
+  }
+
+  .information:nth-child(odd) .flex {
+    flex-direction: column;
+  }
+  
+  .information:nth-child(even) .flex {
+    flex-direction: column;
   }
 
 }
