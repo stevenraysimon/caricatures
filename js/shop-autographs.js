@@ -139,6 +139,27 @@ const shopItems = [
         frontImage: "items/kathleenHerles-front.png",
         backImage: "items/kathleenHerles-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/32PU5EAZHUBHE"
+    },
+    {
+        name: "Matthew Koma - Unsigned<br><strong>Profits for LA Wildfires</strong>",
+        price: 60,
+        frontImage: "items/matthewKoma-front.png",
+        backImage: "items/matthewKoma-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/N6KPKGGVAKT3J"
+    },
+    {
+        name: "Dawes Band - Unsigned<br><strong>Profits for LA Wildfires</strong>",
+        price: 60,
+        frontImage: "items/dawes-front.png",
+        backImage: "items/dawes-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/P9SMTVG522Y86"
+    },
+    {
+        name: "Donald Trump - Unsigned Limited Edition",
+        price: 60,
+        frontImage: "items/trump-front.png",
+        backImage: "items/trump-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/2443F45QES4ZA"
     }
 ];
 
@@ -167,7 +188,7 @@ function createItemHTML(item) {
 
 // Function to render items
 function renderItems(items) {
-    const shopContainer = document.querySelector('.shop');
+    const shopContainer = document.querySelector('.shop-autographs');
     
     // Remove all existing rows except the first description row
     const existingRows = shopContainer.querySelectorAll('.row.content');
