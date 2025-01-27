@@ -720,6 +720,11 @@ button:hover {
   flex-grow: 1;
 }
 
+.shop .item.sold-out .image-container img {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
 @media screen and (max-width: 1000px) {
   .shop .item {
     flex: 0 1 100%;
