@@ -87,7 +87,3 @@ $(document).ready(function () {
     });
 
 });//doc ready
-
-$(window).on('load', function() {
-    $('body').css('display', 'block');  // Reveal the page
-});
