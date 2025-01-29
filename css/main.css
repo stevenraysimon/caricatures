@@ -599,6 +599,10 @@ hr {
   transition: transform 0.3s ease-in-out;
 }
 
+.answer{
+  transition: transform 0.3s ease-in-out;
+}
+
 .question:hover {
   color: var(--linksHover);
   cursor: pointer;
