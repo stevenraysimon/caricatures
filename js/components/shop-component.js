@@ -1,6 +1,14 @@
 // items.js - Centralized item data storage
 const shopItems = [
     {
+        name: "Bam Margera",
+        price: 180,
+        frontImage: "items/bam-front.png",
+        backImage: "items/bam-back.png",
+        paypalLink: "#",
+        soldOut: true
+    },
+    {
         name: "Drake Bell",
         price: 180,
         frontImage: "items/drake-front.png",
