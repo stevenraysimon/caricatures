@@ -596,6 +596,7 @@ hr {
   justify-content: space-between;
   font-weight: 600;
   font-family: 'chaloops-medium', sans-serif;
+  transition: transform 0.3s ease-in-out;
 }
 
 .question:hover {
