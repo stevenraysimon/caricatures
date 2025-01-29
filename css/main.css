@@ -116,6 +116,10 @@ a {
   background-color: var(--black);
 }
 
+#barOne, #barTwo{
+  transition: transform 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+}
+
 #barTwo {
   margin-top: 5px;
 }
@@ -133,6 +137,7 @@ a {
   background: rgba(0, 0, 0, 0.5);
   z-index: 998;
   display: none;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .mainnav {
@@ -144,6 +149,7 @@ a {
   z-index: 999;
   display: none;
   overflow: scroll;
+  transition: left 0.3s ease-in-out;
 }
 
 .mainnav ul {

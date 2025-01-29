@@ -7,7 +7,7 @@ class FooterComponent extends HTMLElement {
         this.innerHTML = `
             <footer>
                 <div class="wrapper footer">
-                    <p>Designed and developed by Steven Simon <span id="date">${new Date().getFullYear()}</span></p>
+                    <p>Designed and developed by Steven Simon <span id="date"></span></p>
                 </div><!--Closing wrapper-->
             </footer><!--Closing footer-->
             <script>
@@ -17,6 +17,12 @@ class FooterComponent extends HTMLElement {
                 }
             </script>
         `;
+
+        // Date function
+        const dateElement = this.querySelector('#date');
+        if (dateElement) {
+            dateElement.textContent = new Date().getFullYear();
+        }
     }
 }
 

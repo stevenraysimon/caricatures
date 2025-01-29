@@ -1,89 +1,33 @@
-$(document).ready(function () {
-
-    //Date function
-    $('#date').text(new Date().getFullYear());
-
-    //Sound
-    var pop = $("#pop")[0];
-    $('a').click(function () {
-        pop.play();
-    });
-
-    //Menu
-    $('.menu-icon').click(function () {
-
-        if ($(".mainnav").css("display") == "block") {
-            //Hide
-            $('#barTwo').css('margin-top', '5px');
-            $('#barOne').css({ 'transform': 'rotate(' + 0 + 'deg)' });
-            $('#barTwo').css({ 'transform': 'rotate(' + 0 + 'deg)' });
-            $('.mainnav').animate({ left: '-300px' }, function () {
-                $(this).css('display', 'none');
+document.addEventListener('DOMContentLoaded', function() {
+    // Sound
+    const pop = document.getElementById('pop');
+    if (pop) {
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                pop.play();
             });
-            $('.blackOverlay').fadeOut();
-            $('.bar').removeClass('invert');
-        } else {
-            //Show
-            $('.mainnav').css({ 'display': 'block' });
-            $('.blackOverlay').fadeIn();
-            $('#barTwo').css('margin-top', '-2px');
-            $('#barOne').css({ 'transform': 'rotate(' + 45 + 'deg)' });
-            $('#barTwo').css({ 'transform': 'rotate(' + -45 + 'deg)' });
-            $('.mainnav').animate({ left: '0px' });
-            $('.bar').addClass('invert');
-        }
-
-    });//Menu button
-
-    $('.mainnav a').click(function () {
-        //Hide
-        $('#barTwo').css('margin-top', '5px');
-        $('#barOne').css({ 'transform': 'rotate(' + 0 + 'deg)' });
-        $('#barTwo').css({ 'transform': 'rotate(' + 0 + 'deg)' });
-        $('.mainnav').animate({ left: '-300px' }, function () {
-            $(this).css('display', 'none');
         });
-        $('.blackOverlay').fadeOut();
-        $('.bar').removeClass('invert');
-    });//Main nav links
-
-    // Smooth scroll to section when clicking on a navigation link
-    $('a[href^="#"]').on('click', function (event) {
-        event.preventDefault();
-
-        var targetId = $(this).attr('href');
-        var target = $(targetId);
-
-        if (target.length) {
-            // Calculate scroll position
-            var scrollPosition;
-            if (window.location.href === 'https://stevenraysimon.github.io/caricatures/' || window.location.pathname === '/index.html') {
-                // If on the homepage, simply scroll to the target section
-                scrollPosition = target.offset().top;
-            } else {
-                // If on a subpage, scroll to the top of the section on the homepage
-                scrollPosition = target.position().top;
-            }
-
-            // Scroll to the target section
-            $('html, body').stop().animate({
-                scrollTop: scrollPosition
-            }, 1000);
-
-            // Prevent default anchor link behavior
-            return false;
-        }
-    });
-
-
+    }
 
     // Questions and Answers
-    $('.answer').slideUp(0);
-    $('.qa-fa').toggleClass('fa-minus fa-plus');
+    const questions = document.querySelectorAll('.question');
+    questions.forEach(question => {
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector('.qa-fa');
 
-    $('.question').click(function () {
-        $(this).next('.answer').slideToggle();
-        $(this).find('.qa-fa').toggleClass('fa-minus fa-plus');
+        // Initially hide answers
+        if (answer) {
+            answer.style.display = 'none';
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+        }
+
+        question.addEventListener('click', () => {
+            if (answer) {
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+                icon.classList.toggle('fa-minus');
+                icon.classList.toggle('fa-plus');
+            }
+        });
     });
-
-});//doc ready
+});
