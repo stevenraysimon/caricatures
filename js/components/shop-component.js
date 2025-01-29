@@ -1,14 +1,6 @@
 // items.js - Centralized item data storage
 const shopItems = [
     {
-        name: "Bam Margera",
-        price: 180,
-        frontImage: "items/bam-front.png",
-        backImage: "items/bam-back.png",
-        paypalLink: "#",
-        soldOut: true
-    },
-    {
         name: "Drake Bell",
         price: 180,
         frontImage: "items/drake-front.png",
@@ -63,6 +55,14 @@ const shopItems = [
         backImage: "items/larryBird-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/BKG4AZ7ES2LBA",
         soldOut: false
+    },
+    {
+        name: "Bam Margera",
+        price: 180,
+        frontImage: "items/bam-front.png",
+        backImage: "items/bam-back.png",
+        paypalLink: "#",
+        soldOut: true
     },
     {
         name: "Mara 'Matilda' Wilson",
@@ -197,6 +197,11 @@ const shopItems = [
 class ShopComponent extends HTMLElement {
     constructor() {
         super();
+        // Bind methods to ensure correct 'this' context
+        this.createItemHTML = this.createItemHTML.bind(this);
+        this.renderItems = this.renderItems.bind(this);
+        // Add event listener in the constructor to ensure it's only added once
+        this.addEventListener('click', this.handleFlipButtonClick);
     }
 
     connectedCallback() {
@@ -246,44 +251,60 @@ class ShopComponent extends HTMLElement {
         </div>`;
     }
 
+    // Move flip button logic to a separate method
+    handleFlipButtonClick(event) {
+        const flipButton = event.target.closest('.flipButton');
+        
+        if (flipButton) {
+            const imageContainer = flipButton.closest('.item').querySelector('.image-container');
+            imageContainer.classList.toggle('flipped');
+
+            if (imageContainer.classList.contains('flipped')) {
+                flipButton.innerHTML = 'Flip to Front <i class="fa fa-mail-forward"></i>';
+            } else {
+                flipButton.innerHTML = 'Flip to Back <i class="fa fa-mail-reply"></i>';
+            }
+        }
+    }
+
     renderItems(items) {
         const shopContainer = this.querySelector('.shop-autographs');
-
+    
         // Remove all existing rows except the first description row
         const existingRows = shopContainer.querySelectorAll('.row.content');
         existingRows.forEach(row => row.remove());
-
+    
         // Group items into rows of 4
         for (let i = 0; i < items.length; i += 4) {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'row content';
-
+    
             // Add up to 4 items to this row
             const rowItems = items.slice(i, i + 4);
             rowItems.forEach(item => {
                 rowDiv.innerHTML += this.createItemHTML(item);
             });
-
+    
             // Append row to the shop container
             shopContainer.appendChild(rowDiv);
-            
-            // Attach flip button event listeners
-            this.attachFlipButtonListeners();
         }
     }
 
     attachFlipButtonListeners() {
-        this.querySelectorAll('.flipButton').forEach(button => {
-            button.addEventListener('click', () => {
-                const imageContainer = button.closest('.item').querySelector('.image-container');
+        // Use event delegation to handle flip buttons
+        this.addEventListener('click', (event) => {
+            const flipButton = event.target.closest('.flipButton');
+            
+            if (flipButton) {
+                const imageContainer = flipButton.closest('.item').querySelector('.image-container');
                 imageContainer.classList.toggle('flipped');
-
+    
                 if (imageContainer.classList.contains('flipped')) {
-                    button.innerHTML = 'Flip to Front <i class="fa fa-mail-forward"></i>';
+                    flipButton.innerHTML = 'Flip to Front <i class="fa fa-mail-forward"></i>';
                 } else {
-                    button.innerHTML = 'Flip to Back <i class="fa fa-mail-reply"></i>';
+                    flipButton.innerHTML = 'Flip to Back <i class="fa fa-mail-reply"></i>';
                 }
-            });
+            }
         });
     }
 
@@ -303,21 +324,21 @@ class ShopComponent extends HTMLElement {
         const sortingContainer = document.createElement('div');
         sortingContainer.className = 'sorting-controls';
         sortingContainer.innerHTML = `
-        <label for="sort-select">Sort by: </label>
-        <select id="sort-select">
-          <option value="default">Default</option>
-          <option value="alphabetical">Alphabetical</option>
-          <option value="price-low">Price: Low to High</option>
-          <option value="price-high">Price: High to Low</option>
-        </select>
-      `;
-
+            <label for="sort-select">Sort by: </label>
+            <select id="sort-select">
+                <option value="default">Default</option>
+                <option value="alphabetical">Alphabetical</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+            </select>
+        `;
+    
         const firstRow = this.querySelector('.row');
         firstRow.insertAdjacentElement('afterend', sortingContainer);
-
+    
         sortingContainer.querySelector('#sort-select').addEventListener('change', (event) => {
             let sortedItems = [...shopItems];
-
+    
             switch (event.target.value) {
                 case 'alphabetical':
                     sortedItems = this.sortItemsAlphabetically(sortedItems);
@@ -331,7 +352,7 @@ class ShopComponent extends HTMLElement {
                 default:
                     break;
             }
-
+    
             this.renderItems(sortedItems);
         });
     }
