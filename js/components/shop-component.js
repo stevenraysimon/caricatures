@@ -215,7 +215,6 @@ class ShopComponent extends HTMLElement {
         `;
     
         this.renderItems(shopItems);
-        this.attachFlipButtonListeners();
         this.initSortingControls();
     }
 
@@ -265,12 +264,12 @@ class ShopComponent extends HTMLElement {
                 rowDiv.innerHTML += this.createItemHTML(item);
             });
 
-            // Append row after the first row (which contains the description)
+            // Append row to the shop container
             shopContainer.appendChild(rowDiv);
+            
+            // Attach flip button event listeners
+            this.attachFlipButtonListeners();
         }
-
-        // Reattach flip button event listeners
-        this.attachFlipButtonListeners();
     }
 
     attachFlipButtonListeners() {
