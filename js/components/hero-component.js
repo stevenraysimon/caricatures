@@ -13,8 +13,10 @@ class HeroComponent extends HTMLElement {
                             <header>
                                 <h1 class="hiddenTags">Caricatures by Steven Simon</h1>
                                 <a href="https://stevenraysimon.github.io/caricatures/">
-                                    <img src="https://stevenraysimon.github.io/caricatures/images/logo.png" title="Caricatures by Steven Simon" 
-                                         alt="Caricatures by Steven Simon" class="logo" />
+                                    <picture>
+                                        <source srcset="https://stevenraysimon.github.io/caricatures/images/logo.webp" type="image/webp">
+                                        <img src="https://stevenraysimon.github.io/caricatures/images/logo.png" title="Caricatures by Steven Simon" alt="Caricatures by Steven Simon" class="logo">
+                                    </picture>
                                 </a>
                                 <div class="inside-wrapper">
                                     <p>Hey there! I’m a caricature artist on a mission to bring smiles and laughter to faces, one caricature at a time!</p>

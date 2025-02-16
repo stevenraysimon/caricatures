@@ -355,7 +355,8 @@ nav .fa {
 }
 
 img,
-iframe {
+iframe,
+picture {
   width: 100%;
 }
 
@@ -395,7 +396,7 @@ hr {
   box-sizing: border-box;
 }
 
-.row img {
+.row img, .row picture {
   width: 100%;
   padding: 0 10px;
   box-sizing: border-box;
@@ -565,7 +566,7 @@ hr {
   text-align: left;
 }
 
-.content img {
+.content img, .content picture {
   padding: 10px;
   box-sizing: border-box;
 }
@@ -713,7 +714,7 @@ button:hover {
   perspective: 1000px;
 }
 
-.shop .image-container img {
+.shop .image-container img, .shop .image-container picture {
   position: absolute;
   top: 0;
   left: 0;
@@ -733,7 +734,7 @@ button:hover {
   flex-grow: 1;
 }
 
-.shop .item.sold-out .image-container img {
+.shop .item.sold-out .image-container img, .shop .item.sold-out .image-container picture {
   opacity: 0.5;
   filter: grayscale(100%);
 }
@@ -747,7 +748,7 @@ button:hover {
 }
 
 @media screen and (max-width: 700px) {
-  .shop .content img {
+  .shop .content img,  .shop .content picture{
     padding: 10px;
   }
 
@@ -777,7 +778,7 @@ button:hover {
   /* Rotate the back image back to normal */
 }
 
-.shop .item form section img {
+.shop .item form section img, .shop .item form section picture {
   width: 70px;
   height: auto !important;
 }
@@ -1041,7 +1042,7 @@ footer div {
     flex-direction: column;
   }
 
-  .row img {
+  .row img, .row picture {
     padding-top: 30px;
     padding-bottom: 20px;
   }
@@ -1102,7 +1103,7 @@ footer div {
     flex-direction: column;
   }
 
-  .content img {
+  .content img, .content picture {
     padding: 10px 50px;
     box-sizing: border-box;
   }
