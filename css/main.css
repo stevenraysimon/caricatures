@@ -396,9 +396,16 @@ hr {
   box-sizing: border-box;
 }
 
-.row img, .row picture {
+.row img{
   width: 100%;
   padding: 0 10px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.row picture{
+  width: 100%;
+  padding: 0;
   box-sizing: border-box;
   pointer-events: none;
 }
@@ -566,8 +573,13 @@ hr {
   text-align: left;
 }
 
-.content img, .content picture {
+.content img{
   padding: 10px;
+  box-sizing: border-box;
+}
+
+.content picture {
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -748,7 +760,7 @@ button:hover {
 }
 
 @media screen and (max-width: 700px) {
-  .shop .content img,  .shop .content picture{
+  .shop .content img{
     padding: 10px;
   }
 
@@ -1042,7 +1054,7 @@ footer div {
     flex-direction: column;
   }
 
-  .row img, .row picture {
+  .row img{
     padding-top: 30px;
     padding-bottom: 20px;
   }
@@ -1103,7 +1115,7 @@ footer div {
     flex-direction: column;
   }
 
-  .content img, .content picture {
+  .content img{
     padding: 10px 50px;
     box-sizing: border-box;
   }
