@@ -23,16 +23,16 @@ class HeroComponent extends HTMLElement {
                                         <p>Hey there! I’m a caricature artist on a mission to bring smiles and laughter to faces, one caricature at a time!</p>
                                     </div><!--inside wrapper-->
                                     <nav>
-                                        <a href="tel:3463730801" title="call" target="_top" class="call-link">
+                                        <a href="tel:3463730801" title="call" target="_top" onClick="playSound('sounds/smallPop.wav');">
                                             <i class="fa fa-phone"></i>
                                         </a>
-                                        <a href="mailto:stevenraysimon@gmail.com" title="email" target="_top" class="email-link">
+                                        <a href="mailto:stevenraysimon@gmail.com" title="email" target="_top" onClick="playSound('sounds/smallPop.wav');">
                                             <i class="fa fa-envelope"></i>
                                         </a>
-                                        <a href="https://www.instagram.com/stevensimon50" title="instagram" target="_blank" class="instagram-link">
+                                        <a href="https://www.instagram.com/stevensimon50" title="instagram" target="_blank" onClick="trackInstagramClick();">
                                             <i class="fa fa-instagram"></i>
                                         </a>
-                                        <a href="https://paypal.me/stevensimon50" title="paypal" target="_blank" class="paypal-link">
+                                        <a href="https://paypal.me/stevensimon50" title="paypal" target="_blank" onClick="playSound('sounds/smallPop.wav');">
                                             <i class="fa fa-paypal"></i>
                                         </a>
                                     </nav><!--Closing nav-->
@@ -42,28 +42,6 @@ class HeroComponent extends HTMLElement {
                     </div><!--fade -->
                 </div><!--Hero-->
             `;
-
-            // Attach event listeners after the DOM is created
-            this._attachEventListeners();
-        });
-    }
-
-    _attachEventListeners() {
-        // Adding event listeners to the elements after the DOM has been updated
-        this.querySelector('.call-link').addEventListener('click', () => {
-            playSound('sounds/smallPop.wav');
-        });
-
-        this.querySelector('.email-link').addEventListener('click', () => {
-            playSound('sounds/smallPop.wav');
-        });
-
-        this.querySelector('.instagram-link').addEventListener('click', () => {
-            trackInstagramClick();
-        });
-
-        this.querySelector('.paypal-link').addEventListener('click', () => {
-            playSound('sounds/smallPop.wav');
         });
     }
 }
