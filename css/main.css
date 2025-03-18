@@ -999,6 +999,10 @@ footer div {
     position: relative;
   }
 
+  #hero {
+    min-height: 100px;
+  }
+
   .logo {
     max-width: 180px;
   }
