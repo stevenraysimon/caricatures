@@ -42,7 +42,8 @@
         <link rel="stylesheet" href="css/noscript.css" type="text/css" />
     </noscript>
 
-    <script type="text/javascript" src="../js/web-components.js"></script>
+    <!-- Change this line in your HTML head section -->
+    <script type="module" src="../js/web-components.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.7.0/webcomponents-loader.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
     <style type="text/css">
@@ -264,6 +265,10 @@
             font-weight: 500;
         }
 
+        #hero {
+            min-height: unset;
+        }
+
         .rawLogo:hover {
             color: #444;
             transition: 0.6s;
@@ -308,28 +313,38 @@
                 /* Adjusted font size for smaller screens */
             }
         }
+
+        /* Discount line styling */
+        .discount-line {
+            color: #777777;
+            /* Changed from red (#FF0000) to gray (#777777) */
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
         integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
 </head>
-<div id="formInput">
-    <form>
-        <p class="formText">Event Name:</p>
-        <input id="eventName" type="text" placeholder="Event Name" class="inputField"><br>
-        <p class="formText">Event Date:</p>
-        <input id="eventDate" type="date" placeholder="Event Date" class="inputField"><br>
-        <p class="formText">Start Time:</p>
-        <input id="startTime" type="time" placeholder="Start Time" class="inputField"><br>
-        <p class="formText">Hours:</p>
-        <input id="hours" type="number" placeholder="Hours" class="inputField"><br>
-        <p class="formText">Invoice Number:</p>
-        <input id="invoiceNum" type="number" placeholder="Invoice Number" class="inputField"><br>
-    </form>
-    <input id="submito" type="submit" value="Submit">
-</div>
-
 
 <body>
+    <div id="formInput">
+        <form>
+            <p class="formText">Event Name:</p>
+            <input id="eventName" type="text" placeholder="Event Name" class="inputField"><br>
+            <p class="formText">Event Date:</p>
+            <input id="eventDate" type="date" placeholder="Event Date" class="inputField" value=""><br>
+            <p class="formText">Start Time:</p>
+            <input id="startTime" type="time" placeholder="Start Time" class="inputField"><br>
+            <p class="formText">Hours:</p>
+            <input id="hours" type="number" placeholder="Hours" class="inputField"><br>
+            <p class="formText">Discount Label:</p>
+            <input id="discountLabel" type="text" placeholder="Discount" class="inputField"><br>
+            <p class="formText">Discount ($):</p>
+            <input id="discount" type="number" placeholder="Discount Amount" class="inputField" value="0"><br>
+            <p class="formText">Invoice Number:</p>
+            <input id="invoiceNum" type="number" placeholder="Invoice Number" class="inputField"><br>
+        </form>
+        <input id="submito" type="submit" value="Submit">
+    </div>
+
     <div class="menu-icon">
         <div class="bar" id="barOne"></div>
         <div class="bar" id="barTwo"></div>
@@ -372,7 +387,7 @@
         </div>
         <div class="row end">
             <div class="content right">
-                <h1 id="sum">$<span class="sum">300</span></h1>
+                <h1 id="sum">$<span class="total">300</span></h1>
             </div>
         </div>
         <div class="row gray">
@@ -394,8 +409,10 @@
             <div class="row">
                 <div class="content left">
                     <p><span class="hours">3</span>x$100<br>Caricatures from <span class="startTime">4:30pm</span> to
-                        <span class="endTime">4:30pm</span> on <span class="eventDay">Tuesday</span><br><span
-                            class="dueDate">December 12, 2023</span>
+                        <span class="endTime">4:30pm</span> on <span class="eventDay">Tuesday</span><span
+                            class="crossDaySpan" style="display: none;"> through <span
+                                class="nextDay">Wednesday</span></span><br><span class="dueDate">December 12,
+                            2023</span>
                     </p>
                 </div>
             </div>
@@ -403,167 +420,333 @@
         <div class="row totals">
             <div class="content right">
                 <p>Subtotal</p>
+                <p class="discount-row" style="display: none;"><span id="discount-text">Discount</span></p>
                 <p><strong>Total</strong></p>
             </div>
             <div class="content right">
                 <p>$<span class="sum">300</span></p>
-                <p>$<span class="sum">300</span></p>
+                <p class="discount-row" style="display: none;"><span class="discount-line">-$<span
+                            class="discount-value">0</span></span></p>
+                <p>$<span class="total">300</span></p>
             </div>
         </div>
-        <!--invoice-->
 
         <button id="printButton">Print Invoice</button>
+    </div> <!-- Closing invoice div that was missing -->
 
+    <footer>
+        <div class="wrapper footer">
+            <p>Designed and developed by Steven Simon <span id="date">2023</span></p>
+        </div>
+        <!--Closing wrapper-->
+    </footer>
+    <!--Closing footer-->
 
-        <footer>
-            <div class="wrapper footer">
-                <p>Designed and developed by Steven Simon <span id="date">2023</span></p>
-            </div>
-            <!--Closing wrapper-->
-        </footer>
-        <!--Closing footer-->
-        <script>
-            function trackInstagramClick() {
-                // Send an event to Google Analytics
-                ga('send', 'event', 'Button', 'Click', 'Instagram Follow');
+    <!-- Script section here -->
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            // Force event date to be empty on load
+            setTimeout(() => {
+                document.getElementById("eventDate").value = "";
+            }, 0);
+
+            // Cache DOM elements for better performance
+            const elements = {
+                // Form elements
+                form: {
+                    eventName: document.getElementById("eventName"),
+                    eventDate: document.getElementById("eventDate"),
+                    startTime: document.getElementById("startTime"),
+                    hours: document.getElementById("hours"),
+                    discountLabel: document.getElementById("discountLabel"),
+                    discount: document.getElementById("discount"),
+                    invoiceNum: document.getElementById("invoiceNum"),
+                    submit: document.getElementById("submito")
+                },
+                // Output elements
+                output: {
+                    invoiceNumber: document.getElementById("invoiceNumber"),
+                    eventName: document.querySelector(".eventName"),
+                    startTime: document.querySelector(".startTime"),
+                    endTime: document.querySelector(".endTime"),
+                    hours: document.querySelector(".hours"),
+                    discountText: document.getElementById("discount-text"),
+                    discountValue: document.querySelector(".discount-value"),
+                    discountRows: document.querySelectorAll(".discount-row"),
+                    sums: document.querySelectorAll(".sum"),
+                    totals: document.querySelectorAll(".total"),
+                    issueDate: document.querySelector(".issueDate"),
+                    dueDates: document.querySelectorAll(".dueDate"),
+                    eventDays: document.querySelectorAll(".eventDay"),
+                    crossDaySpan: document.querySelector(".crossDaySpan"),
+                    nextDay: document.querySelector(".nextDay"),
+                    formInput: document.getElementById("formInput"),
+                    invoice: document.querySelector(".invoice"),
+                    menuIcon: document.querySelector(".menu-icon"),
+                    printButton: document.getElementById("printButton")
+                }
+            };
+
+            // Constants
+            const HOURLY_RATE = 100;
+            const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+            // Add event listeners
+            if (elements.form.submit) {
+                elements.form.submit.addEventListener("click", handleFormSubmit);
+                console.log("Submit button event listener added");
+            } else {
+                console.error("Submit button not found");
             }
-        </script>
-        <script type="text/javascript">
-            document.addEventListener("DOMContentLoaded", function () {
-                // Add an event listener to the form submission
-                document.getElementById("submito").addEventListener("click", function (event) {
-                    event.preventDefault(); // Prevent the default form submission behavior
 
-                    // Retrieve values from the form
-                    var eventName = document.getElementById("eventName").value;
-                    var eventDate = document.getElementById("eventDate").value;
-                    var startTime = document.getElementById("startTime").value;
-                    var hours = parseFloat(document.getElementById("hours").value); // Use parseFloat for decimal numbers
-                    var invoiceNum = parseInt(document.getElementById("invoiceNum").value); // Parse as integer
+            // Initialize date field with today's date
+            const today = new Date();
+            if (elements.form.eventDate) {
+                elements.form.eventDate.valueAsDate = today;
+            }
 
-                    // Validate invoice number
-                    if (isNaN(invoiceNum) || invoiceNum < 0) {
-                        alert("Please enter a valid invoice number.");
-                        return;
-                    }
+            function handleFormSubmit(event) {
+                console.log("Submit button clicked");
+                event.preventDefault();
 
-                    // Format invoice number as four digits
-                    var formattedInvoiceNum = invoiceNum.toString().padStart(4, "0");
+                // Collect and validate form data
+                const formData = collectFormData();
+                if (!validateFormData(formData)) return;
 
-                    // Update the invoice number element
-                    document.getElementById("invoiceNumber").innerText = formattedInvoiceNum;
+                // Process invoice data
+                const invoiceData = processInvoiceData(formData);
 
-                    // Validate start time and hours fields
-                    if (startTime.trim() === "" || isNaN(hours) || hours <= 0) {
-                        alert("Please enter a valid start time and number of hours.");
-                        return;
-                    }
+                // Update the UI
+                updateInvoiceUI(invoiceData);
 
-                    // Calculate the end time
-                    var endTime = calculateEndTime(startTime, hours);
+                // Show invoice and hide form
+                showInvoice();
 
-                    // Update the elements with the retrieved values
-                    document.querySelector(".eventName").innerText = eventName;
-                    document.querySelector(".startTime").innerText = formatTime(startTime);
-                    document.querySelector(".endTime").innerText = formatTime(endTime);
-                    document.querySelector(".hours").innerText = hours;
+                // Set up the print button
+                if (document.getElementById("printButton")) {
+                    document.getElementById("printButton").addEventListener("click", () => window.print());
+                }
+            }
 
-                    // Calculate the total amount based on the rate of $100 per hour
-                    var totalAmount = hours * 100;
+            /**
+             * Collect form data into a structured object
+             */
+            function collectFormData() {
+                return {
+                    eventName: elements.form.eventName ? elements.form.eventName.value : "",
+                    eventDate: elements.form.eventDate ? elements.form.eventDate.value : "",
+                    startTime: elements.form.startTime ? elements.form.startTime.value : "",
+                    hours: elements.form.hours ? parseFloat(elements.form.hours.value) : 0,
+                    discountLabel: elements.form.discountLabel ? (elements.form.discountLabel.value || "Discount") : "Discount",
+                    discount: elements.form.discount ? (parseFloat(elements.form.discount.value) || 0) : 0,
+                    invoiceNum: elements.form.invoiceNum ? parseInt(elements.form.invoiceNum.value) : 0
+                };
+            }
 
-                    // Update the elements with the total amount
-                    document.querySelectorAll(".sum").forEach(function (element) {
-                        element.innerText = totalAmount.toFixed(2); // Format the total amount with 2 decimal places
-                    });
-
-                    // Set the issue date to the current date
-                    var currentDate = new Date();
-                    var formattedDate = formatDate(currentDate);
-                    document.querySelector(".issueDate").innerText = formattedDate;
-
-                    // Set the due date to the event date for all elements with class "dueDate"
-                    var eventDateObject = new Date(eventDate);
-                    eventDateObject.setHours(0, 0, 0, 0); // Set time to midnight
-                    eventDateObject.setDate(eventDateObject.getDate() + 1); // Increase date by one day
-                    var formattedEventDate = formatDate(eventDateObject);
-                    document.querySelectorAll(".dueDate").forEach(function (element) {
-                        element.innerText = formattedEventDate;
-                    });
-
-                    // Set the event day to the day of the week of the due date
-                    var eventDay = getDayOfWeek(eventDateObject);
-                    document.querySelectorAll(".eventDay").forEach(function (element) {
-                        element.innerText = eventDay;
-                    });
-
-                    // Hide the form and display the content
-                    document.getElementById('formInput').style.display = 'none';
-                    document.querySelector('.invoice').style.display = 'block';
-                    document.querySelector('.menu-icon').style.display = 'block';
-
-                    document.getElementById("printButton").addEventListener("click", function () {
-                        window.print(); // This triggers the browser's print dialog
-                    });
-
-                });
-            });
-
-            // Function to calculate the end time based on the start time and hours
-            function calculateEndTime(startTime, hours) {
-                var parts = startTime.split(":");
-                var startHour = parseInt(parts[0]);
-                var startMinute = parseInt(parts[1]);
-
-                if (startTime.toLowerCase().includes("pm")) {
-                    startHour += 12;
+            /**
+             * Validate form data
+             */
+            function validateFormData(data) {
+                // Validate invoice number
+                if (isNaN(data.invoiceNum) || data.invoiceNum < 0) {
+                    alert("Please enter a valid invoice number.");
+                    return false;
                 }
 
-                var endHour = startHour + Math.floor(hours); // Calculate whole hours
-                var endMinute = startMinute + Math.round((hours % 1) * 60); // Convert fractional hours to minutes
+                // Validate hours and start time
+                if (data.startTime.trim() === "" || isNaN(data.hours) || data.hours <= 0) {
+                    alert("Please enter a valid start time and number of hours.");
+                    return false;
+                }
 
+                // Validate event date
+                if (!data.eventDate) {
+                    alert("Please enter a valid event date.");
+                    return false;
+                }
+
+                return true;
+            }
+
+            /**
+             * Process form data into invoice data
+             */
+            function processInvoiceData(formData) {
+                // Format invoice number
+                const formattedInvoiceNum = formData.invoiceNum.toString().padStart(4, "0");
+
+                // Calculate end time and check if it crosses midnight
+                const timeResult = calculateEndTime(formData.startTime, formData.hours);
+                const endTime = timeResult.endTime;
+                const crossesDay = timeResult.crossesDay;
+
+                // Calculate financial data
+                const subtotal = formData.hours * HOURLY_RATE;
+                let total = subtotal - formData.discount;
+                if (total < 0) total = 0;
+
+                // Calculate dates
+                const currentDate = new Date();
+
+                // Event date is the selected date
+                const eventDateObject = new Date(formData.eventDate);
+
+                // Create the next day date object for crossing midnight
+                const nextDayObject = new Date(eventDateObject);
+                nextDayObject.setDate(nextDayObject.getDate() + 1);
+
+                // Due date is now the same as the event date
+                const dueDateObject = new Date(eventDateObject);
+
+                return {
+                    invoiceNumber: formattedInvoiceNum,
+                    eventName: formData.eventName,
+                    startTime: formatTime(formData.startTime),
+                    endTime: formatTime(endTime),
+                    hours: formData.hours,
+                    subtotal: subtotal.toFixed(2),
+                    discount: formData.discount,
+                    discountLabel: formData.discountLabel,
+                    total: total.toFixed(2),
+                    issueDate: formatDate(currentDate),
+                    dueDate: formatDate(dueDateObject),
+                    eventDay: DAYS[eventDateObject.getDay()],
+                    crossesDay: crossesDay,
+                    nextDay: DAYS[nextDayObject.getDay()],
+                    eventDate: formatDateMonthDay(eventDateObject),
+                    nextDate: formatDateMonthDay(nextDayObject)
+                };
+            }
+
+            /**
+             * Update the UI with invoice data
+             */
+            function updateInvoiceUI(data) {
+                // Update basic invoice data
+                if (elements.output.invoiceNumber) elements.output.invoiceNumber.textContent = data.invoiceNumber;
+                if (elements.output.eventName) elements.output.eventName.textContent = data.eventName;
+                if (elements.output.startTime) elements.output.startTime.textContent = data.startTime;
+                if (elements.output.endTime) elements.output.endTime.textContent = data.endTime;
+                if (elements.output.hours) elements.output.hours.textContent = data.hours;
+
+                // Update financial data
+                elements.output.sums.forEach(el => el.textContent = data.subtotal);
+                elements.output.totals.forEach(el => el.textContent = data.total);
+
+                // Handle discount display
+                if (data.discount > 0) {
+                    if (elements.output.discountText) elements.output.discountText.textContent = data.discountLabel;
+                    if (elements.output.discountValue) elements.output.discountValue.textContent = data.discount.toFixed(2);
+                    elements.output.discountRows.forEach(el => el.style.display = "block");
+                } else {
+                    elements.output.discountRows.forEach(el => el.style.display = "none");
+                }
+
+                // Update dates
+                if (elements.output.issueDate) elements.output.issueDate.textContent = data.issueDate;
+                elements.output.dueDates.forEach(el => el.textContent = data.dueDate);
+
+                // Update event day with format "Sunday March 23"
+                elements.output.eventDays.forEach(el => {
+                    el.textContent = `${data.eventDay} ${data.eventDate}`;
+                });
+
+                // Handle day-crossing for overnight events
+                if (data.crossesDay) {
+                    if (elements.output.nextDay) elements.output.nextDay.textContent = `${data.nextDay} ${data.nextDate}`;
+                    if (elements.output.crossDaySpan) elements.output.crossDaySpan.style.display = "inline";
+                } else {
+                    if (elements.output.crossDaySpan) elements.output.crossDaySpan.style.display = "none";
+                }
+            }
+
+            /**
+             * Show the invoice and hide the form
+             */
+            function showInvoice() {
+                if (elements.output.formInput) elements.output.formInput.style.display = 'none';
+                if (elements.output.invoice) elements.output.invoice.style.display = 'block';
+                if (elements.output.menuIcon) elements.output.menuIcon.style.display = 'block';
+            }
+
+            /**
+             * Calculate the end time based on start time and hours
+             * Returns end time and whether the time span crosses midnight
+             */
+            function calculateEndTime(startTime, hours) {
+                const parts = startTime.split(":");
+                let startHour = parseInt(parts[0]);
+                let startMinute = parseInt(parts[1]);
+
+                // Calculate end time
+                let endHour = startHour + Math.floor(hours);
+                let endMinute = startMinute + Math.round((hours % 1) * 60);
+
+                // Handle minute overflow
                 if (endMinute >= 60) {
                     endHour += 1;
                     endMinute -= 60;
                 }
 
+                // Check if time crosses midnight
+                const crossesDay = endHour >= 24;
+
+                // Handle 24-hour wrap
                 if (endHour >= 24) {
                     endHour -= 24;
                 }
 
-                return endHour + ":" + (endMinute < 10 ? "0" : "") + endMinute;
+                return {
+                    endTime: `${endHour}:${endMinute < 10 ? '0' : ''}${endMinute}`,
+                    crossesDay: crossesDay
+                };
             }
 
-            // Function to format time in AM/PM format
+            /**
+             * Format time in AM/PM format
+             */
             function formatTime(time) {
-                // Parse the time
-                var parts = time.split(":");
-                var hour = parseInt(parts[0]);
-                var minute = parts[1];
+                const parts = time.split(":");
+                let hour = parseInt(parts[0]);
+                const minute = parts[1];
 
-                // Determine AM or PM
-                var period = hour >= 12 ? "pm" : "am";
+                // Determine AM/PM
+                const period = hour >= 12 ? "pm" : "am";
 
-                // Adjust hour for PM
+                // Convert to 12-hour format
                 if (hour > 12) {
                     hour -= 12;
+                } else if (hour === 0) {
+                    hour = 12; // 0:XX becomes 12:XX AM
                 }
 
-                // Format the time
-                return hour + ":" + minute + period;
+                return `${hour}:${minute}${period}`;
             }
 
-            // Function to format date as "Month Day, Year" (e.g., "May 1, 2024")
+            /**
+             * Format date as "Month Day, Year"
+             */
             function formatDate(date) {
-                var options = { year: "numeric", month: "long", day: "numeric" };
+                const options = { year: "numeric", month: "long", day: "numeric" };
                 return date.toLocaleDateString("en-US", options);
             }
 
-            // Function to get the day of the week (e.g., "Monday", "Tuesday", etc.)
-            function getDayOfWeek(date) {
-                var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-                return days[date.getDay()];
+            /**
+             * Format date as "Month Day" (e.g., "March 23")
+             * This function was missing in the original code
+             */
+            function formatDateMonthDay(date) {
+                const options = { month: "long", day: "numeric" };
+                return date.toLocaleDateString("en-US", options);
             }
-        </script>
+
+            // Log that the script has loaded successfully
+            console.log("Invoice script loaded successfully");
+        });
+    </script>
 </body>
 
 </html>
