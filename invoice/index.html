@@ -591,12 +591,15 @@
                 // Calculate dates
                 const currentDate = new Date();
 
-                // Event date is the selected date
-                const eventDateObject = new Date(formData.eventDate);
+                // Event date is EXACTLY the date selected by the user
+                const eventDateObject = new Date(formData.eventDate + "T00:00:00"); // Use T00:00:00 to ensure we get the right day
+                console.log("Original event date:", formData.eventDate);
+                console.log("Event date object:", eventDateObject);
 
                 // Create the next day date object for crossing midnight
                 const nextDayObject = new Date(eventDateObject);
-                nextDayObject.setDate(nextDayObject.getDate() + 1);
+                nextDayObject.setDate(eventDateObject.getDate() + 1);
+                console.log("Next day object:", nextDayObject);
 
                 // Due date is now the same as the event date
                 const dueDateObject = new Date(eventDateObject);
@@ -625,6 +628,8 @@
              * Update the UI with invoice data
              */
             function updateInvoiceUI(data) {
+                console.log("Updating UI with data:", data);
+
                 // Update basic invoice data
                 if (elements.output.invoiceNumber) elements.output.invoiceNumber.textContent = data.invoiceNumber;
                 if (elements.output.eventName) elements.output.eventName.textContent = data.eventName;
@@ -736,7 +741,6 @@
 
             /**
              * Format date as "Month Day" (e.g., "March 23")
-             * This function was missing in the original code
              */
             function formatDateMonthDay(date) {
                 const options = { month: "long", day: "numeric" };
