@@ -14,8 +14,8 @@ class CaricatureCard extends HTMLElement {
         this.innerHTML = `
         <div class="caricature">
           <picture>
-            <source srcset="${webpSrc}" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400" height="450" loading="lazy">
-            <img src="${jpgSrc}" alt="${name}" title="${name}" width="400" height="450" style="max-width: 100%; height: auto;" loading="lazy">
+            <source srcset="${webpSrc}" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400" height="450">
+            <img src="${jpgSrc}" alt="${name}" title="${name}" width="400" height="450" style="max-width: 100%; height: auto;">
           </picture>
           <p class="text">${name}</p>
         </div>
