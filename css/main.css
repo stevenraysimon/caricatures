@@ -188,6 +188,10 @@ a {
   min-height: 400px;
 }
 
+.portraits {
+  min-height: 500px;
+}
+
 .zoom {
   transform: scale(1.02);
 }
@@ -1001,6 +1005,10 @@ footer div {
 
   #hero {
     min-height: 100px;
+  }
+
+  .portraits {
+    min-height: 900px;
   }
 
   .logo {
