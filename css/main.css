@@ -530,6 +530,26 @@ hr {
   transition: 0.4s;
 }
 
+/* Add this to your CSS */
+.caricature {
+  position: relative;
+  width: 100%;
+  /* Responsive width */
+  aspect-ratio: 400 / 450;
+}
+
+.caricature picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.caricature img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .content {
   color: var(--black);
   padding: 40px 0;
