@@ -535,22 +535,22 @@ hr {
 
 /* Add this to your CSS */
 .caricature {
+  box-sizing: border-box;
   position: relative;
   width: 100%;
-  /* Responsive width */
-  aspect-ratio: 400 / 450;
+  aspect-ratio: 400 / 500;
+  overflow: hidden;
 }
 
 .caricature picture {
-  width: 100%;
-  height: 100%;
   display: block;
+  width: 100%;
 }
 
 .caricature img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
 }
 
 .content {
