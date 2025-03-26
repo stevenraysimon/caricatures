@@ -2,36 +2,50 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-86V1CSS5RL"></script>
+  <!-- Preconnect to origins -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Deferred Google Analytics -->
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-86V1CSS5RL');
+
+    // Load GTM after page load
+    window.addEventListener('load', function () {
+      const script = document.createElement('script');
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-86V1CSS5RL';
+      script.async = true;
+      document.head.appendChild(script);
+    });
   </script>
+
   <meta charset="UTF-8">
   <meta name="description"
     content="Looking for a caricature artist in Houston or Austin, Texas? Steven Simon offers personalized and entertaining live caricature drawings for parties, weddings, festivals, and more. Book your event today for custom caricatures near you.">
   <meta name="keywords"
     content="caricature artist Houston, caricature artist Austin, caricature near me, caricature artist for party, caricature drawing Houston, caricature drawing Austin, custom caricature, live event caricature, caricature gifts, caricature for weddings, personalized caricatures, Steven Simon caricature">
   <meta name="robots" content="index, follow">
+
   <!--favicons-->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="images/favicon.png" type="image/png">
   <!-- Standard favicon -->
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <!-- Android Chrome icons -->
   <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
   <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <!-- Optional: Add a web app manifest -->
+  <!-- Web Manifest -->
   <link rel="manifest" href="site.webmanifest">
-  <!-- Help Google find your favicon -->
+
   <meta name="google" content="notranslate">
   <title>Caricatures by Steven Simon | Custom & Live Event Caricatures in Houston</title>
   <meta property="og:title" content="Caricatures by Steven Simon">
@@ -39,37 +53,46 @@
   <meta property="og:image" content="images/og-image.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="PL9j0HE3u_r-HK4CrIaaS3z4U3dRUPObGjgqLaKmyQw" />
-  <link rel="stylesheet" href="css/main.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
-  <link rel="stylesheet" href="css/font-awesome.min.css" />
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.7.0/webcomponents-loader.js"
-    as="script">
 
-  <!-- Font Awesome 6 CDN (Free version includes Solid, Regular, and Brands) -->
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" rel="stylesheet">
+  <!-- Critical CSS could be inlined here -->
+  <link rel="stylesheet" href="css/main.css?v=1.0.1" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="css/print.css?v=1.0.0" type="text/css" media="print" />
+  <link rel="stylesheet" href="css/font-awesome.min.css?v=1.0.0" />
+
+  <!-- Optimized Google Fonts loading -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap">
+  </noscript>
+
+  <!-- Preload essential audio files -->
+  <link rel="preload" href="sounds/smallPop.wav" as="audio">
+  <link rel="preload" href="sounds/click.wav" as="audio">
+
+  <!-- Audio files -->
   <audio id="pop" preload="auto">
     <source src="sounds/smallPop.wav">
-    </source>
   </audio>
-
   <audio id="click" preload="auto">
     <source src="sounds/click.wav">
-    </source>
   </audio>
 
   <noscript>
     <link rel="stylesheet" href="css/noscript.css" type="text/css" />
   </noscript>
 
-  <script type="module" src="js/web-components.js" defer></script>
-  <script type="text/javascript" src="js/main.js"></script>
+  <!-- Load web components -->
+  <script type="module" src="js/web-components.js?v=1.0.1" defer></script>
+  <script defer src="js/main.js?v=1.0.1"></script>
 
+  <!-- Defer loading webcomponents polyfill -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.7.0/webcomponents-loader.js"></script>
 </head>
 
 <body>
   <menu-component></menu-component>
-  <a name="jump-to-top"></a>
+  <a name="jump-to-top" id="jump-to-top"></a>
   <div id="hero">
     <div id="fade">
       <div id="pattern">
@@ -83,132 +106,47 @@
   <!-- Celebrities -->
   <div class="portraits">
     <div class="row">
-      <div class="caricature">
-        <picture>
-          <source srcset="images/ellen.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/ellen.jpg" alt="Ellen DeGeneres" title="Ellen DeGeneres" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Ellen DeGeneres</p>
-      </div>
-      <!--caricature-->
-      <div class="caricature">
-        <picture>
-          <source srcset="images/usher.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/usher.jpg" alt="Usher" title="Usher" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Usher</p>
-      </div>
-      <!--caricature-->
-      <div class="caricature">
-        <picture>
-          <source srcset="images/jeff.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/jeff.jpg" alt="Jeff Bezos" title="Jeff Bezos" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Jeff Bezos</p>
-      </div>
-      <!--caricature-->
-      <div class="caricature">
-        <picture>
-          <source srcset="images/nicki.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/nicki.jpg" alt="Nicki Minaj" title="Nicki Minaj" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Nicki Minaj</p>
-      </div>
-      <!--caricature-->
+      <caricature-card name="Ellen DeGeneres" webp-src="images/ellen.webp" jpg-src="images/ellen.jpg">
+      </caricature-card>
+
+      <caricature-card name="Usher" webp-src="images/usher.webp" jpg-src="images/usher.jpg">
+      </caricature-card>
+
+      <caricature-card name="Jeff Bezos" webp-src="images/jeff.webp" jpg-src="images/jeff.jpg">
+      </caricature-card>
+
+      <caricature-card name="Nicki Minaj" webp-src="images/nicki.webp" jpg-src="images/nicki.jpg">
+      </caricature-card>
     </div>
     <!--row-->
+
     <div class="row">
-      <div class="caricature">
-        <picture>
-          <source srcset="images/taylor.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/taylor.jpg" alt="Taylor Swift" title="Taylor Swift" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Taylor Swift</p>
-      </div>
-      <!--caricature-->
-      <div class="caricature">
-        <picture>
-          <source srcset="images/obama.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/obama.jpg" alt="Barack Obama" title="Barack Obama" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Barack Obama</p>
-      </div>
-      <!--caricature-->
-      <div class="caricature">
-        <picture>
-          <source srcset="images/kim.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/kim.jpg" alt="Kim Kardashian" title="Kim Kardashian" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Kim Kardashian</p>
-      </div>
-      <!--caricature-->
-      <div class="caricature">
-        <picture>
-          <source srcset="images/trump.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/trump.jpg" alt="Donald Trump" title="Donald Trump" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Donald Trump</p>
-      </div>
-      <!--caricature-->
+      <caricature-card name="Taylor Swift" webp-src="images/taylor.webp" jpg-src="images/taylor.jpg">
+      </caricature-card>
+
+      <caricature-card name="Barack Obama" webp-src="images/obama.webp" jpg-src="images/obama.jpg">
+      </caricature-card>
+
+      <caricature-card name="Kim Kardashian" webp-src="images/kim.webp" jpg-src="images/kim.jpg">
+      </caricature-card>
+
+      <caricature-card name="Donald Trump" webp-src="images/trump.webp" jpg-src="images/trump.jpg">
+      </caricature-card>
     </div>
     <!--row-->
+
     <div class="row">
-      <div class="caricature">
-        <picture>
-          <source srcset="images/oprah.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/oprah.jpg" alt="Oprah Winfrey" title="Oprah Winfrey" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Oprah Winfrey</p>
-      </div>
-      <!--caricature-->
-      <div class="caricature">
-        <picture>
-          <source srcset="images/elon.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/elon.jpg" alt="Elon Musk" title="Elon Musk" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Elon Musk</p>
-      </div>
-      <!--caricature-->
-      <div class="caricature">
-        <picture>
-          <source srcset="images/hulk.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/hulk.jpg" alt="Hulk Hogan" title="Hulk Hogan" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Hulk Hogan</p>
-      </div>
-      <!--caricature-->
-      <div class="caricature">
-        <picture>
-          <source srcset="images/paris.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
-          <img src="images/paris.jpg" alt="Paris Hilton" title="Paris Hilton" width="400" height="450"
-            style="max-width: 100%; height: auto;">
-        </picture>
-        <p class="text">Paris Hilton</p>
-      </div>
-      <!--caricature-->
+      <caricature-card name="Oprah Winfrey" webp-src="images/oprah.webp" jpg-src="images/oprah.jpg">
+      </caricature-card>
+
+      <caricature-card name="Elon Musk" webp-src="images/elon.webp" jpg-src="images/elon.jpg">
+      </caricature-card>
+
+      <caricature-card name="Hulk Hogan" webp-src="images/hulk.webp" jpg-src="images/hulk.jpg">
+      </caricature-card>
+
+      <caricature-card name="Paris Hilton" webp-src="images/paris.webp" jpg-src="images/paris.jpg">
+      </caricature-card>
     </div>
     <!--row-->
   </div>
@@ -223,7 +161,7 @@
               height="300">
             <img src="images/shop.png" title="Autographed caricature of Paul Wall"
               alt="Autographed caricature of Paul Wall" style="max-width: 300px; width: 100%; height: auto;" width="300"
-              height="300">
+              height="300" loading="lazy">
           </picture>
         </div>
         <div class="text">
@@ -250,7 +188,7 @@
               height="300">
             <img src="images/pricing.png" title="Steven Simon drawing a caricature"
               alt="Steven Simon drawing a caricature" style="max-width: 300px; width: 100%; height: auto;" width="300"
-              height="300">
+              height="300" loading="lazy">
           </picture>
         </div>
         <div class="text">
@@ -275,7 +213,7 @@
             <source srcset="images/map.webp" type="image/webp" sizes="(max-width: 600px) 80vw, 300px" width="300"
               height="300">
             <img src="images/map.png" title="Map of Houston" alt="Map of Houston"
-              style="max-width: 300px; width: 100%; height: auto;" width="300" height="300">
+              style="max-width: 300px; width: 100%; height: auto;" width="300" height="300" loading="lazy">
           </picture>
         </div>
         <div class="text">
@@ -306,7 +244,7 @@
               height="300">
             <img src="images/reviews.png" title="Steven Simon drawing a caricature"
               alt="Steven Simon drawing a caricature" style="max-width: 300px; width: 100%; height: auto;" width="300"
-              height="300">
+              height="300" loading="lazy">
           </picture>
         </div>
         <div class="text">

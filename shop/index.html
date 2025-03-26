@@ -2,17 +2,29 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-86V1CSS5RL"></script>
+  <!-- Preconnect to origins -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Deferred Google Analytics -->
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-86V1CSS5RL');
+
+    // Load GTM after page load
+    window.addEventListener('load', function () {
+      const script = document.createElement('script');
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-86V1CSS5RL';
+      script.async = true;
+      document.head.appendChild(script);
+    });
   </script>
+
   <meta charset="UTF-8">
   <title>Caricatures by Steven Simon | Custom & Live Event Caricatures in Houston | Shop</title>
   <meta name="description"
@@ -24,45 +36,60 @@
   <meta property="og:description" content="Discover unique and personalized caricatures for any occasion!">
   <meta property="og:image" content="https://stevenraysimon.github.io/caricatures/images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!--favicons-->
   <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="../images/favicon.png" type="image/png">
   <!-- Standard favicon -->
   <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+  <!-- Android Chrome icons -->
   <link rel="icon" type="image/png" sizes="192x192" href="../images/android-chrome-192x192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="../images/android-chrome-512x512.png">
   <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
-  <link rel="stylesheet" href="../css/main.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
-  <link rel="stylesheet" href="../css/font-awesome.min.css" />
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.7.0/webcomponents-loader.js"
-    as="script">
+  <!-- Web Manifest -->
+  <link rel="manifest" href="../site.webmanifest">
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" rel="stylesheet">
+  <!-- CSS with versioning for better caching -->
+  <link rel="stylesheet" href="../css/main.css?v=1.0.1" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="../css/print.css?v=1.0.0" type="text/css" media="print" />
+  <link rel="stylesheet" href="../css/font-awesome.min.css?v=1.0.0" />
+
+  <!-- Optimized Google Fonts loading -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap">
+  </noscript>
+
+  <!-- Preload essential audio files -->
+  <link rel="preload" href="../sounds/smallPop.wav" as="audio">
+  <link rel="preload" href="../sounds/click.wav" as="audio">
+
+  <!-- Audio files -->
   <audio id="pop" preload="auto">
     <source src="../sounds/smallPop.wav">
-    </source>
   </audio>
-
   <audio id="click" preload="auto">
     <source src="../sounds/click.wav">
-    </source>
   </audio>
 
   <noscript>
-    <link rel="stylesheet" href="css/noscript.css" type="text/css" />
+    <link rel="stylesheet" href="../css/noscript.css" type="text/css" />
   </noscript>
 
-  <script type="module" src="../js/web-components.js" defer></script>
-  <script type="text/javascript" src="../js/main.js"></script>
+  <!-- Load web components -->
+  <script type="module" src="../js/web-components.js?v=1.0.1" defer></script>
+  <script defer src="../js/main.js?v=1.0.1"></script>
 
+  <!-- Defer loading webcomponents polyfill -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.7.0/webcomponents-loader.js"></script>
 </head>
 
 <body>
   <menu-component></menu-component>
-  <a name="jump-to-top"></a>
+  <a name="jump-to-top" id="jump-to-top"></a>
   <div id="hero">
     <div id="fade">
       <div id="pattern">
