@@ -67,8 +67,8 @@
   </noscript>
 
   <!-- Preload essential audio files -->
-  <link rel="preload" href="sounds/smallPop.wav" as="audio">
-  <link rel="preload" href="sounds/click.wav" as="audio">
+  <link rel="preload" href="sounds/smallPop.wav" as="fetch" crossorigin>
+  <link rel="preload" href="sounds/click.wav" as="fetch" crossorigin>
 
   <!-- Audio files -->
   <audio id="pop" preload="auto">
@@ -84,7 +84,7 @@
 
   <!-- Load web components -->
   <link rel="preload" href="js/web-components.js?v=1.0.1" as="script" crossorigin>
-  <script type="module" src="js/web-components.js?v=1.0.1" defer></script>
+  <script type="module" src="js/main.js?v=1.0.1" defer></script>
 
   <!-- Defer loading webcomponents polyfill -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.7.0/webcomponents-loader.js"></script>
