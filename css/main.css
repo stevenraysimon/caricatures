@@ -19,13 +19,15 @@
   src: url('../fonts/chaloops/Chaloops-Regular.ttf') format('woff2'),
     url('../fonts/chaloops/Chaloops-Regular.ttf') format('woff');
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'chaloops-medium';
   src: url('../fonts/chaloops/Chaloops-Medium.ttf') format('woff2'),
     url('../fonts/chaloops/Chaloops-Medium.ttf') format('woff');
-  font-weight: 600
+  font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
@@ -33,6 +35,7 @@
   src: url('../fonts/chaloops/Chaloops-Bold.ttf') format('woff2'),
     url('../fonts/chaloops/Chaloops-Bold.ttf') format('woff');
   font-weight: 900;
+  font-display: swap;
 }
 
 .buttonPulseClass {
