@@ -105,18 +105,47 @@
 
   <!-- Celebrities -->
   <div class="portraits">
+    <!-- First row (above the fold) - static HTML -->
     <div class="row">
-      <caricature-card name="Ellen DeGeneres" webp-src="images/ellen.webp" jpg-src="images/ellen.jpg" priority="true">
-      </caricature-card>
+      <div class="caricature">
+        <picture>
+          <source srcset="images/ellen.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
+            height="450">
+          <img src="images/ellen.jpg" alt="Ellen DeGeneres" title="Ellen DeGeneres" width="400" height="450"
+            style="max-width: 100%; height: auto;">
+        </picture>
+        <p class="text">Ellen DeGeneres</p>
+      </div>
 
-      <caricature-card name="Usher" webp-src="images/usher.webp" jpg-src="images/usher.jpg" priority="true">
-      </caricature-card>
+      <div class="caricature">
+        <picture>
+          <source srcset="images/usher.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
+            height="450">
+          <img src="images/usher.jpg" alt="Usher" title="Usher" width="400" height="450"
+            style="max-width: 100%; height: auto;">
+        </picture>
+        <p class="text">Usher</p>
+      </div>
 
-      <caricature-card name="Jeff Bezos" webp-src="images/jeff.webp" jpg-src="images/jeff.jpg" priority="true">
-      </caricature-card>
+      <div class="caricature">
+        <picture>
+          <source srcset="images/jeff.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
+            height="450">
+          <img src="images/jeff.jpg" alt="Jeff Bezos" title="Jeff Bezos" width="400" height="450"
+            style="max-width: 100%; height: auto;">
+        </picture>
+        <p class="text">Jeff Bezos</p>
+      </div>
 
-      <caricature-card name="Nicki Minaj" webp-src="images/nicki.webp" jpg-src="images/nicki.jpg" priority="true">
-      </caricature-card>
+      <div class="caricature">
+        <picture>
+          <source srcset="images/nicki.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
+            height="450">
+          <img src="images/nicki.jpg" alt="Nicki Minaj" title="Nicki Minaj" width="400" height="450"
+            style="max-width: 100%; height: auto;">
+        </picture>
+        <p class="text">Nicki Minaj</p>
+      </div>
     </div>
     <!--row-->
 
