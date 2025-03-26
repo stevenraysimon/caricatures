@@ -190,6 +190,7 @@ a {
 
 .portraits {
   min-height: 500px;
+  padding: 0;
 }
 
 .zoom {
@@ -1009,6 +1010,7 @@ footer div {
 
   .portraits {
     min-height: 900px;
+    padding: 0 30px;
   }
 
   .logo {
