@@ -537,9 +537,7 @@ hr {
 .caricature {
   box-sizing: border-box;
   position: relative;
-  width: 100%;
   aspect-ratio: 400 / 500;
-  overflow: hidden;
 }
 
 .caricature picture {
