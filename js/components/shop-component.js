@@ -191,6 +191,22 @@ const shopItems = [
         backImage: "items/trump-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/2443F45QES4ZA",
         soldOut: false
+    },
+    {
+        name: "Hulk Hogan",
+        price: 300,
+        frontImage: "items/hulk-front.png",
+        backImage: "items/hulk-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/H7RYTNBREVBUG",
+        soldOut: false
+    },
+    {
+        name: "Rick Trevino - Signed, Unauthenticated",
+        price: 100,
+        frontImage: "items/rick-front.png",
+        backImage: "items/rick-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/5D9LMSCYFXDGL",
+        soldOut: false
     }
 ];
 
@@ -218,7 +234,7 @@ class ShopComponent extends HTMLElement {
             </div>
           </div>
         `;
-    
+
         this.renderItems(shopItems);
         this.initSortingControls();
     }
@@ -254,7 +270,7 @@ class ShopComponent extends HTMLElement {
     // Move flip button logic to a separate method
     handleFlipButtonClick(event) {
         const flipButton = event.target.closest('.flipButton');
-        
+
         if (flipButton) {
             const imageContainer = flipButton.closest('.item').querySelector('.image-container');
             imageContainer.classList.toggle('flipped');
@@ -269,22 +285,22 @@ class ShopComponent extends HTMLElement {
 
     renderItems(items) {
         const shopContainer = this.querySelector('.shop-autographs');
-    
+
         // Remove all existing rows except the first description row
         const existingRows = shopContainer.querySelectorAll('.row.content');
         existingRows.forEach(row => row.remove());
-    
+
         // Group items into rows of 4
         for (let i = 0; i < items.length; i += 4) {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'row content';
-    
+
             // Add up to 4 items to this row
             const rowItems = items.slice(i, i + 4);
             rowItems.forEach(item => {
                 rowDiv.innerHTML += this.createItemHTML(item);
             });
-    
+
             // Append row to the shop container
             shopContainer.appendChild(rowDiv);
         }
@@ -294,11 +310,11 @@ class ShopComponent extends HTMLElement {
         // Use event delegation to handle flip buttons
         this.addEventListener('click', (event) => {
             const flipButton = event.target.closest('.flipButton');
-            
+
             if (flipButton) {
                 const imageContainer = flipButton.closest('.item').querySelector('.image-container');
                 imageContainer.classList.toggle('flipped');
-    
+
                 if (imageContainer.classList.contains('flipped')) {
                     flipButton.innerHTML = 'Flip to Front <i class="fa fa-mail-forward"></i>';
                 } else {
@@ -332,13 +348,13 @@ class ShopComponent extends HTMLElement {
                 <option value="price-high">Price: High to Low</option>
             </select>
         `;
-    
+
         const firstRow = this.querySelector('.row');
         firstRow.insertAdjacentElement('afterend', sortingContainer);
-    
+
         sortingContainer.querySelector('#sort-select').addEventListener('change', (event) => {
             let sortedItems = [...shopItems];
-    
+
             switch (event.target.value) {
                 case 'alphabetical':
                     sortedItems = this.sortItemsAlphabetically(sortedItems);
@@ -352,7 +368,7 @@ class ShopComponent extends HTMLElement {
                 default:
                     break;
             }
-    
+
             this.renderItems(sortedItems);
         });
     }
