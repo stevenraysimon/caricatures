@@ -243,7 +243,7 @@ class ShopComponent extends HTMLElement {
     createItemHTML(item) {
         const itemClass = item.soldOut ? 'item sold-out' : 'item';
         const buttonContent = item.soldOut
-            ? '<p class="sold-out-label"><strong>SOLD OUT</strong></p>'
+            ? '<p class="sold-out-label"><strong>SOLD</strong></p>'
             : `<form action="${item.paypalLink}" method="post" target="_top"
                 style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
                 <input type="submit" value="Buy Now" />
