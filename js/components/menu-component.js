@@ -21,7 +21,7 @@ class MainNavComponent extends HTMLElement {
                     <li><a href="https://stevenraysimon.github.io/caricatures/shop" title="Shop">Shop</a></li>
                     <li><a href="mailto:stevenraysimon@gmail.com" title="Email" target="_top"
                         onClick="playSound('sounds/smallPop.wav');">Email</a></li>
-                    <li><a href="tel:3463730801" title="Call" target="_top" onClick="playSound('sounds/smallPop.wav');">Call</a></li>
+                    <li><a href="tel:3462910862" title="Call" target="_top" onClick="playSound('sounds/smallPop.wav');">Call</a></li>
                     <li><a href="https://www.instagram.com/stevensimon50" title="Instagram" target="_blank"
                         onclick="trackInstagramClick();">Instagram</a></li>
                     <li><a href="https://www.facebook.com/people/Caricatures-by-Steven-Simon/61557635126131/?mibextid=LQQJ4d"
@@ -66,7 +66,7 @@ class MenuComponent extends HTMLElement {
         const navLinks = this.querySelectorAll('main-nav a');
 
         menuIcon.addEventListener('click', this.toggleMenu);
-        
+
         // Close menu when nav links are clicked
         navLinks.forEach(link => {
             link.addEventListener('click', this.closeMenu);
@@ -87,16 +87,16 @@ class MenuComponent extends HTMLElement {
         barTwo.style.marginTop = '5px';
         barOne.style.transform = 'rotate(0deg)';
         barTwo.style.transform = 'rotate(0deg)';
-        
+
         // Slide menu out
         mainNav.style.left = '-300px';
-        
+
         // Fade out overlay after a slight delay to match slide animation
         setTimeout(() => {
             mainNav.style.display = 'none';
             blackOverlay.style.display = 'none';
         }, 300);
-        
+
         bars.forEach(bar => bar.classList.remove('invert'));
     }
 
@@ -110,23 +110,23 @@ class MenuComponent extends HTMLElement {
         // Show menu and overlay
         mainNav.style.display = 'block';
         blackOverlay.style.display = 'block';
-        
+
         // Slight delay to ensure display is set before transition
         requestAnimationFrame(() => {
             mainNav.style.left = '0px';
-            
+
             // Transform bars
             barTwo.style.marginTop = '-2px';
             barOne.style.transform = 'rotate(45deg)';
             barTwo.style.transform = 'rotate(-45deg)';
-            
+
             bars.forEach(bar => bar.classList.add('invert'));
         });
     }
 
     toggleMenu() {
         const mainNav = this.querySelector('.mainnav');
-        
+
         if (mainNav.style.display === 'block') {
             this.closeMenu();
         } else {
@@ -136,7 +136,7 @@ class MenuComponent extends HTMLElement {
 
     setupSmoothScroll() {
         this.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(event) {
+            anchor.addEventListener('click', function (event) {
                 event.preventDefault();
 
                 const targetId = this.getAttribute('href');
@@ -144,12 +144,12 @@ class MenuComponent extends HTMLElement {
 
                 if (target) {
                     let scrollPosition;
-                    const isHomepage = 
-                        window.location.href === 'https://stevenraysimon.github.io/caricatures/' || 
+                    const isHomepage =
+                        window.location.href === 'https://stevenraysimon.github.io/caricatures/' ||
                         window.location.pathname === '/index.html';
 
-                    scrollPosition = isHomepage 
-                        ? target.offsetTop 
+                    scrollPosition = isHomepage
+                        ? target.offsetTop
                         : target.getBoundingClientRect().top + window.pageYOffset;
 
                     window.scrollTo({

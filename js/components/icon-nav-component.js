@@ -7,7 +7,7 @@ class IconNavComponent extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <nav>
-                <a href="tel:3463730801" title="call" target="_top" onclick="playSound('sounds/smallPop.wav');">
+                <a href="tel:3462910862" title="call" target="_top" onclick="playSound('sounds/smallPop.wav');">
                     <i class="fa fa-phone"></i>
                 </a>
                 <a href="mailto:stevenraysimon@gmail.com" title="email" target="_top" onclick="playSound('sounds/smallPop.wav');">
