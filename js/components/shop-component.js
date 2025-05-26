@@ -38,7 +38,7 @@ const shopItems = [
         frontImage: "items/kane-front.png",
         backImage: "items/kane-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/TWQ6R88D7J5L2",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Kurt Angle",
