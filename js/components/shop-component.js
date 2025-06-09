@@ -169,6 +169,14 @@ const shopItems = [
         soldOut: false
     },
     {
+        name: "Married With... Children",
+        price: 300,
+        frontImage: "items/married-front.png",
+        backImage: "items/married-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/B8F6XA8RUS87S",
+        soldOut: false
+    },
+    {
         name: "Matthew Koma - Unsigned<br><strong>Profits for LA Wildfires</strong>",
         price: 60,
         frontImage: "items/matthewKoma-front.png",
@@ -201,7 +209,7 @@ const shopItems = [
         soldOut: false
     },
     {
-        name: "Rick Trevino - Signed, Unauthenticated",
+        name: "Rick Trevino",
         price: 100,
         frontImage: "items/rick-front.png",
         backImage: "items/rick-back.png",
