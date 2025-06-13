@@ -235,8 +235,7 @@ class ShopComponent extends HTMLElement {
               <div class="content">
                 <div class="inside-wrapper">
                   <h3 class="center">Autographs</h3>
-                  <p class="center">Welcome to my collection of autographed caricatures! Each one is unique, and I'm grateful
-                    for the chance to share them with you. Take one home today—once they're gone, they're gone!</p>
+                  <p class="center">Each caricature is hand-signed by the celebrity and authenticated by <a href="https://www.spenceloa.com/" target="_blank" rel="noopener noreferrer">JSA</a>. I sign each one too—since I drew it! They're one-of-a-kind. Once they're gone, they're gone!</p>
                 </div>
               </div>
             </div>

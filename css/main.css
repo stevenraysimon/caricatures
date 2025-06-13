@@ -672,6 +672,7 @@ strong {
 .media-logo {
   padding: 20px 10px;
   box-sizing: border-box;
+  aspect-ratio: auto;
 }
 
 .black {
