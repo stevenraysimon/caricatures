@@ -177,19 +177,19 @@ const shopItems = [
         soldOut: false
     },
     {
-        name: "Matthew Koma - Unsigned<br><strong>Profits for LA Wildfires</strong>",
-        price: 60,
-        frontImage: "items/matthewKoma-front.png",
-        backImage: "items/matthewKoma-back.png",
-        paypalLink: "https://www.paypal.com/ncp/payment/N6KPKGGVAKT3J",
-        soldOut: false
-    },
-    {
         name: "Dawes Band - Unsigned<br><strong>Profits for LA Wildfires</strong>",
         price: 60,
         frontImage: "items/dawes-front.png",
         backImage: "items/dawes-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/P9SMTVG522Y86",
+        soldOut: false
+    },
+    {
+        name: "Newsboys",
+        price: 150,
+        frontImage: "items/newsboys-front.png",
+        backImage: "items/newsboys-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/KL85KV3URRS8J",
         soldOut: false
     },
     {
@@ -214,6 +214,46 @@ const shopItems = [
         frontImage: "items/rick-front.png",
         backImage: "items/rick-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/5D9LMSCYFXDGL",
+        soldOut: false
+    },
+    {
+        name: "Ben Kweller",
+        price: 100,
+        frontImage: "items/benk-front.png",
+        backImage: "items/benk-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/NY478MEZCXNGS",
+        soldOut: false
+    },
+    {
+        name: "Chris Mintz-Plasse",
+        price: 100,
+        frontImage: "items/mclovin-front.png",
+        backImage: "items/mclovin-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/3APT6BRN3YV9Q",
+        soldOut: false
+    },
+    {
+        name: "Matthew Koma - Unsigned<br><strong>Profits for LA Wildfires</strong>",
+        price: 60,
+        frontImage: "items/matthewKoma-front.png",
+        backImage: "items/matthewKoma-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/N6KPKGGVAKT3J",
+        soldOut: false
+    },
+    {
+        name: "Austin St. John",
+        price: 180,
+        frontImage: "items/austin-st-john-front.png",
+        backImage: "items/austin-st-john-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/87CJ9EWUHEMDY",
+        soldOut: false
+    },
+    {
+        name: "Squire Fridell, Ronald McDonald",
+        price: 100,
+        frontImage: "items/squire-front.png",
+        backImage: "items/squire-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/ANL6TGG9BAQL6",
         soldOut: false
     }
 ];
@@ -343,6 +383,14 @@ class ShopComponent extends HTMLElement {
         return items.sort((a, b) => b.price - a.price);
     }
 
+    filterAvailableItems(items) {
+        return items.filter(item => !item.soldOut);
+    }
+
+    filterSoldItems(items) {
+        return items.filter(item => item.soldOut);
+    }
+
     initSortingControls() {
         const sortingContainer = document.createElement('div');
         sortingContainer.className = 'sorting-controls';
@@ -353,6 +401,8 @@ class ShopComponent extends HTMLElement {
                 <option value="alphabetical">Alphabetical</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
+                <option value="available">Available</option>
+                <option value="sold">Sold</option>
             </select>
         `;
 
@@ -360,23 +410,29 @@ class ShopComponent extends HTMLElement {
         firstRow.insertAdjacentElement('afterend', sortingContainer);
 
         sortingContainer.querySelector('#sort-select').addEventListener('change', (event) => {
-            let sortedItems = [...shopItems];
+            let filteredItems = [...shopItems];
 
             switch (event.target.value) {
                 case 'alphabetical':
-                    sortedItems = this.sortItemsAlphabetically(sortedItems);
+                    filteredItems = this.sortItemsAlphabetically(filteredItems);
                     break;
                 case 'price-low':
-                    sortedItems = this.sortItemsByPriceLowToHigh(sortedItems);
+                    filteredItems = this.sortItemsByPriceLowToHigh(filteredItems);
                     break;
                 case 'price-high':
-                    sortedItems = this.sortItemsByPriceHighToLow(sortedItems);
+                    filteredItems = this.sortItemsByPriceHighToLow(filteredItems);
+                    break;
+                case 'available':
+                    filteredItems = this.filterAvailableItems(filteredItems);
+                    break;
+                case 'sold':
+                    filteredItems = this.filterSoldItems(filteredItems);
                     break;
                 default:
                     break;
             }
 
-            this.renderItems(sortedItems);
+            this.renderItems(filteredItems);
         });
     }
 }
