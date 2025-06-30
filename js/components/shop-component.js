@@ -198,7 +198,7 @@ const shopItems = [
         frontImage: "items/trump-front.png",
         backImage: "items/trump-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/2443F45QES4ZA",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Hulk Hogan",
