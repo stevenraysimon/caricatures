@@ -82,7 +82,7 @@ const shopItems = [
     },
     {
         name: "Ozzy Osbourne",
-        price: 400,
+        price: 500,
         frontImage: "items/ozzyOsbourne-front.png",
         backImage: "items/ozzyOsbourne-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/DURDGAGM3EC7Y",
