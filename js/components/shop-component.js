@@ -255,7 +255,31 @@ const shopItems = [
         backImage: "items/squire-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/ANL6TGG9BAQL6",
         soldOut: false
-    }
+    },
+    {
+        name: "Evander Holyfield",
+        price: 300,
+        frontImage: "items/holyfield-front.png",
+        backImage: "items/holyfield-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/VN9UZQFGZDCP2",
+        soldOut: false
+    },
+    {
+        name: "Pete Yorn",
+        price: 100,
+        frontImage: "items/peteYorn-front.png",
+        backImage: "items/peteYorn-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/CKHB9N2D4G7G8",
+        soldOut: false
+    },
+    {
+        name: "Rikishi",
+        price: 180,
+        frontImage: "items/rikishi-front.png",
+        backImage: "items/rikishi-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/KMXWPW7CQBUJG",
+        soldOut: false
+    },
 ];
 
 class ShopComponent extends HTMLElement {
