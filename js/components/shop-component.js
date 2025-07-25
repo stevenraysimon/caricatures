@@ -202,7 +202,7 @@ const shopItems = [
     },
     {
         name: "Hulk Hogan",
-        price: 300,
+        price: 400,
         frontImage: "items/hulk-front.png",
         backImage: "items/hulk-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/H7RYTNBREVBUG",
