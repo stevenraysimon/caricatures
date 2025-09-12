@@ -30,7 +30,7 @@ const shopItems = [
         frontImage: "items/joelOsteen-front.png",
         backImage: "items/joelOsteen-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/P5DM9SM5Y8E98",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Kane",
@@ -278,6 +278,22 @@ const shopItems = [
         frontImage: "items/rikishi-front.png",
         backImage: "items/rikishi-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/KMXWPW7CQBUJG",
+        soldOut: false
+    },
+    {
+        name: "Hakeem Olajuwon",
+        price: 250,
+        frontImage: "items/hakeem-front.png",
+        backImage: "items/hakeem-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/D7RRLK6WFXQGC",
+        soldOut: false
+    },
+    {
+        name: "Charlie Kirk - Unsigned Limited Edition",
+        price: 60,
+        frontImage: "items/charlie-front.png",
+        backImage: "items/charlie-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/E3JLKP6ESE38A",
         soldOut: false
     },
 ];
