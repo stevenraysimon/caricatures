@@ -301,7 +301,7 @@ const shopItems = [
         price: 150,
         frontImage: "items/beaver-front.png",
         backImage: "items/beaver-back.png",
-        paypalLink: "#",
+        paypalLink: "https://www.paypal.com/ncp/payment/L4CTJXVPJ4GRE",
         soldOut: false
     },
     {
@@ -309,7 +309,7 @@ const shopItems = [
         price: 300,
         frontImage: "items/fullHouse-front.png",
         backImage: "items/fullHouse-back.png",
-        paypalLink: "#",
+        paypalLink: "https://www.paypal.com/ncp/payment/R8DUKYXC36S3A",
         soldOut: false
     }
 ];
