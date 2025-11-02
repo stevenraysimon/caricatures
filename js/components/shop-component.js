@@ -177,7 +177,7 @@ const shopItems = [
         soldOut: false
     },
     {
-        name: "Dawes Band - Unsigned<br><strong>Profits for LA Wildfires</strong>",
+        name: "Dawes Band - Unsigned",
         price: 60,
         frontImage: "items/dawes-front.png",
         backImage: "items/dawes-back.png",
@@ -206,7 +206,7 @@ const shopItems = [
         frontImage: "items/hulk-front.png",
         backImage: "items/hulk-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/H7RYTNBREVBUG",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Rick Trevino",
@@ -233,7 +233,7 @@ const shopItems = [
         soldOut: false
     },
     {
-        name: "Matthew Koma - Unsigned<br><strong>Profits for LA Wildfires</strong>",
+        name: "Matthew Koma - Unsigned",
         price: 60,
         frontImage: "items/matthewKoma-front.png",
         backImage: "items/matthewKoma-back.png",
@@ -296,6 +296,22 @@ const shopItems = [
         paypalLink: "https://www.paypal.com/ncp/payment/E3JLKP6ESE38A",
         soldOut: false
     },
+    {
+        name: "Jerry 'The Beaver' Mathers",
+        price: 150,
+        frontImage: "items/beaver-front.png",
+        backImage: "items/beaver-back.png",
+        paypalLink: "#",
+        soldOut: false
+    },
+    {
+        name: "Full House",
+        price: 300,
+        frontImage: "items/fullHouse-front.png",
+        backImage: "items/fullHouse-back.png",
+        paypalLink: "#",
+        soldOut: false
+    }
 ];
 
 class ShopComponent extends HTMLElement {
