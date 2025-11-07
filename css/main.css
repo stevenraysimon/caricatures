@@ -57,7 +57,7 @@
   --linksHover: #777777;
   --linksActive: #444444;
   --linksBackgroundHover: #DDDDDD;
-  --headerLink: #157ACC;
+  --specialLink: #0057AD;
 }
 
 body {
@@ -286,7 +286,7 @@ nav .fa {
 }
 
 .headerLink{
-  color: var(--headerLink) !important;
+  color: var(--specialLink) !important;
 }
 
 icon-nav-component a {
@@ -525,7 +525,7 @@ hr {
 }
 
 .row a {
-  color: #0057AD;
+  color: var(--specialLink);
 }
 
 .row-cta,
