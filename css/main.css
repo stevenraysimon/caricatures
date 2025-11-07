@@ -57,6 +57,7 @@
   --linksHover: #777777;
   --linksActive: #444444;
   --linksBackgroundHover: #DDDDDD;
+  --headerLink: #157ACC;
 }
 
 body {
@@ -284,11 +285,26 @@ nav .fa {
   font-size: 2rem;
 }
 
+.headerLink{
+  color: var(--headerLink) !important;
+}
+
+icon-nav-component a {
+  color: var(--links); /* ensure SVGs get same color as FA icons */
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+icon-nav-component a svg {
+  display: block;
+}
+
 @media screen and (max-width: 500px) {
   nav a {
-    width: 60px;
+    width: 50px;
     /* Adjusted width for each link */
-    height: 60px;
+    height: 50px;
     /* Adjusted height for each link */
   }
 
@@ -299,9 +315,9 @@ nav .fa {
 
 @media screen and (max-width: 350px) {
   nav a {
-    width: 50px;
+    width: 40px;
     /* Adjusted width for each link */
-    height: 50px;
+    height: 40px;
     /* Adjusted height for each link */
   }
 

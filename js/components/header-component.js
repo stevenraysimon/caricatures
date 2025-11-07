@@ -18,8 +18,8 @@ class HeaderComponent extends HTMLElement {
                     </picture>
                 </a>
                 <div class="inside-wrapper">
-                    <p>Hey there! I’m a caricature artist on a mission to bring smiles and laughter to faces, one caricature
-                        at a time!</p>
+                    <p>Hey! I’m Steven, a caricature artist creating crisp, classy, cartoonish caricatures. I offer the most affordable caricatures — email me at <a href="mailto:stevenraysimon@gmail.com" title="email" target="_top"
+                        onClick="playSound('sounds/smallPop.wav');" class="headerLink">stevenraysimon@gmail.com</a> to book!</p>
                 </div><!--inside wrapper-->
                 <icon-nav-component></icon-nav-component>
             </header>
