@@ -305,6 +305,22 @@ const shopItems = [
         soldOut: false
     },
     {
+        name: "Johnny 'Football' Manziel",
+        price: 250,
+        frontImage: "items/johnnyM-front.png",
+        backImage: "items/johnnyM-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/8LBBUDGCP5VXQ",
+        soldOut: false
+    },
+    {
+        name: "Marcel Reed",
+        price: 200,
+        frontImage: "items/marcel-front.png",
+        backImage: "items/marcel-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/7ELKG93WAGGY4",
+        soldOut: false
+    },
+    {
         name: "Full House",
         price: 300,
         frontImage: "items/fullHouse-front.png",
@@ -338,7 +354,9 @@ class ShopComponent extends HTMLElement {
           </div>
         `;
 
-        this.renderItems(shopItems);
+        // Sort items alphabetically by default
+        const sortedItems = this.sortItemsAlphabetically([...shopItems]);
+        this.renderItems(sortedItems);
         this.initSortingControls();
     }
 
@@ -454,7 +472,6 @@ class ShopComponent extends HTMLElement {
             <label for="sort-select">Sort by: </label>
             <select id="sort-select">
                 <option value="default">Default</option>
-                <option value="alphabetical">Alphabetical</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
                 <option value="available">Available</option>
@@ -469,9 +486,6 @@ class ShopComponent extends HTMLElement {
             let filteredItems = [...shopItems];
 
             switch (event.target.value) {
-                case 'alphabetical':
-                    filteredItems = this.sortItemsAlphabetically(filteredItems);
-                    break;
                 case 'price-low':
                     filteredItems = this.sortItemsByPriceLowToHigh(filteredItems);
                     break;
@@ -479,12 +493,16 @@ class ShopComponent extends HTMLElement {
                     filteredItems = this.sortItemsByPriceHighToLow(filteredItems);
                     break;
                 case 'available':
-                    filteredItems = this.filterAvailableItems(filteredItems);
+                    // Sort alphabetically first, then filter
+                    filteredItems = this.sortItemsAlphabetically(this.filterAvailableItems(filteredItems));
                     break;
                 case 'sold':
-                    filteredItems = this.filterSoldItems(filteredItems);
+                    // Sort alphabetically first, then filter
+                    filteredItems = this.sortItemsAlphabetically(this.filterSoldItems(filteredItems));
                     break;
                 default:
+                    // Default view is alphabetical
+                    filteredItems = this.sortItemsAlphabetically(filteredItems);
                     break;
             }
 
