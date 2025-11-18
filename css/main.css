@@ -859,9 +859,31 @@ button:hover {
   cursor: pointer;
 }
 
+.shop .item form .offerButton{
+  text-align: center;
+  border: none;
+  border-radius: 1.5rem;
+  min-width: 11.625rem;
+  height: auto;
+  font-weight: bold;
+  background-color: #CCC;
+  color: var(--black);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  cursor: pointer;
+  padding: 10px 0px;
+}
+
 .shop .item form input:hover {
   background-color: #333;
   transition: 0.3s;
+}
+
+.shop .item form a.offerButton:hover{
+  background-color: #AAA !important;
+  transition: 0.3s;
+  filter: brightness(1);
 }
 
 .sorting-controls {
