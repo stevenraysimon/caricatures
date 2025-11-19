@@ -23,16 +23,16 @@ class OfferModalComponent extends HTMLElement {
                             <input type="text" class="form-control" id="autograph" name="entry.2128365415" readonly required>
                         </div>
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="entry.198405434">
+                            <label for="name">Name *</label>
+                            <input type="text" class="form-control" id="name" name="entry.198405434" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="entry.1189469493">
+                            <label for="email">Email *</label>
+                            <input type="email" class="form-control" id="email" name="entry.1189469493" required>
                         </div>
                         <div class="form-group">
-                            <label for="offer">Offer Amount</label>
-                            <input type="text" class="form-control" id="offer" name="entry.855884435" placeholder="$">
+                            <label for="offer">Offer Amount *</label>
+                            <input type="text" class="form-control" id="offer" name="entry.855884435" placeholder="$" required>
                         </div>
                         <div id="formStatus" class="form-status"></div>
                     </form>
