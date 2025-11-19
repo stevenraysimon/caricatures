@@ -5,5 +5,4 @@ import './components/menu-component.js';
 import './components/caricature-card-component.js';
 import './components/footer-component.js';
 import './components/shop-component.js';
-
-
+import './components/offer-modal-component.js';

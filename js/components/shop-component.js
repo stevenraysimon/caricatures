@@ -6,7 +6,6 @@ const shopItems = [
         frontImage: "items/drake-front.png",
         backImage: "items/drake-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/E54CEU9EJT52N",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Drake+Bell",
         soldOut: false
     },
     {
@@ -15,7 +14,6 @@ const shopItems = [
         frontImage: "items/howieMandel-front.png",
         backImage: "items/howieMandel-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/K8CMZRLZR2536",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Howie+Mandel",
         soldOut: false
     },
     {
@@ -24,7 +22,6 @@ const shopItems = [
         frontImage: "items/mattressMack-front.png",
         backImage: "items/mattressMack-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/UH4CM6LPS2S3W",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Jim+%27Mattress+Mack%27+McIngvale",
         soldOut: true
     },
     {
@@ -33,7 +30,6 @@ const shopItems = [
         frontImage: "items/joelOsteen-front.png",
         backImage: "items/joelOsteen-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/P5DM9SM5Y8E98",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Joel+Osteen",
         soldOut: true
     },
     {
@@ -42,7 +38,6 @@ const shopItems = [
         frontImage: "items/kane-front.png",
         backImage: "items/kane-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/TWQ6R88D7J5L2",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Kane",
         soldOut: true
     },
     {
@@ -51,7 +46,6 @@ const shopItems = [
         frontImage: "items/kurtAngle-front.png",
         backImage: "items/kurtAngle-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/LK2H45RCN946Q",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Kurt+Angle",
         soldOut: false
     },
     {
@@ -60,7 +54,6 @@ const shopItems = [
         frontImage: "items/larryBird-front.png",
         backImage: "items/larryBird-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/BKG4AZ7ES2LBA",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Larry+Bird",
         soldOut: false
     },
     {
@@ -69,7 +62,6 @@ const shopItems = [
         frontImage: "items/bam-front.png",
         backImage: "items/bam-back.png",
         paypalLink: "#",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Bam+Margera",
         soldOut: true
     },
     {
@@ -78,7 +70,6 @@ const shopItems = [
         frontImage: "items/maraWilson-front.png",
         backImage: "items/maraWilson-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/NE66W2QXAY8ZW",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Mara+%27Matilda%27+Wilson",
         soldOut: false
     },
     {
@@ -87,7 +78,6 @@ const shopItems = [
         frontImage: "items/mikeTyson-front.png",
         backImage: "items/mikeTyson-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/5VBU2H96AVEZ8",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Mike+Tyson",
         soldOut: true
     },
     {
@@ -96,7 +86,6 @@ const shopItems = [
         frontImage: "items/ozzyOsbourne-front.png",
         backImage: "items/ozzyOsbourne-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/DURDGAGM3EC7Y",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Ozzy+Osbourne",
         soldOut: false
     },
     {
@@ -105,7 +94,6 @@ const shopItems = [
         frontImage: "items/paulWall-front.png",
         backImage: "items/paulWall-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/UTU3PHN8FTZPN",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Paul+Wall",
         soldOut: false
     },
     {
@@ -114,7 +102,6 @@ const shopItems = [
         frontImage: "items/radneyFoster-front.png",
         backImage: "items/radneyFoster-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/R6AA8KXGGRDJ8",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Radney+Foster",
         soldOut: false
     },
     {
@@ -123,7 +110,6 @@ const shopItems = [
         frontImage: "items/ricFlair-front.png",
         backImage: "items/ricFlair-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/LHH8NWVKJ8Y66",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Ric+Flair",
         soldOut: false
     },
     {
@@ -132,7 +118,6 @@ const shopItems = [
         frontImage: "items/bigShow-front.png",
         backImage: "items/bigShow-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/4CTN2H9RW2R5L",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=The+Big+Show",
         soldOut: false
     },
     {
@@ -141,7 +126,6 @@ const shopItems = [
         frontImage: "items/billFarmer-front.png",
         backImage: "items/billFarmer-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/ZSZF9JPB2C4UQ",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Bill+Farmer",
         soldOut: false
     },
     {
@@ -150,7 +134,6 @@ const shopItems = [
         frontImage: "items/bulkSkull-front.png",
         backImage: "items/bulkSkull-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/P47F87GKAY38Y",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Bulk+and+Skull",
         soldOut: false
     },
     {
@@ -159,7 +142,6 @@ const shopItems = [
         frontImage: "items/butch-dannyPhantom-front.png",
         backImage: "items/butch-dannyPhantom-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/DYLZ4Z73CT236",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Butch+Hartman+Danny+Phantom",
         soldOut: false
     },
     {
@@ -168,7 +150,6 @@ const shopItems = [
         frontImage: "items/butch-oddParents-front.png",
         backImage: "items/butch-oddParents-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/ZUHUWN7EXYV2J",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Butch+Hartman+Fairly+OddParents",
         soldOut: false
     },
     {
@@ -177,7 +158,6 @@ const shopItems = [
         frontImage: "items/jasonMarsden-front.png",
         backImage: "items/jasonMarsden-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/NBHEW6SCW2K86",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Jason+Marsden",
         soldOut: false
     },
     {
@@ -186,7 +166,6 @@ const shopItems = [
         frontImage: "items/kathleenHerles-front.png",
         backImage: "items/kathleenHerles-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/32PU5EAZHUBHE",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Kathleen+Herles",
         soldOut: false
     },
     {
@@ -195,7 +174,6 @@ const shopItems = [
         frontImage: "items/married-front.png",
         backImage: "items/married-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/B8F6XA8RUS87S",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Married+With+Children",
         soldOut: false
     },
     {
@@ -204,7 +182,6 @@ const shopItems = [
         frontImage: "items/dawes-front.png",
         backImage: "items/dawes-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/P9SMTVG522Y86",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Dawes+Band",
         soldOut: false
     },
     {
@@ -213,7 +190,6 @@ const shopItems = [
         frontImage: "items/newsboys-front.png",
         backImage: "items/newsboys-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/KL85KV3URRS8J",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Newsboys",
         soldOut: false
     },
     {
@@ -222,7 +198,6 @@ const shopItems = [
         frontImage: "items/trump-front.png",
         backImage: "items/trump-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/2443F45QES4ZA",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Donald+Trump",
         soldOut: true
     },
     {
@@ -231,7 +206,6 @@ const shopItems = [
         frontImage: "items/hulk-front.png",
         backImage: "items/hulk-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/H7RYTNBREVBUG",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Hulk+Hogan",
         soldOut: true
     },
     {
@@ -240,7 +214,6 @@ const shopItems = [
         frontImage: "items/rick-front.png",
         backImage: "items/rick-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/5D9LMSCYFXDGL",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Rick+Trevino",
         soldOut: false
     },
     {
@@ -249,7 +222,6 @@ const shopItems = [
         frontImage: "items/benk-front.png",
         backImage: "items/benk-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/NY478MEZCXNGS",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Ben+Kweller",
         soldOut: false
     },
     {
@@ -258,7 +230,6 @@ const shopItems = [
         frontImage: "items/mclovin-front.png",
         backImage: "items/mclovin-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/3APT6BRN3YV9Q",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Chris+Mintz+Plasse",
         soldOut: false
     },
     {
@@ -267,7 +238,6 @@ const shopItems = [
         frontImage: "items/matthewKoma-front.png",
         backImage: "items/matthewKoma-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/N6KPKGGVAKT3J",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Matthew+Koma",
         soldOut: false
     },
     {
@@ -276,7 +246,6 @@ const shopItems = [
         frontImage: "items/austin-st-john-front.png",
         backImage: "items/austin-st-john-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/87CJ9EWUHEMDY",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Austin+St.+John",
         soldOut: false
     },
     {
@@ -285,7 +254,6 @@ const shopItems = [
         frontImage: "items/squire-front.png",
         backImage: "items/squire-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/ANL6TGG9BAQL6",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Squire+Fridell+Ronald+McDonald",
         soldOut: false
     },
     {
@@ -294,7 +262,6 @@ const shopItems = [
         frontImage: "items/holyfield-front.png",
         backImage: "items/holyfield-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/VN9UZQFGZDCP2",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Evander+Holyfield",
         soldOut: false
     },
     {
@@ -303,7 +270,6 @@ const shopItems = [
         frontImage: "items/peteYorn-front.png",
         backImage: "items/peteYorn-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/CKHB9N2D4G7G8",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Pete+Yorn",
         soldOut: false
     },
     {
@@ -312,7 +278,6 @@ const shopItems = [
         frontImage: "items/rikishi-front.png",
         backImage: "items/rikishi-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/KMXWPW7CQBUJG",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Rikishi",
         soldOut: false
     },
     {
@@ -321,7 +286,6 @@ const shopItems = [
         frontImage: "items/hakeem-front.png",
         backImage: "items/hakeem-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/D7RRLK6WFXQGC",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Hakeem+Olajuwon",
         soldOut: false
     },
     {
@@ -330,7 +294,6 @@ const shopItems = [
         frontImage: "items/charlie-front.png",
         backImage: "items/charlie-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/E3JLKP6ESE38A",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Charlie+Kirk",
         soldOut: false
     },
     {
@@ -339,7 +302,6 @@ const shopItems = [
         frontImage: "items/beaver-front.png",
         backImage: "items/beaver-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/L4CTJXVPJ4GRE",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Jerry+%27The+Beaver%27+Mathers",
         soldOut: false
     },
     {
@@ -348,7 +310,6 @@ const shopItems = [
         frontImage: "items/johnnyM-front.png",
         backImage: "items/johnnyM-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/8LBBUDGCP5VXQ",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Johnny+%27Football%27+Manziel",
         soldOut: false
     },
     {
@@ -357,7 +318,6 @@ const shopItems = [
         frontImage: "items/marcel-front.png",
         backImage: "items/marcel-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/7ELKG93WAGGY4",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Marcel+Reed",
         soldOut: false
     },
     {
@@ -366,7 +326,6 @@ const shopItems = [
         frontImage: "items/fullHouse-front.png",
         backImage: "items/fullHouse-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/R8DUKYXC36S3A",
-        offerLink: "https://docs.google.com/forms/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/viewform?usp=pp_url&entry.2128365415=Full+House",
         soldOut: false
     }
 ];
@@ -377,8 +336,10 @@ class ShopComponent extends HTMLElement {
         // Bind methods to ensure correct 'this' context
         this.createItemHTML = this.createItemHTML.bind(this);
         this.renderItems = this.renderItems.bind(this);
+        this.handleOfferClick = this.handleOfferClick.bind(this);
         // Add event listener in the constructor to ensure it's only added once
         this.addEventListener('click', this.handleFlipButtonClick);
+        this.addEventListener('click', this.handleOfferClick);
     }
 
     connectedCallback() {
@@ -409,7 +370,7 @@ class ShopComponent extends HTMLElement {
             : `<form action="${item.paypalLink}" method="post" target="_top"
                 style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
                 <input type="submit" value="Buy Now" />
-                <a href="${item.offerLink}" class="offerButton">Make an Offer</a>
+                <button type="button" class="offerButton" data-autograph="${item.name}">Make an Offer</button>
                 <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
                 <section> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
                     alt="paypal" style="height:0.875rem;vertical-align:middle;" /></section>
@@ -428,6 +389,22 @@ class ShopComponent extends HTMLElement {
                 ${buttonContent}
             </div>
         </div>`;
+    }
+
+    // Handle offer button click
+    handleOfferClick(event) {
+        const offerButton = event.target.closest('.offerButton');
+        
+        if (offerButton) {
+            event.preventDefault();
+            const autographName = offerButton.getAttribute('data-autograph');
+            
+            // Dispatch custom event to open modal
+            const openModalEvent = new CustomEvent('openOfferModal', {
+                detail: { autographName: autographName }
+            });
+            document.dispatchEvent(openModalEvent);
+        }
     }
 
     // Move flip button logic to a separate method
