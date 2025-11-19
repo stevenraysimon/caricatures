@@ -1416,6 +1416,11 @@ footer div {
   color: var(--black);
 }
 
+.close-x:hover{
+  color: var(--links);
+  background-color: var(--linksBackgroundHover);
+}
+
 /* Responsive Design */
 @media screen and (max-width: 600px) {
   .offer-modal {
