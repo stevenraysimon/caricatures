@@ -59,6 +59,7 @@ class MenuComponent extends HTMLElement {
             </div>
             <div class="blackOverlay"></div>
             <main-nav></main-nav>
+            <book-now-button></book-now-button>
         `;
 
         // Add event listeners

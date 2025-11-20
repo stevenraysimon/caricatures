@@ -6,3 +6,5 @@ import './components/caricature-card-component.js';
 import './components/footer-component.js';
 import './components/shop-component.js';
 import './components/offer-modal-component.js';
+import './components/booking-modal-component.js';
+import './components/book-now-button-component.js';
