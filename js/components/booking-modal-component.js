@@ -105,6 +105,9 @@ class BookingModalComponent extends HTMLElement {
         const form = this.querySelector('#bookingForm');
         const statusDiv = this.querySelector('#formStatus');
 
+        // Scroll modal back to top
+        modal.scrollTop = 0;
+
         // Hide modal and overlay
         modal.style.display = 'none';
         overlay.style.display = 'none';
@@ -113,9 +116,6 @@ class BookingModalComponent extends HTMLElement {
         form.reset();
         statusDiv.textContent = '';
         statusDiv.className = 'form-status';
-
-        // Scroll modal back to top
-        modal.scrollTop = 0;
     }
 
     openModal() {
