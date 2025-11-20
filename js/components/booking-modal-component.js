@@ -113,6 +113,9 @@ class BookingModalComponent extends HTMLElement {
         form.reset();
         statusDiv.textContent = '';
         statusDiv.className = 'form-status';
+
+        // Scroll modal back to top
+        modal.scrollTop = 0;
     }
 
     openModal() {
