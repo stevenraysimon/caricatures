@@ -591,6 +591,10 @@ hr {
   height: auto;
 }
 
+.media-caricature {
+  aspect-ratio: auto !important;
+}
+
 .content {
   color: var(--black);
   padding: 40px 0;
