@@ -1065,6 +1065,16 @@ footer div {
   padding-top: 0px !important;
 }
 
+/* Button in Panel */
+.button-panel-wrapper{
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.button-panel-wrapper button{
+  margin:20px auto !important;
+}
+
 @media screen and (max-width: 1500px) {
 
   iframe {
@@ -1265,6 +1275,11 @@ footer div {
 
   .information:nth-child(even) .flex {
     flex-direction: column;
+  }
+
+  /* Button in Panel */
+  .button-panel-wrapper{
+    text-align: center;
   }
 
 }

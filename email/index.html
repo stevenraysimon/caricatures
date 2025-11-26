@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Steven Simon</title>
+    <title>Caricatures by Steven Simon || Email</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     
@@ -333,6 +333,7 @@
         document.querySelectorAll('input[type="radio"]').forEach(radio => {
             radio.addEventListener('change', function () {
                 var message = document.getElementById('message');
+                
                 if (this.id === 'default-check') {
                     message.value = '';
                     message.placeholder = "Type your message here...";
@@ -369,10 +370,56 @@
                         "Our commitment to supporting Catholic Churches in Houston means we strive to keep our prices affordable. While our usual rate is $100 per hour, we'd like to offer a special rate of $75 per hour for a minimum of two hours, providing free caricatures for your guests.\n\n" +
                         "We believe this will add a unique and memorable touch to your event. Let's chat more about how we can make it work for both of us!"
 
-                }  else if (this.id === 'review-check') {
+                } else if (this.id === 'review-check') {
                     message.value = "I wanted to extend a huge thank you for having me to draw caricatures at " + document.getElementById('event').value + "! I had a blast creating memorable moments with everyone.\n\nIf you could spare a moment, I'd greatly appreciate it if you could leave a review for me. Your feedback means a lot! Just follow this link: reviewReplace \n\nThanks again for having me, and I hope to work with you again in the future!"
+                } else if (this.id === 'booking-check') {
+                    // Set the date
+                    var eventDate = document.getElementById("eventDate").value;
+                    var eventDateObject = new Date(eventDate);
+                    if (!isNaN(eventDateObject.getTime())) {
+                        eventDateObject.setHours(0, 0, 0, 0);
+                        eventDateObject.setDate(eventDateObject.getDate() + 1);
+                        var formattedEventDate = convertDate(eventDateObject);
+                        var dayOfWeekDay = getDayOfWeek(eventDateObject);
+                        eventDate = dayOfWeekDay + ', ' + formattedEventDate;
+                    } else {
+                        eventDate = "";
+                    }
+                    
+                    var hours = document.getElementById('hours').value || 'X';
+                    message.value = "Thank you for booking! Your caricature event is confirmed for " + hours + " hours on " + eventDate + ".\n\n" +
+                        "You can secure your booking now by paying using this link: paypalLinkReplace\n\n" +
+                        "An invoice has been attached for your records.\n\n" +
+                        "I'm really excited for your event and can't wait to draw goofy faces of everyone — it's going to be a lot of fun!\n\n" +
+                        "Please let me know if you have any questions or special requests before the big day.\n\n" +
+                        "Looking forward to seeing you all soon!";
                 }
             });
+        });
+        
+        // Update booking message when hours change
+        $('#hours').on('input', function() {
+            if ($('#booking-check').is(':checked')) {
+                var eventDate = document.getElementById("eventDate").value;
+                var eventDateObject = new Date(eventDate);
+                if (!isNaN(eventDateObject.getTime())) {
+                    eventDateObject.setHours(0, 0, 0, 0);
+                    eventDateObject.setDate(eventDateObject.getDate() + 1);
+                    var formattedEventDate = convertDate(eventDateObject);
+                    var dayOfWeekDay = getDayOfWeek(eventDateObject);
+                    eventDate = dayOfWeekDay + ', ' + formattedEventDate;
+                } else {
+                    eventDate = "";
+                }
+                
+                var hours = this.value || 'X';
+                document.getElementById('message').value = "Thank you for booking! Your caricature event is confirmed for " + hours + " hours on " + eventDate + ".\n\n" +
+                    "You can secure your booking now by paying using this link: paypalLinkReplace\n\n" +
+                    "An invoice has been attached for your records.\n\n" +
+                    "I'm really excited for your event and can't wait to draw goofy faces of everyone — it's going to be a lot of fun!\n\n" +
+                    "Please let me know if you have any questions or special requests before the big day.\n\n" +
+                    "Looking forward to seeing you all soon!";
+            }
         });
 
 
@@ -417,11 +464,27 @@
                     // Replace newline characters with <br> tags and set the HTML content
                     $('#letter').html(message.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>'));
 
-
                     if (document.getElementById('ask-check').checked) {
                         $('#letter').append(portfolioHTML);
                     } else if (document.getElementById('review-check').checked) {
                         $('#letter').html($('#letter').html().replace('reviewReplace', reviewHTML));
+                    } else if (document.getElementById('booking-check').checked) {
+                        // Get PayPal link based on hours
+                        var hours = parseInt(document.getElementById('hours').value);
+                        var paypalLinks = {
+                            2: 'https://www.paypal.com/ncp/payment/8J2FT6C8AMX3C',
+                            3: 'https://www.paypal.com/ncp/payment/XMT5D8XWLHTCQ',
+                            4: 'https://www.paypal.com/ncp/payment/PS3YT366TQFS4',
+                            5: 'https://www.paypal.com/ncp/payment/6ZTXZSX9L7J9W',
+                            6: 'https://www.paypal.com/ncp/payment/6SC2LAAEYV3SU',
+                            7: 'https://www.paypal.com/ncp/payment/FPBTY95NVMN9Q',
+                            8: 'https://www.paypal.com/ncp/payment/6DD8AB9EJDAJN'
+                        };
+                        
+                        var paypalLink = paypalLinks[hours] || '';
+                        var paypalHTML = '<a href="' + paypalLink + '" target="_blank" style="color:#437DFF;text-decoration:none;">Pay Now</a>';
+                        
+                        $('#letter').html($('#letter').html().replace('paypalLinkReplace', paypalHTML));
                     }
 
                     // Set the text content of the element
@@ -508,6 +571,8 @@
         <input id="event" type="text" placeholder="Event Name" class="formInput"><br>
         <p class="formText">Event Date:</p>
         <input id="eventDate" type="date" placeholder="Event Date" class="formInput"><br>
+        <p class="formText" id="hours-label">Hours (2-8):</p>
+        <input id="hours" type="number" min="2" max="8" placeholder="Number of hours" class="formInput"><br>
         <div class="radios">
             <label for="default-check">Blank</label>
             <input type="radio" id="default-check" name="radio" checked><br>
@@ -520,6 +585,9 @@
 
             <label for="review-check">Ask for a review</label>
             <input type="radio" id="review-check" name="radio"><br>
+
+            <label for="booking-check">Booking Finalization</label>
+            <input type="radio" id="booking-check" name="radio"><br>
         </div>
         <p class="formText">Message:</p>
         <textarea id="message" placeholder="Type your message here..."></textarea>
