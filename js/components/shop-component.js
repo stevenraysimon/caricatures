@@ -86,7 +86,7 @@ const shopItems = [
         frontImage: "items/ozzyOsbourne-front.png",
         backImage: "items/ozzyOsbourne-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/DURDGAGM3EC7Y",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Paul Wall",
