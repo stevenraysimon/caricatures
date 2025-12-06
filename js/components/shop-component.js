@@ -54,7 +54,7 @@ const shopItems = [
         frontImage: "items/larryBird-front.png",
         backImage: "items/larryBird-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/BKG4AZ7ES2LBA",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Bam Margera",
@@ -230,7 +230,7 @@ const shopItems = [
         frontImage: "items/mclovin-front.png",
         backImage: "items/mclovin-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/3APT6BRN3YV9Q",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Matthew Koma - Unsigned",
@@ -310,7 +310,7 @@ const shopItems = [
         frontImage: "items/johnnyM-front.png",
         backImage: "items/johnnyM-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/8LBBUDGCP5VXQ",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Marcel Reed",
