@@ -302,7 +302,7 @@ const shopItems = [
         frontImage: "items/beaver-front.png",
         backImage: "items/beaver-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/L4CTJXVPJ4GRE",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Johnny 'Football' Manziel",
