@@ -5,20 +5,24 @@ class MainNavComponent extends HTMLElement {
     }
 
     connectedCallback() {
-        const isHomePage = window.location.href === 'https://stevenraysimon.github.io/caricatures/';
-        const baseUrl = window.location.origin;
-        const basePath = isHomePage ? '#' : baseUrl + '/caricatures#';
+        const isHomePage =
+            window.location.pathname === '/' ||
+            window.location.pathname === '/index.html' ||
+            window.location.pathname === '/caricatures/' ||
+            window.location.pathname === '/caricatures/index.html';
+        const siteBase = window.location.pathname.includes('/caricatures') ? '/caricatures' : '';
+        const basePath = isHomePage ? '#' : `${window.location.origin}${siteBase}/#`;
 
         this.innerHTML = `
             <div class="mainnav">
                 <ul>
-                    <li><a href="https://stevenraysimon.github.io/caricatures/" title="Home">Home</a></li>
+                    <li><a href="/" title="Home">Home</a></li>
                     <li><a href="${basePath}pricing" title="Pricing">Pricing</a></li>
                     <li><a href="${basePath}travel" title="Travel">Travel</a></li>
                     <li><a href="${basePath}questions" title="Questions">Questions</a></li>
                     <li><a href="${basePath}reviews" title="Reviews">Reviews</a></li>
-                    <li><a href="https://stevenraysimon.github.io/caricatures/media" title="Media">Media</a></li>
-                    <li><a href="https://stevenraysimon.github.io/caricatures/shop" title="Shop">Shop</a></li>
+                    <li><a href="${siteBase}/media" title="Media">Media</a></li>
+                    <li><a href="${siteBase}/shop" title="Shop">Shop</a></li>
                     <li><a href="mailto:stevenraysimon@gmail.com" title="Email" target="_top"
                         onClick="playSound('sounds/smallPop.wav');">Email</a></li>
                     <li><a href="tel:3462910862" title="Call" target="_top" onClick="playSound('sounds/smallPop.wav');">Call</a></li>
@@ -74,7 +78,7 @@ class MenuComponent extends HTMLElement {
         });
 
         // Smooth scroll for nav links
-        this.setupSmoothScroll();
+        this.setupSmoothScroll(isHomePage);
     }
 
     closeMenu() {
@@ -135,7 +139,7 @@ class MenuComponent extends HTMLElement {
         }
     }
 
-    setupSmoothScroll() {
+    setupSmoothScroll(isHomePage) {
         this.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (event) {
                 event.preventDefault();
@@ -145,11 +149,8 @@ class MenuComponent extends HTMLElement {
 
                 if (target) {
                     let scrollPosition;
-                    const isHomepage =
-                        window.location.href === 'https://stevenraysimon.github.io/caricatures/' ||
-                        window.location.pathname === '/index.html';
 
-                    scrollPosition = isHomepage
+                    scrollPosition = isHomePage
                         ? target.offsetTop
                         : target.getBoundingClientRect().top + window.pageYOffset;
 
