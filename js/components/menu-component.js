@@ -159,19 +159,19 @@ class MenuComponent extends HTMLElement {
 
     setupSmoothScroll(isHomePage) {
         this.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (event) {
+            anchor.addEventListener('click', (event) => {
                 event.preventDefault();
-
-                const targetId = this.getAttribute('href');
+    
+                const targetId = anchor.getAttribute('href');
                 const target = document.querySelector(targetId);
-
+    
                 if (target) {
                     let scrollPosition;
-
+    
                     scrollPosition = isHomePage
                         ? target.offsetTop
                         : target.getBoundingClientRect().top + window.pageYOffset;
-
+    
                     window.scrollTo({
                         top: scrollPosition,
                         behavior: 'smooth'
