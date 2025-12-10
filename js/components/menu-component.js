@@ -10,8 +10,9 @@ class MainNavComponent extends HTMLElement {
             window.location.pathname === '/index.html' ||
             window.location.pathname === '/caricatures/' ||
             window.location.pathname === '/caricatures/index.html';
-        const siteBase = window.location.pathname.includes('/caricatures') ? '/caricatures' : '';
+        const siteBase = window.location.hostname.includes('github.io') ? '/caricatures' : '';
         const basePath = isHomePage ? '#' : `${window.location.origin}${siteBase}/#`;
+            
 
         this.innerHTML = `
             <div class="mainnav">
