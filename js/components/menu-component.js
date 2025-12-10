@@ -57,6 +57,12 @@ class MenuComponent extends HTMLElement {
     }
 
     connectedCallback() {
+        const isHomePage =
+            window.location.pathname === '/' ||
+            window.location.pathname === '/index.html' ||
+            window.location.pathname === '/caricatures/' ||
+            window.location.pathname === '/caricatures/index.html';
+    
         this.innerHTML = `
             <div class="menu-icon">
                 <div class="bar" id="barOne"></div>
@@ -66,22 +72,19 @@ class MenuComponent extends HTMLElement {
             <main-nav></main-nav>
             <book-now-button></book-now-button>
         `;
-
-        // Add event listeners
+    
         const menuIcon = this.querySelector('.menu-icon');
         const navLinks = this.querySelectorAll('main-nav a');
-
+    
         menuIcon.addEventListener('click', this.toggleMenu);
-
-        // Close menu when nav links are clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', this.closeMenu);
-        });
-
-        // Smooth scroll for nav links
+        navLinks.forEach(link => link.addEventListener('click', this.closeMenu));
+    
+        // Smooth scroll on link clicks
         this.setupSmoothScroll(isHomePage);
+    
+        // Scroll to hash if present on load
         this.scrollToHashOnLoad();
-    }
+    }    
 
     closeMenu() {
         const mainNav = this.querySelector('.mainnav');
