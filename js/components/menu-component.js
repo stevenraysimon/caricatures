@@ -80,6 +80,7 @@ class MenuComponent extends HTMLElement {
 
         // Smooth scroll for nav links
         this.setupSmoothScroll(isHomePage);
+        this.scrollToHashOnLoad();
     }
 
     closeMenu() {
@@ -137,6 +138,19 @@ class MenuComponent extends HTMLElement {
             this.closeMenu();
         } else {
             this.openMenu();
+        }
+    }
+
+    scrollToHashOnLoad() {
+        const hash = window.location.hash;
+        if (hash) {
+            const target = document.querySelector(hash);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         }
     }
 
