@@ -45,8 +45,22 @@ class BookingModalComponent extends HTMLElement {
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="eventAddress">Event Address *</label>
-                            <textarea class="form-control" id="eventAddress" name="entry.149695362" rows="3" placeholder="Full street address including city, state, and zip code" required></textarea>
+                            <label for="streetAddress">Street Address *</label>
+                            <input type="text" class="form-control" id="streetAddress" name="entry.149695362" placeholder="123 Main St" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" class="form-control" id="city" name="entry.1260204663" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State *</label>
+                            <select class="form-control" id="state" name="entry.1419879540" required>
+                                <option value="">Choose</option>
+                                <option value="Texas">Texas</option>
+                                <option value="Louisiana">Louisiana</option>
+                                <option value="Oklahoma">Oklahoma</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="pricingOption">Pricing Option *</label>
