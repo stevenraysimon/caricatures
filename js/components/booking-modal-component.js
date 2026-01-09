@@ -165,10 +165,11 @@ class BookingModalComponent extends HTMLElement {
         const startTime = document.getElementById('startTime').value;
 
         // Parse date for Google Forms (needs year, month, day)
+        // Use UTC methods to avoid timezone issues
         const dateObj = new Date(eventDate);
-        const year = dateObj.getFullYear();
-        const month = dateObj.getMonth() + 1; // JavaScript months are 0-indexed
-        const day = dateObj.getDate();
+        const year = dateObj.getUTCFullYear();
+        const month = dateObj.getUTCMonth() + 1; // JavaScript months are 0-indexed
+        const day = dateObj.getUTCDate();
 
         // Parse time for Google Forms (needs hour, minute)
         const [hours, minutes] = startTime.split(':');
