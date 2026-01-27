@@ -10,20 +10,14 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- Deferred Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-86V1CSS5RL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-86V1CSS5RL');
-
-    // Load GTM after page load
-    window.addEventListener('load', function () {
-      const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-86V1CSS5RL';
-      script.async = true;
-      document.head.appendChild(script);
-    });
   </script>
+
 
   <meta charset="UTF-8">
   <meta name="description"
@@ -74,8 +68,8 @@
   </noscript>
 
   <!-- Preload essential audio files -->
-  <link rel="preload" href="sounds/smallPop.wav" as="fetch" crossorigin>
-  <link rel="preload" href="sounds/click.wav" as="fetch" crossorigin>
+  <link rel="preload" href="sounds/smallPop.wav" as="audio" crossorigin>
+  <link rel="preload" href="sounds/click.wav" as="audio" crossorigin>
 
   <!-- Load main.js -->
   <script src="js/main.js?v=1.0.1" defer></script>
@@ -467,6 +461,96 @@
   <footer-component></footer-component>
 
   <booking-modal></booking-modal>
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the typical duration for creating a caricature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The duration of a caricature varies based on the number of people being drawn in one drawing. However, it usually takes around 5 minutes or so per drawing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there anything specific I need to provide for the caricature session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I come fully prepared with all the necessary equipment and materials. However, if you have additional chairs available, they would be appreciated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is good lighting required for the drawing space?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While good lighting is beneficial, it's not a prerequisite as I have a lamp specifically designed to illuminate the drawing paper."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many individuals can be accommodated in a single caricature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Although I typically draw between 1 to 3 people per drawing, I do have the capability to accommodate up to 7 individuals in a single drawing if necessary."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment methods are accepted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I accept payments in various forms, including cash, checks, credit cards, PayPal, and Venmo. Please be aware that payments made through PayPal and credit cards are subject to an additional 3% transaction fee."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are templates available for themed events?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I don't offer pre-made templates, but I do provide blank paper for the caricatures. I'm adept at incorporating backgrounds, event names, and other details into the drawings. However, if you prefer to provide your own template, I'm more than willing to accommodate that request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer color drawings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At the moment, I exclusively work in black and white for my caricatures. However, I have experimented with color and may consider incorporating it in the future. I choose to work in black and white primarily because it allows for quicker turnaround, is cost-effective, and creates strong contrast in the drawings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you create caricatures of pets or other subjects besides people?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, I have experience drawing caricatures of dogs, cats, and even buildings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you have the capacity to accommodate drawing caricatures for a large number of attendees at my event?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While I'm the only caricature artist, I'm fully prepared to handle large crowds. My commitment is to ensure everyone in line receives their caricature by the event's end. Please note that if there's still a line at the scheduled end time, I'll continue drawing for those in line, but won't be able to accommodate new arrivals. Having a caricature artist at your event adds lively entertainment, creating memorable experiences for guests beyond just the caricature itself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you insured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, I do carry liability insurance. If needed, I can readily provide a Certificate of Insurance upon request."
+          }
+        }
+      ]
+    }
+  </script>
 
 </body>
 
