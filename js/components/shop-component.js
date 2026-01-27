@@ -395,11 +395,13 @@ class ShopComponent extends HTMLElement {
     handleOfferClick(event) {
         const offerButton = event.target.closest('.offerButton');
 
-        playSound('pop');
-
         if (offerButton) {
             event.preventDefault();
             const autographName = offerButton.getAttribute('data-autograph');
+
+            // Play pop sound
+            const popSound = new Audio('sounds/pop.mp3');
+            popSound.play();
 
             // Dispatch custom event to open modal
             const openModalEvent = new CustomEvent('openOfferModal', {
