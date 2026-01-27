@@ -395,6 +395,8 @@ class ShopComponent extends HTMLElement {
     handleOfferClick(event) {
         const offerButton = event.target.closest('.offerButton');
 
+        playSound('pop');
+
         if (offerButton) {
             event.preventDefault();
             const autographName = offerButton.getAttribute('data-autograph');
