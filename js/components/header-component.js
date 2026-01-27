@@ -7,7 +7,6 @@ class HeaderComponent extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <header>
-                <h1 class="hiddenTags">Caricatures by Steven Simon</h1>
                 <a href="/">
                     <picture>
                         <source srcset="/images/logo.webp" type="image/webp"
