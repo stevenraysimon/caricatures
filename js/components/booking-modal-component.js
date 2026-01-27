@@ -151,6 +151,8 @@ class BookingModalComponent extends HTMLElement {
     handleSubmit() {
         const form = this.querySelector('#bookingForm');
 
+        playSound('pop');
+
         // Check if form is valid before submitting
         if (!form.checkValidity()) {
             form.reportValidity();

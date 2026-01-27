@@ -8,14 +8,23 @@ class BookNowButtonComponent extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <button class="book-now-button" onclick="document.dispatchEvent(new CustomEvent('openBookingModal'))">
+            <button class="book-now-button">
                 Book Now
             </button>
         `;
 
+        const button = this.querySelector('.book-now-button');
+
+        // Attach click listener
+        button.addEventListener('click', () => {
+            document.dispatchEvent(new CustomEvent('openBookingModal'));
+            // Play sound (make sure <audio id="pop"> exists in DOM)
+            playSound('pop');
+        });
+
         // Add scroll listener
         window.addEventListener('scroll', this.handleScroll);
-        
+
         // Initial check
         this.handleScroll();
     }
@@ -27,10 +36,10 @@ class BookNowButtonComponent extends HTMLElement {
     handleScroll() {
         const button = this.querySelector('.book-now-button');
         const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         // Check if mobile (button is at bottom)
         const isMobile = window.innerWidth <= 700;
-        
+
         if (isMobile) {
             // Mobile: Show/hide based on scroll direction
             if (currentScrollTop <= 50) {
@@ -47,7 +56,7 @@ class BookNowButtonComponent extends HTMLElement {
             // Desktop: Always visible
             button.classList.add('visible');
         }
-        
+
         this.lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
     }
 }
