@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Sound
     const pop = document.getElementById('pop');
     if (pop) {
@@ -15,24 +15,24 @@ document.addEventListener('DOMContentLoaded', function() {
     questions.forEach(question => {
         const answer = question.nextElementSibling;
         const icon = question.querySelector('.qa-fa');
-        
+
         // Initially hide answers
         answer.style.display = 'none';
         answer.style.overflow = 'hidden';
         icon.classList.remove('fa-minus');
         icon.classList.add('fa-plus');
 
-        question.addEventListener('click', function() {
+        question.addEventListener('click', function () {
             // Slide Toggle Logic
             if (answer.style.display === 'none') {
                 // Slide Down
                 answer.style.display = 'block';
                 answer.style.height = '0px';
-                
+
                 // Animate height
                 const fullHeight = answer.scrollHeight;
                 answer.style.height = `${fullHeight}px`;
-                
+
                 icon.classList.remove('fa-plus');
                 icon.classList.add('fa-minus');
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Slide Up
                 const currentHeight = answer.scrollHeight;
                 answer.style.height = `${currentHeight}px`;
-                
+
                 // Animate to zero height
                 setTimeout(() => {
                     answer.style.height = '0px';
@@ -61,3 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function playSound(id) {
+    const audio = document.getElementById(id);
+    if (audio) audio.play();
+}
