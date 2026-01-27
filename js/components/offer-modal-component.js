@@ -13,7 +13,7 @@ class OfferModalComponent extends HTMLElement {
             <div class="blackOverlay modal-overlay"></div>
             <div class="offer-modal">
                 <div class="modal-header">
-                    <h3>Make an Offer</h3>
+                    <h2>Make an Offer</h2>
                     <button class="close-x" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -102,24 +102,24 @@ class OfferModalComponent extends HTMLElement {
 
     handleSubmit() {
         const form = this.querySelector('#offerForm');
-        
+
         // Check if form is valid before submitting
         if (!form.checkValidity()) {
             form.reportValidity(); // This shows the browser's validation messages
             return; // Stop the submission
         }
-        
+
         const formData = new FormData(form);
         const statusDiv = this.querySelector('#formStatus');
         const submitBtn = this.querySelector('#submitOffer');
-    
+
         // Disable submit button
         submitBtn.disabled = true;
         submitBtn.textContent = 'Submitting...';
-    
+
         // Google Form URL
         const googleFormUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScRUxj2a5xFIwqTPzNWt4ci4i7G06WFL7K5KCq-G_O-PVuaPg/formResponse';
-    
+
         fetch(googleFormUrl, {
             method: 'POST',
             body: formData,
@@ -128,14 +128,14 @@ class OfferModalComponent extends HTMLElement {
             // Show success message
             statusDiv.className = 'form-status success';
             statusDiv.textContent = 'Thank you! Your offer has been submitted.';
-    
+
             // Reset form
             form.reset();
-    
+
             // Re-enable button
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit';
-    
+
             // Close modal after 2 seconds
             setTimeout(() => {
                 this.closeModal();
@@ -144,7 +144,7 @@ class OfferModalComponent extends HTMLElement {
             // Show error message
             statusDiv.className = 'form-status error';
             statusDiv.textContent = 'Something went wrong. Please try again.';
-    
+
             // Re-enable button
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit';

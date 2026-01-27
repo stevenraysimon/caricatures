@@ -348,7 +348,7 @@ class ShopComponent extends HTMLElement {
             <div class="row">
               <div class="content">
                 <div class="inside-wrapper">
-                  <h3 class="center">Autographs</h3>
+                  <h2 class="center">Autographs</h2>
                   <p class="center">Each caricature is hand-signed by the celebrity and authenticated by <a href="https://www.spenceloa.com/verify-authenticity" target="_blank">JSA</a>. I sign each one too—since I drew it! They're one-of-a-kind. Once they're gone, they're gone!</p>
                 </div>
               </div>
@@ -384,7 +384,7 @@ class ShopComponent extends HTMLElement {
             </div>
             <div class="text">
                 <button class="flipButton">Flip to Back <i class="fa fa-mail-reply"></i></button>
-                <h3>$${item.price}</h3>
+                <h2>$${item.price}</h2>
                 <p>${item.name}</p>
                 ${buttonContent}
             </div>
@@ -394,11 +394,11 @@ class ShopComponent extends HTMLElement {
     // Handle offer button click
     handleOfferClick(event) {
         const offerButton = event.target.closest('.offerButton');
-        
+
         if (offerButton) {
             event.preventDefault();
             const autographName = offerButton.getAttribute('data-autograph');
-            
+
             // Dispatch custom event to open modal
             const openModalEvent = new CustomEvent('openOfferModal', {
                 detail: { autographName: autographName }

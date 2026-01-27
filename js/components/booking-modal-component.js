@@ -13,7 +13,7 @@ class BookingModalComponent extends HTMLElement {
             <div class="blackOverlay modal-overlay"></div>
             <div class="offer-modal booking-modal">
                 <div class="modal-header">
-                    <h3>Book a Caricature Event</h3>
+                    <h2>Book a Caricature Event</h2>
                     <button class="close-x" aria-label="Close">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -150,13 +150,13 @@ class BookingModalComponent extends HTMLElement {
 
     handleSubmit() {
         const form = this.querySelector('#bookingForm');
-        
+
         // Check if form is valid before submitting
         if (!form.checkValidity()) {
             form.reportValidity();
             return;
         }
-        
+
         const statusDiv = this.querySelector('#formStatus');
         const submitBtn = this.querySelector('#submitBooking');
 
@@ -176,7 +176,7 @@ class BookingModalComponent extends HTMLElement {
 
         // Create FormData and add all fields
         const formData = new FormData(form);
-        
+
         // Add the date components separately (Google Forms date format)
         formData.append('entry.1217645345_year', year);
         formData.append('entry.1217645345_month', month);

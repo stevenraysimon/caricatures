@@ -631,7 +631,7 @@ hr {
   flex-direction: row-reverse;
 }
 
-.content h3 {
+.content h2 {
   font-weight: 900;
   font-family: 'chaloops-bold', sans-serif;
   font-size: 2em;
@@ -639,7 +639,7 @@ hr {
   padding: 10px 20px;
 }
 
-.flex h3 {
+.flex h2 {
   text-align: left;
 }
 
@@ -686,7 +686,7 @@ hr {
   margin: auto;
 }
 
-#questions h3 {
+#questions h2 {
   text-align: center;
 }
 
@@ -1010,7 +1010,7 @@ footer div {
   background-color: #DDD;
 }
 
-.invoice h3 {
+.invoice h2 {
   font-size: 5rem;
   font-family: 'chaloops', sans-serif;
 }
@@ -1251,14 +1251,14 @@ footer div {
     box-sizing: border-box;
   }
 
-  .content h3 {
+  .content h2 {
     font-weight: 900;
     font-size: 1.7em;
     line-height: 1.6em;
     padding: 10px 20px;
   }
 
-  .flex h3 {
+  .flex h2 {
     text-align: center;
   }
 
@@ -1343,7 +1343,7 @@ footer div {
   border-bottom: 1px solid var(--gray);
 }
 
-.modal-header h3 {
+.modal-header h2 {
   margin: 0;
   font-family: 'chaloops-bold', sans-serif;
   font-size: 2em;
