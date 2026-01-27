@@ -84,6 +84,19 @@
   --specialLink: #0057AD;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -309,14 +322,15 @@ nav .fa {
   font-size: 2rem;
 }
 
-.headerLink{
+.headerLink {
   color: var(--specialLink) !important;
 }
 
 icon-nav-component a {
-  color: var(--links); /* ensure SVGs get same color as FA icons */
-  display: inline-flex; 
-  align-items: center; 
+  color: var(--links);
+  /* ensure SVGs get same color as FA icons */
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -887,7 +901,7 @@ button:hover {
   cursor: pointer;
 }
 
-.shop .item form .offerButton{
+.shop .item form .offerButton {
   text-align: center;
   border: none;
   border-radius: 1.5rem;
@@ -908,7 +922,7 @@ button:hover {
   transition: 0.3s;
 }
 
-.shop .item form a.offerButton:hover{
+.shop .item form a.offerButton:hover {
   background-color: #AAA !important;
   transition: 0.3s;
   filter: brightness(1);
@@ -1070,13 +1084,13 @@ footer div {
 }
 
 /* Button in Panel */
-.button-panel-wrapper{
+.button-panel-wrapper {
   padding: 10px 20px;
   text-align: left;
 }
 
-.button-panel-wrapper button{
-  margin:20px auto !important;
+.button-panel-wrapper button {
+  margin: 20px auto !important;
 }
 
 @media screen and (max-width: 1500px) {
@@ -1282,7 +1296,7 @@ footer div {
   }
 
   /* Button in Panel */
-  .button-panel-wrapper{
+  .button-panel-wrapper {
     text-align: center;
   }
 
@@ -1459,7 +1473,7 @@ footer div {
   color: var(--black);
 }
 
-.close-x:hover{
+.close-x:hover {
   color: var(--links);
   background-color: var(--linksBackgroundHover);
 }
@@ -1500,63 +1514,63 @@ footer div {
   font-weight: 600;
   cursor: pointer;
   z-index: 900;
-  transition: all 0.3s 
-ease;
+  transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Desktop positioning - left of hamburger menu */
 @media screen and (min-width: 701px) {
   .book-now-button {
-      top: 10px;
-      right: 90px; /* Position to the left of the menu icon */
-      opacity: 1;
-      transform: translateY(0);
-      padding: 8px 14px;
-      font-size: 0.75rem;
+    top: 10px;
+    right: 90px;
+    /* Position to the left of the menu icon */
+    opacity: 1;
+    transform: translateY(0);
+    padding: 8px 14px;
+    font-size: 0.75rem;
   }
 
   .book-now-button:hover {
-      background-color: var(--linksActive);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transform: translateY(-2px);
+    background-color: var(--linksActive);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
   }
 
   .book-now-button:active {
-      background-color: var(--links);
-      transform: translateY(0);
+    background-color: var(--links);
+    transform: translateY(0);
   }
 }
 
 /* Mobile positioning - bottom center, hidden by default */
 @media screen and (max-width: 700px) {
   .book-now-button {
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      opacity: 0;
-      width: auto;
-      max-width: 90%;
-      /* White shadow/gradient effect for contrast */
-      box-shadow: 
-        0 -20px 40px 20px rgba(255, 255, 255, 0.9),
-        0 -40px 60px 30px rgba(255, 255, 255, 0.7),
-        0 2px 10px rgba(0, 0, 0, 0.2);
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    opacity: 0;
+    width: auto;
+    max-width: 90%;
+    /* White shadow/gradient effect for contrast */
+    box-shadow:
+      0 -20px 40px 20px rgba(255, 255, 255, 0.9),
+      0 -40px 60px 30px rgba(255, 255, 255, 0.7),
+      0 2px 10px rgba(0, 0, 0, 0.2);
   }
 
   .book-now-button.visible {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
   }
 
   .book-now-button:active {
-      background-color: var(--linksActive);
-      transform: translateX(-50%) scale(0.95);
+    background-color: var(--linksActive);
+    transform: translateX(-50%) scale(0.95);
   }
 }
 
 /* Hero Button */
-.hero-button{
+.hero-button {
   position: relative;
   background-color: var(--black);
   color: var(--white);
@@ -1568,8 +1582,7 @@ ease;
   font-weight: 600;
   cursor: pointer;
   z-index: 900;
-  transition: all 0.3s 
-ease;
+  transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
 }
@@ -1584,18 +1597,18 @@ ease;
 .form-control[type="date"],
 .form-control[type="time"],
 select.form-control {
-    min-width: 0;
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.75rem center;
-    background-size: 12px;
-    padding-right: 2.5rem;
+  min-width: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
 }
 
 /* Optional: Style the date/time picker icons */
 .form-control[type="date"]::-webkit-calendar-picker-indicator,
 .form-control[type="time"]::-webkit-calendar-picker-indicator {
-    opacity: 0.6;
+  opacity: 0.6;
 }

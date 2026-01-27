@@ -32,7 +32,7 @@
     content="caricature artist Houston, caricature artist Austin, caricature near me, caricature artist for party, caricature drawing Houston, caricature drawing Austin, custom caricature, live event caricature, caricature gifts, caricature for weddings, personalized caricatures, Steven Simon caricature">
   <meta name="robots" content="index, follow">
 
-<!-- Favicons -->
+  <!-- Favicons -->
   <!-- Default favicon (from site root) -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.png" type="image/png">
@@ -48,8 +48,8 @@
   <!-- Apple Touch Icon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- Web Manifest -->
-<link rel="manifest" href="/caricatures/site.webmanifest">
+  <!-- Web Manifest -->
+  <link rel="manifest" href="/caricatures/site.webmanifest">
 
 
   <meta name="google" content="notranslate">
@@ -107,6 +107,9 @@
       <div id="pattern">
         <div class="wrapper feature">
           <header-component></header-component>
+          <h1 class="visually-hidden">
+            Live Caricature Artist in Houston & Austin, Texas – Steven Simon
+          </h1>
         </div><!--wrapper-->
       </div><!--pattern-->
     </div><!--fade -->
@@ -118,8 +121,8 @@
     <div class="row">
       <div class="caricature">
         <picture>
-          <source srcset="images/morganFreeman.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw" width="400"
-            height="450">
+          <source srcset="images/morganFreeman.webp" type="image/webp" sizes="(max-width: 600px) 100vw, 50vw"
+            width="400" height="450">
           <img src="images/morganFreeman.jpg" alt="Morgan Freeman" title="Morgan Freeman" width="400" height="450"
             style="max-width: 100%; height: auto;">
         </picture>
@@ -292,9 +295,11 @@
           <p><strong>Option A:</strong> $50 plus $10 per person charge<br><strong>Option B:</strong> $100 per hour with
             a
             2 hour minimum</p>
-            <div class="button-panel-wrapper">
-              <button onclick="document.dispatchEvent(new CustomEvent('openBookingModal')); playSound('sounds/smallPop.wav');" class="hero-button">Book Now</button>
-            </div>
+          <div class="button-panel-wrapper">
+            <button
+              onclick="document.dispatchEvent(new CustomEvent('openBookingModal')); playSound('sounds/smallPop.wav');"
+              class="hero-button">Book Now</button>
+          </div>
           <icon-nav-component></icon-nav-component>
         </div>
       </div>
