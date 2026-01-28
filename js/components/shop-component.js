@@ -327,6 +327,14 @@ const shopItems = [
         backImage: "items/fullHouse-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/R8DUKYXC36S3A",
         soldOut: false
+    },
+    {
+        name: "Gene Simmons",
+        price: 300,
+        frontImage: "items/gene-front.png",
+        backImage: "items/gene-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/4Y844PN9VYD3S",
+        soldOut: false
     }
 ];
 
