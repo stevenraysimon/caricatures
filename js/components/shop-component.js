@@ -399,9 +399,12 @@ class ShopComponent extends HTMLElement {
             event.preventDefault();
             const autographName = offerButton.getAttribute('data-autograph');
 
-            // Play pop sound
-            const popSound = new Audio('sounds/pop.mp3');
-            popSound.play();
+            // Play preloaded pop sound
+            const popSound = document.getElementById('pop');
+            if (popSound) {
+                popSound.currentTime = 0; // rewind to start
+                popSound.play().catch(err => console.warn('Audio failed to play:', err));
+            }
 
             // Dispatch custom event to open modal
             const openModalEvent = new CustomEvent('openOfferModal', {
