@@ -103,6 +103,8 @@ class OfferModalComponent extends HTMLElement {
     handleSubmit() {
         const form = this.querySelector('#offerForm');
 
+        playSound('pop');
+
         // Check if form is valid before submitting
         if (!form.checkValidity()) {
             form.reportValidity(); // This shows the browser's validation messages
