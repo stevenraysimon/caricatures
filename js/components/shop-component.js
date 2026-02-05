@@ -335,6 +335,30 @@ const shopItems = [
         backImage: "items/gene-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/4Y844PN9VYD3S",
         soldOut: false
+    },
+    {
+        name: "Craig Biggio",
+        price: 300,
+        frontImage: "items/craig-front.png",
+        backImage: "items/craig-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/ZVRYMB2D3Q4EA",
+        soldOut: false
+    },
+    {
+        name: "Jeff Bagwell",
+        price: 300,
+        frontImage: "items/jeff-front.png",
+        backImage: "items/jeff-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/558XY5U8L5S26",
+        soldOut: false
+    },
+    {
+        name: "Patrick 'Ham' Renna",
+        price: 200,
+        frontImage: "items/ham-front.png",
+        backImage: "items/ham-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/8KD8GJLV2W5CE",
+        soldOut: false
     }
 ];
 
