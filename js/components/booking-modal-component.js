@@ -67,7 +67,7 @@ class BookingModalComponent extends HTMLElement {
                             <select class="form-control" id="pricingOption" name="entry.1434650682" required>
                                 <option value="">Choose</option>
                                 <option value="$100 per hour with a 2 hour minimum">$100 per hour with a 2 hour minimum</option>
-                                <option value="$50 travel fee plus $10 per person charge">$50 travel fee plus $10 per person charge</option>
+                                <option value="$50 travel fee plus $15 per person charge">$50 travel fee plus $15 per person charge</option>
                             </select>
                         </div>
                         <div class="form-group">
