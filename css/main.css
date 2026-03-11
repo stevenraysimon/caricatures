@@ -587,7 +587,6 @@ hr {
   transition: 0.4s;
 }
 
-/* Add this to your CSS */
 .caricature {
   box-sizing: border-box;
   position: relative;
@@ -727,6 +726,19 @@ hr {
 
 strong {
   font-family: 'chaloops-bold', sans-serif;
+}
+
+/* ── Inline paragraph links ── */
+p a {
+  color: var(--black);
+  text-decoration: underline;
+  background-color: var(--linksBackgroundHover);
+  padding: 0.2rem 0.2rem;
+  transition: background-color 0.2s;
+}
+
+p a:hover {
+  background-color: var(--linksHover);
 }
 
 /************* Media Items ****************/
@@ -1622,4 +1634,451 @@ select.form-control {
 .form-control[type="date"]::-webkit-calendar-picker-indicator,
 .form-control[type="time"]::-webkit-calendar-picker-indicator {
   opacity: 0.6;
+}
+
+
+/************* Blog Posts ********************/
+
+/************* Blog *******************/
+
+/* ── Year index ── */
+
+.blog-index {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.blog-index__heading {
+  font-family: 'chaloops-bold', sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 0.25rem;
+  color: var(--black);
+  text-align: center;
+}
+
+.blog-index__subheading {
+  font-family: 'chaloops', sans-serif;
+  font-weight: 400;
+  color: #666;
+  margin-bottom: 2.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.blog-index__year-nav {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.blog-index__year-link {
+  font-family: 'montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  padding: 0;
+  border: none;
+  color: #aaa;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.blog-index__year-link--active {
+  color: var(--black);
+}
+
+.blog-index__year-link:hover {
+  background: var(--linksBackgroundHover);
+  color: var(--black);
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  border-top: 2px solid var(--gray);
+  padding: 1.5rem 1rem;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+.blog-card:hover {
+  background-color: var(--linksBackgroundHover);
+}
+
+.blog-card:last-of-type {
+  border-bottom: 2px solid var(--gray);
+}
+
+.blog-card__image {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--gray);
+}
+
+.blog-card__image picture,
+.blog-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.blog-card__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.blog-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.blog-card__category {
+  font-family: 'montserrat-bold', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.2rem 0.6rem;
+}
+
+.blog-card__date {
+  font-family: 'montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #888;
+}
+
+.blog-card__read-time {
+  font-family: 'montserrat', sans-serif;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.blog-card__title {
+  font-family: 'chaloops-bold', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin: 0 0 0.6rem;
+  line-height: 1.3;
+  color: var(--black);
+  transition: color 0.2s;
+}
+
+.blog-card:hover .blog-card__title {
+  color: var(--linksHover);
+}
+
+.blog-card__excerpt {
+  font-family: 'chaloops', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #444;
+  margin: 0 0 0.75rem;
+}
+
+.blog-card__read-more {
+  font-family: 'montserrat-bold', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--links);
+}
+
+.blog-card__read-more i {
+  margin-left: 0.3rem;
+  font-size: 0.7rem;
+}
+
+@media screen and (max-width: 600px) {
+  .blog-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blog-card__image {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+  }
+}
+
+.blog-post__header {
+  background: var(--white);
+  padding: 3rem 1.5rem 2rem;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.blog-post__header-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* Circular author/post image — mirrors homepage .content img pattern */
+.blog-post__image {
+  flex-shrink: 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--gray);
+}
+
+.blog-post__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* Placeholder shown when no image is provided */
+.blog-post__image--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-post__image--placeholder i {
+  font-size: 4rem;
+  color: #ccc;
+}
+
+.blog-post__header-text {
+  flex: 1;
+}
+
+.blog-post__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.blog-post__category {
+  font-family: 'montserrat-bold', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.2rem 0.6rem;
+}
+
+.blog-post__date,
+.blog-post__read-time {
+  font-family: 'montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #888;
+}
+
+.blog-post__title {
+  font-family: 'chaloops-bold', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  margin: 0 0 0.6rem;
+  color: var(--black);
+}
+
+.blog-post__byline {
+  font-family: 'montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* ── Body: content + sidebar grid ── */
+
+.blog-post__body {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  align-items: start;
+}
+
+.blog-post__sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+/* ── Post content typography ── */
+
+.blog-post__content p {
+  font-family: 'chaloops', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.4rem;
+}
+
+.blog-post__content h2 {
+  font-family: 'chaloops-bold', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  margin: 2.25rem 0 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--black);
+  color: var(--black);
+}
+
+.blog-post__content h3 {
+  font-family: 'chaloops-medium', sans-serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--black);
+}
+
+.blog-post__content ul,
+.blog-post__content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.blog-post__content li {
+  font-family: 'chaloops', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+
+.blog-post__content strong {
+  font-family: 'chaloops-bold', sans-serif;
+  font-weight: 900;
+  color: var(--black);
+}
+
+.blog-post__content .tip-number {
+  display: inline-block;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'montserrat-bold', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 1.6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ── Sidebar CTA card — light grey, rounded like the form ── */
+
+.blog-post__cta-card {
+  background: var(--gray);
+  color: var(--black);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.blog-post__cta-card h3 {
+  font-family: 'chaloops-bold', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  margin: 0 0 0.6rem;
+  line-height: 1.3;
+  color: var(--black);
+}
+
+.blog-post__cta-card p {
+  font-family: 'chaloops', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+  color: #555;
+}
+
+.blog-post__back {
+  text-align: center;
+}
+
+.blog-post__back-link {
+  font-family: 'montserrat-bold', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--links);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.blog-post__back-link:hover {
+  color: var(--linksHover);
+}
+
+.blog-post__back-link i {
+  margin-right: 0.3rem;
+}
+
+.blog-post__loading {
+  font-family: 'chaloops', sans-serif;
+  font-size: 1.1rem;
+  color: #888;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+/* ── Blog responsive ── */
+
+@media screen and (max-width: 760px) {
+  .blog-post__header-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .blog-post__image {
+    width: 160px;
+    height: 160px;
+    margin: auto;
+  }
+
+  .blog-post__header-text {
+    width: 100%;
+  }
+
+  .blog-post__meta {
+    justify-content: center;
+  }
+
+  .blog-post__body {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-post__sidebar {
+    order: -1;
+    position: static;
+  }
 }

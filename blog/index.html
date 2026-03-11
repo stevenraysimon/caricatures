@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-86V1CSS5RL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-86V1CSS5RL');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Caricature tips, stories, and event ideas from Houston caricature artist Steven Simon. Browse the 2026 blog archives.">
+  <meta name="robots" content="index, follow">
+
+  <title>Blog 2026 | Caricatures by Steven Simon</title>
+  <meta property="og:title" content="Blog 2026 | Caricatures by Steven Simon">
+  <meta property="og:description" content="Caricature tips, stories, and event ideas from Houston caricature artist Steven Simon.">
+  <meta property="og:image" content="/images/og-image.jpg">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="/css/main.css?v=1.0.1" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/css/print.css?v=1.0.0" type="text/css" media="print" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css?v=1.0.0" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap">
+  </noscript>
+
+  <script src="/js/main.js?v=1.0.1" defer></script>
+  <script type="module" src="/js/web-components.js?v=1.0.1" defer></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.7.0/webcomponents-loader.js"></script>
+
+  <audio id="pop" preload="auto"><source src="/sounds/smallPop.wav"></audio>
+  <audio id="click" preload="auto"><source src="/sounds/click.wav"></audio>
+
+  <noscript><link rel="stylesheet" href="/css/noscript.css" type="text/css" /></noscript>
+</head>
+
+<body>
+  <menu-component></menu-component>
+  <a name="jump-to-top" id="jump-to-top"></a>
+
+  <main>
+    <div id="hero">
+      <div id="fade">
+        <div id="pattern">
+          <div class="wrapper feature">
+            <header-component></header-component>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-index">
+      <h1 class="blog-index__heading">Blog</h1>
+      <p class="blog-index__subheading">Tips, stories, and event ideas from a Houston caricature artist.</p>
+
+      <nav class="blog-index__year-nav" id="year-nav" aria-label="Browse by year">
+        <!-- Populated by JS -->
+      </nav>
+
+      <div id="post-list">
+        <!-- Populated by JS -->
+      </div>
+
+    </div>
+    <!-- /blog-index -->
+
+  </main>
+
+  <footer-component></footer-component>
+  <booking-modal></booking-modal>
+
+  <script>
+    (async function () {
+      const FIRST_YEAR = 2026;
+      const latestYear = new Date().getFullYear();
+
+      // Use ?year=2025 param if present, otherwise default to current year
+      const params = new URLSearchParams(window.location.search);
+      const currentYear = parseInt(params.get('year'), 10) || latestYear;
+
+      // ── Build year nav ──────────────────────────────────────────
+      const yearNav = document.getElementById('year-nav');
+      for (let y = latestYear; y >= FIRST_YEAR; y--) {
+        const a = document.createElement('a');
+        a.href = y === latestYear ? '/blog/' : `/blog/?year=${y}`;
+        a.className = 'blog-index__year-link' + (y === currentYear ? ' blog-index__year-link--active' : '');
+        a.textContent = y;
+        yearNav.appendChild(a);
+      }
+
+      // ── Fetch & render posts ────────────────────────────────────
+      const postList = document.getElementById('post-list');
+
+      try {
+        const res = await fetch(`/blog/${currentYear}.json`);
+        if (!res.ok) throw new Error('not found');
+        const posts = await res.json();
+
+        if (!posts.length) {
+          postList.innerHTML = '<p class="blog-index__subheading">No posts yet this year — check back soon.</p>';
+          return;
+        }
+
+        // Sort newest first
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        postList.innerHTML = posts.map(post => {
+          const dateObj = new Date(post.date + 'T00:00:00');
+          const dateFormatted = dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          const pngSrc = post.image ? post.image.replace(/\.webp$/, '.png') : '';
+
+          const imageHTML = post.image
+            ? `<div class="blog-card__image">
+                <picture>
+                  <source srcset="${post.image}" type="image/webp">
+                  <img src="${pngSrc}" alt="${post.imageAlt || post.title}" loading="lazy">
+                </picture>
+              </div>`
+            : '';
+
+          return `
+            <a href="/blog/${currentYear}/${post.slug}.html" class="blog-card">
+              ${imageHTML}
+              <div class="blog-card__text">
+                <div class="blog-card__meta">
+                  ${post.category ? `<span class="blog-card__category">${post.category}</span>` : ''}
+                  <time class="blog-card__date" datetime="${post.date}">${dateFormatted}</time>
+                  ${post.readTime ? `<span class="blog-card__read-time"><i class="fa fa-clock-o"></i> ${post.readTime}</span>` : ''}
+                </div>
+                <h2 class="blog-card__title">${post.title}</h2>
+                ${post.excerpt ? `<p class="blog-card__excerpt">${post.excerpt}</p>` : ''}
+                <span class="blog-card__read-more">Read more <i class="fa fa-arrow-right"></i></span>
+              </div>
+            </a>
+          `;
+        }).join('');
+
+      } catch (e) {
+        postList.innerHTML = '<p class="blog-index__subheading">Posts coming soon.</p>';
+      }
+    })();
+  </script>
+</body>
+
+</html>
