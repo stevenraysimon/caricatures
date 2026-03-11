@@ -322,9 +322,9 @@ nav .fa {
   font-size: 2rem;
 }
 
-.headerLink {
+/* .headerLink {
   color: var(--specialLink) !important;
-}
+} */
 
 icon-nav-component a {
   color: var(--links);
@@ -381,20 +381,6 @@ icon-nav-component a svg {
   line-height: 1.5em;
   text-align: center;
   padding: 50px 20px;
-}
-
-.inside-wrapper a {
-  color: var(--links);
-}
-
-.inside-wrapper a:hover {
-  filter: brightness(90%);
-  transition: 0.4s;
-}
-
-.inside-wrapper a:active {
-  filter: brightness(100%);
-  transition: 0s;
 }
 
 #main-cta {
@@ -562,19 +548,15 @@ hr {
   color: var(--white);
 }
 
-.row a {
+/* .row a {
   color: var(--specialLink);
-}
+} */
 
 .row-cta,
 .row a .fa,
 .modal-exit,
 .modal-exit-bottom {
   font-weight: 600;
-}
-
-.row a:hover {
-  filter: brightness(30%);
 }
 
 .row-cta span {
@@ -732,6 +714,7 @@ strong {
 p a {
   color: var(--black);
   text-decoration: underline;
+  text-underline-offset: 3px;
   background-color: var(--linksBackgroundHover);
   padding: 0.2rem 0.2rem;
   transition: background-color 0.2s;
@@ -739,6 +722,20 @@ p a {
 
 p a:hover {
   background-color: var(--linksHover);
+}
+
+.inside-wrapper p a {
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  background-color: var(--linksBackgroundHover);
+  padding: 0.2rem 0.2rem;
+  transition: background-color 0.2s;
+}
+
+.inside-wrapper p a:hover {
+  background-color: var(--linksHover);
+  filter: none;
 }
 
 /************* Media Items ****************/
@@ -933,15 +930,19 @@ button:hover {
   padding: 10px 0px;
 }
 
+.shop .item form .offerButton:hover {
+background-color: #AAA !important;
+  transition: 0.3s;
+}
+
 .shop .item form input:hover {
   background-color: #333;
   transition: 0.3s;
 }
 
 .shop .item form a.offerButton:hover {
-  background-color: #AAA !important;
+  background-color: var(--linksActive) !important;
   transition: 0.3s;
-  filter: brightness(1);
 }
 
 .sorting-controls {
