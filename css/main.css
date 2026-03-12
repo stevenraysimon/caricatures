@@ -101,7 +101,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-stroke: 1px transparent;
-  display: block;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 .my-body-noscroll-class {
@@ -1645,9 +1651,9 @@ select.form-control {
 /* ── Year index ── */
 
 .blog-index {
-  max-width: 860px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  margin-bottom: 20px;
 }
 
 .blog-index__heading {
