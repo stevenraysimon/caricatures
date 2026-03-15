@@ -888,6 +888,10 @@ button:hover {
     z-index: 0;
   }
 
+  .shop .item.sold-out .image-container .back {
+    display: none;
+  }
+
   .shop .flipButton {
     display: none;
   }
