@@ -854,6 +854,42 @@ button:hover {
   transition: transform 0.5s;
 }
 
+/* ── Safari 14 fallback — disable flip, show front image only ── */
+/* Safari 14 and below can't handle preserve-3d reliably */
+@supports not (aspect-ratio: 1) {
+  .shop .image-container {
+    perspective: none;
+  }
+
+  .shop .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: none !important;
+    -webkit-transform: none !important;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    transition: none;
+  }
+
+  .shop .image-container .front {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .shop .image-container .back {
+    opacity: 0;
+    z-index: 0;
+  }
+
+  .shop .flipButton {
+    display: none;
+  }
+}
+
 .shop .text {
   display: flex;
   flex-direction: column;
