@@ -837,6 +837,8 @@ button:hover {
   aspect-ratio: 1 / 1.1;
   /* Maintain a consistent aspect ratio */
   perspective: 1000px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 .shop .image-container img,
@@ -848,6 +850,7 @@ button:hover {
   height: 100%;
   object-fit: contain;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transition: transform 0.5s;
 }
 

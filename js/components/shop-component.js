@@ -365,11 +365,9 @@ const shopItems = [
 class ShopComponent extends HTMLElement {
     constructor() {
         super();
-        // Bind methods to ensure correct 'this' context
         this.createItemHTML = this.createItemHTML.bind(this);
         this.renderItems = this.renderItems.bind(this);
         this.handleOfferClick = this.handleOfferClick.bind(this);
-        // Add event listener in the constructor to ensure it's only added once
         this.addEventListener('click', this.handleFlipButtonClick);
         this.addEventListener('click', this.handleOfferClick);
     }
@@ -388,13 +386,11 @@ class ShopComponent extends HTMLElement {
           </div>
         `;
 
-        // Sort items alphabetically by default
         const sortedItems = this.sortItemsAlphabetically([...shopItems]);
         this.renderItems(sortedItems);
         this.initSortingControls();
     }
 
-    // Function to create item HTML
     createItemHTML(item) {
         const itemClass = item.soldOut ? 'item sold-out' : 'item';
         const buttonContent = item.soldOut
@@ -423,7 +419,6 @@ class ShopComponent extends HTMLElement {
         </div>`;
     }
 
-    // Handle offer button click
     handleOfferClick(event) {
         const offerButton = event.target.closest('.offerButton');
 
@@ -431,14 +426,12 @@ class ShopComponent extends HTMLElement {
             event.preventDefault();
             const autographName = offerButton.getAttribute('data-autograph');
 
-            // Play preloaded pop sound
             const popSound = document.getElementById('pop');
             if (popSound) {
-                popSound.currentTime = 0; // rewind to start
+                popSound.currentTime = 0;
                 popSound.play().catch(err => console.warn('Audio failed to play:', err));
             }
 
-            // Dispatch custom event to open modal
             const openModalEvent = new CustomEvent('openOfferModal', {
                 detail: { autographName: autographName }
             });
@@ -446,15 +439,14 @@ class ShopComponent extends HTMLElement {
         }
     }
 
-    // Move flip button logic to a separate method
     handleFlipButtonClick(event) {
         const flipButton = event.target.closest('.flipButton');
 
         if (flipButton) {
-            const imageContainer = flipButton.closest('.item').querySelector('.image-container');
-            imageContainer.classList.toggle('flipped');
+            const container = flipButton.closest('.item').querySelector('.image-container');
+            const isFlipped = container.classList.toggle('flipped');
 
-            if (imageContainer.classList.contains('flipped')) {
+            if (isFlipped) {
                 flipButton.innerHTML = 'Flip to Front <i class="fa fa-mail-forward"></i>';
             } else {
                 flipButton.innerHTML = 'Flip to Back <i class="fa fa-mail-reply"></i>';
@@ -465,42 +457,20 @@ class ShopComponent extends HTMLElement {
     renderItems(items) {
         const shopContainer = this.querySelector('.shop-autographs');
 
-        // Remove all existing rows except the first description row
         const existingRows = shopContainer.querySelectorAll('.row.content');
         existingRows.forEach(row => row.remove());
 
-        // Group items into rows of 4
         for (let i = 0; i < items.length; i += 4) {
             const rowDiv = document.createElement('div');
             rowDiv.className = 'row content';
 
-            // Add up to 4 items to this row
             const rowItems = items.slice(i, i + 4);
             rowItems.forEach(item => {
                 rowDiv.innerHTML += this.createItemHTML(item);
             });
 
-            // Append row to the shop container
             shopContainer.appendChild(rowDiv);
         }
-    }
-
-    attachFlipButtonListeners() {
-        // Use event delegation to handle flip buttons
-        this.addEventListener('click', (event) => {
-            const flipButton = event.target.closest('.flipButton');
-
-            if (flipButton) {
-                const imageContainer = flipButton.closest('.item').querySelector('.image-container');
-                imageContainer.classList.toggle('flipped');
-
-                if (imageContainer.classList.contains('flipped')) {
-                    flipButton.innerHTML = 'Flip to Front <i class="fa fa-mail-forward"></i>';
-                } else {
-                    flipButton.innerHTML = 'Flip to Back <i class="fa fa-mail-reply"></i>';
-                }
-            }
-        });
     }
 
     sortItemsAlphabetically(items) {
@@ -551,15 +521,12 @@ class ShopComponent extends HTMLElement {
                     filteredItems = this.sortItemsByPriceHighToLow(filteredItems);
                     break;
                 case 'available':
-                    // Sort alphabetically first, then filter
                     filteredItems = this.sortItemsAlphabetically(this.filterAvailableItems(filteredItems));
                     break;
                 case 'sold':
-                    // Sort alphabetically first, then filter
                     filteredItems = this.sortItemsAlphabetically(this.filterSoldItems(filteredItems));
                     break;
                 default:
-                    // Default view is alphabetical
                     filteredItems = this.sortItemsAlphabetically(filteredItems);
                     break;
             }
