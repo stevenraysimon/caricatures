@@ -859,6 +859,9 @@ button:hover {
 @supports not (aspect-ratio: 1) {
   .shop .image-container {
     perspective: none;
+    aspect-ratio: unset;
+    padding-bottom: 110%; /* replicates 1 / 1.1 ratio */
+    height: 0;
   }
 
   .shop .image-container img {
