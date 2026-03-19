@@ -378,7 +378,7 @@ class ShopComponent extends HTMLElement {
             <div class="row">
               <div class="content">
                 <div class="inside-wrapper">
-                  <h2 class="center">Autographs</h2>
+                  <h1 class="center h2-h1">Autographs</h1>
                   <p class="center">Each caricature is hand-signed by the celebrity and authenticated by <a href="https://www.spenceloa.com/verify-authenticity" target="_blank">JSA</a>. I sign each one too—since I drew it! They're one-of-a-kind. Once they're gone, they're gone!</p>
                 </div>
               </div>
