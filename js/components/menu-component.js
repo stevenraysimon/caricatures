@@ -25,6 +25,7 @@ class MainNavComponent extends HTMLElement {
                     <li><a href="${siteBase}/media" title="Media">Media</a></li>
                     <li><a href="${siteBase}/shop" title="Shop">Shop</a></li>
                     <li><a href="${siteBase}/blog" title="Blog">Blog</a></li>
+                    <li><a href="${siteBase}/houston-caricature-artist" title="Events">Events</a></li>
                     <li><a href="mailto:stevenraysimon@gmail.com" title="Email" target="_top"
                         onClick="playSound('sounds/smallPop.wav');">Email</a></li>
                     <li><a href="tel:3462910862" title="Call" target="_top" onClick="playSound('sounds/smallPop.wav');">Call</a></li>
