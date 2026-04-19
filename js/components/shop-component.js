@@ -318,7 +318,7 @@ const shopItems = [
         frontImage: "items/marcel-front.png",
         backImage: "items/marcel-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/7ELKG93WAGGY4",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Full House",
@@ -342,7 +342,7 @@ const shopItems = [
         frontImage: "items/craig-front.png",
         backImage: "items/craig-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/ZVRYMB2D3Q4EA",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Jeff Bagwell",
