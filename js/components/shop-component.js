@@ -254,7 +254,7 @@ const shopItems = [
         frontImage: "items/squire-front.png",
         backImage: "items/squire-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/ANL6TGG9BAQL6",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Evander Holyfield",
