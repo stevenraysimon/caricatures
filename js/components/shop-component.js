@@ -94,7 +94,7 @@ const shopItems = [
         frontImage: "items/paulWall-front.png",
         backImage: "items/paulWall-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/UTU3PHN8FTZPN",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Radney Foster",
