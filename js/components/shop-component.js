@@ -166,7 +166,7 @@ const shopItems = [
         frontImage: "items/kathleenHerles-front.png",
         backImage: "items/kathleenHerles-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/32PU5EAZHUBHE",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Married With... Children",
