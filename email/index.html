@@ -393,6 +393,25 @@
                         "I'm really excited for your event and can't wait to draw goofy faces of everyone — it's going to be a lot of fun!\n\n" +
                         "Please let me know if you have any questions or special requests before the big day.\n\n" +
                         "Looking forward to seeing you all soon!";
+                } else if (this.id === 'unavailable-check') {
+                    // Set the date
+                    var eventDate = document.getElementById("eventDate").value;
+                    var eventDateObject = new Date(eventDate);
+                    if (!isNaN(eventDateObject.getTime())) {
+                        eventDateObject.setHours(0, 0, 0, 0);
+                        eventDateObject.setDate(eventDateObject.getDate() + 1);
+                        var formattedEventDate = convertDate(eventDateObject);
+                        var dayOfWeekDay = getDayOfWeek(eventDateObject);
+                        eventDate = dayOfWeekDay + ', ' + formattedEventDate;
+                    } else {
+                        eventDate = "that day";
+                    }
+                    message.value =
+                        "Thank you so much for reaching out about " + document.getElementById('event').value + "! I really appreciate you thinking of me.\n\n" +
+                        "Unfortunately, I'm already booked on " + eventDate + " and won't be able to make it. I truly wish I could be there!\n\n" +
+                        "Please keep me in mind for future events — I'd love the opportunity to draw caricatures for you sometime down the road.\n\n" +
+                        "Also, if you're ever looking for a fun gift idea, I sell autographed caricatures in my online shop at https://stevensimon.art/shop\n\n" +
+                        "I hope your event is amazing and that we get the chance to work together in the future!";
                 }
             });
         });
@@ -455,14 +474,19 @@
                     alert("Where's the message?");
                 } else {
                     var portfolioLink = 'https://stevensimon.art';
+                    var shopLink = 'https://stevensimon.art/shop';
                     var portfolioHTML = '<a href="' + portfolioLink + '" target="_blank" style="color:#437DFF;text-decoration:none; display:inline-block;">stevensimon.art</a>';
+                    var shopHTML = '<a href="' + shopLink + '" target="_blank" style="color:#437DFF;text-decoration:none;">stevensimon.art/shop</a>';
                     var reviewLink = 'https://www.google.com/maps/place//data=!4m3!3m2!1s0x40d224608d0ea53:0xd3e5a6d8c1701fac!12e1?source=g.page.m.ia._&laa=nmx-review-solicitation-ia2';
                     var reviewHTML = '<a href="'+ reviewLink +'" target="_blank" style="color:#437DFF;text-decoration:none;">Leave a Review</a>';
 
-                    $('#letter').html(message.replace(portfolioLink, portfolioHTML));
+                    var formattedMessage = message
+                        .replace(portfolioLink, portfolioHTML)
+                        .replace(shopLink, shopHTML)
+                        .replace(/\n\n/g, '<br><br>')
+                        .replace(/\n/g, '<br>');
 
-                    // Replace newline characters with <br> tags and set the HTML content
-                    $('#letter').html(message.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>'));
+                    $('#letter').html(formattedMessage);
 
                     if (document.getElementById('ask-check').checked) {
                         $('#letter').append(portfolioHTML);
@@ -588,6 +612,9 @@
 
             <label for="booking-check">Booking Finalization</label>
             <input type="radio" id="booking-check" name="radio"><br>
+
+            <label for="unavailable-check">Booking Unavailable</label>
+            <input type="radio" id="unavailable-check" name="radio"><br>
         </div>
         <p class="formText">Message:</p>
         <textarea id="message" placeholder="Type your message here..."></textarea>
