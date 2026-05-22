@@ -9,3 +9,4 @@ import './components/shop-component.js';
 import './components/offer-modal-component.js';
 import './components/booking-modal-component.js';
 import './components/book-now-button-component.js';
+import './components/blog-post-component.js';
