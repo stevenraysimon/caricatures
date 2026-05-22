@@ -9,11 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-  <!-- Deferred Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-86V1CSS5RL"></script>
-  <script src="js/analytics.js"></script>
-
-
   <meta charset="UTF-8">
   <meta name="description"
     content="Looking for a caricature artist in Houston or Austin, Texas? Steven Simon offers personalized and entertaining live caricature drawings for parties, weddings, festivals, and more. Book your event today for custom caricatures near you.">
@@ -84,6 +79,7 @@
 </head>
 
 <body>
+  <analytics-component></analytics-component>
   <menu-component></menu-component>
   <a name="jump-to-top" id="jump-to-top"></a>
   <main>
@@ -306,7 +302,7 @@
               a
               2 hour minimum</p>
             <div class="button-panel-wrapper">
-              <button onclick="document.dispatchEvent(new CustomEvent('openBookingModal')); playSound('pop');"
+              <button onclick="document.dispatchEvent(new CustomEvent('openBookingModal')); gtag('event', 'book_now_click'); playSound('pop');"
                 class="hero-button">Book Now</button>
             </div>
             <icon-nav-component></icon-nav-component>

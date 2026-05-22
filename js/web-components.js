@@ -1,4 +1,5 @@
 // Import individual components from the 'components' folder
+import './components/analytics-component.js';
 import './components/header-component.js';
 import './components/icon-nav-component.js';
 import './components/menu-component.js';

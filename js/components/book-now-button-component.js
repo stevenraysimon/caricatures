@@ -18,7 +18,7 @@ class BookNowButtonComponent extends HTMLElement {
         // Attach click listener
         button.addEventListener('click', () => {
             document.dispatchEvent(new CustomEvent('openBookingModal'));
-            // Play sound (make sure <audio id="pop"> exists in DOM)
+            gtag('event', 'book_now_click');
             playSound('pop');
         });
 

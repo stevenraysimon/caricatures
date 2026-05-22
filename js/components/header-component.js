@@ -17,7 +17,7 @@ class HeaderComponent extends HTMLElement {
                     </picture>
                 </a>
                 <div class="inside-wrapper">
-                    <p>Hey! I’m Steven, a caricature artist creating crisp, classy, cartoonish caricatures. I offer the most affordable caricatures.<br><button onclick="document.dispatchEvent(new CustomEvent('openBookingModal')); playSound('pop');" class="hero-button">Book Now</button></p>
+                    <p>Hey! I’m Steven, a caricature artist creating crisp, classy, cartoonish caricatures. I offer the most affordable caricatures.<br><button onclick="document.dispatchEvent(new CustomEvent('openBookingModal')); gtag('event', 'book_now_click'); playSound('pop');" class="hero-button">Book Now</button></p>
                 </div><!--inside wrapper-->
                 <icon-nav-component></icon-nav-component>
             </header>
