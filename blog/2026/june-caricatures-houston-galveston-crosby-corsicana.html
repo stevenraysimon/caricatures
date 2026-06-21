@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+
+  <!-- Title and meta description are set dynamically from JSON -->
+  <title>Blog | Caricatures by Steven Simon</title>
+  <meta name="description" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="/images/og-image.jpg">
+  <meta property="og:type" content="article">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="/css/main.css?v=1.0.1" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/css/print.css?v=1.0.0" type="text/css" media="print" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css?v=1.0.0" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700&display=swap">
+  </noscript>
+
+  <script src="/js/main.js?v=1.0.1" defer></script>
+  <script type="module" src="/js/web-components.js?v=1.0.1" defer></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.7.0/webcomponents-loader.js"></script>
+
+  <audio id="pop" preload="auto"><source src="/sounds/smallPop.wav"></audio>
+  <audio id="click" preload="auto"><source src="/sounds/click.wav"></audio>
+
+  <noscript><link rel="stylesheet" href="/css/noscript.css" type="text/css" /></noscript>
+
+  <script>
+    // Populate <title>, <meta>, and JSON-LD from the JSON as early as possible
+    (async function () {
+      try {
+        const parts = window.location.pathname.replace(/\/$/, '').split('/');
+        const year = parts[parts.length - 2];
+        const slug = parts[parts.length - 1].replace(/\.html$/, '');
+
+        const res = await fetch(`/blog/${year}.json`);
+        if (!res.ok) return;
+        const posts = await res.json();
+        const post = posts.find(p => p.slug === slug);
+        if (!post) return;
+
+        // Page title
+        document.title = `${post.title} | Caricatures by Steven Simon`;
+
+        // Meta tags
+        document.querySelector('meta[name="description"]').setAttribute('content', post.excerpt || '');
+        document.querySelector('meta[property="og:title"]').setAttribute('content', post.title);
+        document.querySelector('meta[property="og:description"]').setAttribute('content', post.excerpt || '');
+
+        // Inject JSON-LD structured data
+        const baseUrl = 'https://stevenraysimon.github.io/caricatures';
+        const ld = {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.excerpt || '',
+          "author": {
+            "@type": "Person",
+            "name": post.author || "Steven Simon",
+            "url": baseUrl + "/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Caricatures by Steven Simon",
+            "url": baseUrl + "/"
+          },
+          "datePublished": post.date,
+          "dateModified": post.dateModified || post.date,
+          "url": `${baseUrl}/blog/${year}/${slug}.html`,
+          "image": baseUrl + "/images/og-image.jpg",
+          "keywords": post.keywords || []
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(ld);
+        document.head.appendChild(script);
+
+      } catch (e) {
+        // Silently fail — page still renders
+      }
+    })();
+  </script>
+</head>
+
+<body>
+  <analytics-component></analytics-component>
+  <menu-component></menu-component>
+  <a name="jump-to-top" id="jump-to-top"></a>
+
+  <main>
+    <div id="hero">
+      <div id="fade">
+        <div id="pattern">
+          <div class="wrapper feature">
+            <header-component></header-component>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The component reads the slug from the URL and fetches everything from the JSON -->
+    <blog-post-component></blog-post-component>
+
+  </main>
+
+  <footer-component></footer-component>
+  <booking-modal></booking-modal>
+</body>
+
+</html>
