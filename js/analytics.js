@@ -6,7 +6,7 @@ function gtag() {
 
 gtag('js', new Date());
 
-gtag('config', 'G-YHQB2SVCS0');
+gtag('config', 'G-YHQB2SVCS0'); //stevensimon.art
 
 const script = document.createElement('script');
 script.async = true;
