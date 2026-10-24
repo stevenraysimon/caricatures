@@ -359,6 +359,14 @@ const shopItems = [
         backImage: "items/ham-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/8KD8GJLV2W5CE",
         soldOut: false
+    },
+    {
+        name: "Matthew 'Stu' Lillard",
+        price: 250,
+        frontImage: "items/matthewLillard-front.png",
+        backImage: "items/matthewLillard-back.png",
+        paypalLink: "https://www.paypal.com/ncp/payment/67L5BTCAN7HP6",
+        soldOut: false
     }
 ];
 
