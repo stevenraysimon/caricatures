@@ -214,7 +214,7 @@ const shopItems = [
         frontImage: "items/rick-front.png",
         backImage: "items/rick-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/5D9LMSCYFXDGL",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Ben Kweller",
