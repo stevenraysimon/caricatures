@@ -335,9 +335,52 @@ nav .fa {
   font-size: 2rem;
 }
 
-/* .headerLink {
-  color: var(--specialLink) !important;
-} */
+
+
+/************* Dropdowns *******************/
+
+.mainnav .dropdown {
+    position: relative;
+}
+
+.mainnav .dropdown-toggle {
+    display: block;
+    cursor: pointer;
+}
+
+.mainnav .dropdown-arrow {
+    display: inline-block;
+    font-size: 0.65em;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.mainnav .dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.mainnav .dropdown-menu {
+    display: none;
+    list-style: none;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.mainnav .dropdown.open .dropdown-menu {
+    display: block;
+}
+
+.mainnav .dropdown-menu li a {
+    font-size: 1.4rem;
+    padding: 14px 0;
+    background-color: #f5f5f5;
+}
+
+.mainnav .dropdown-menu li a:hover {
+    background-color: #ddd;
+}
+
+
 
 icon-nav-component a {
   color: var(--links);

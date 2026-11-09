@@ -246,7 +246,7 @@ const shopItems = [
         frontImage: "items/austin-st-john-front.png",
         backImage: "items/austin-st-john-back.png",
         paypalLink: "https://www.paypal.com/ncp/payment/87CJ9EWUHEMDY",
-        soldOut: false
+        soldOut: true
     },
     {
         name: "Squire Fridell, Ronald McDonald",

@@ -25,7 +25,33 @@ class MainNavComponent extends HTMLElement {
                     <li><a href="${siteBase}/media" title="Media">Media</a></li>
                     <li><a href="${siteBase}/shop" title="Shop">Shop</a></li>
                     <li><a href="${siteBase}/blog" title="Blog">Blog</a></li>
-                    <li><a href="${siteBase}/houston-caricature-artist" title="Events">Events</a></li>
+                    <li class="dropdown">
+                        <a href="#"
+                        class="dropdown-toggle"
+                        title="Caricature Artist Locations"
+                        aria-expanded="false"
+                        aria-haspopup="true">Locations <i class="fa fa-chevron-down dropdown-arrow" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="${siteBase}/dallas-caricature-artist/"
+                                title="Dallas Caricature Artist">
+                                    Dallas
+                                </a>
+                            </li>
+                            <li>
+                                <a href="${siteBase}/houston-caricature-artist/"
+                                title="Houston Caricature Artist">
+                                    Houston
+                                </a>
+                            </li>
+                            <li>
+                                <a href="${siteBase}/austin-caricature-artist/"
+                                title="Austin Caricature Artist">
+                                    Austin
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a href="mailto:stevenraysimon@gmail.com" title="Email" target="_top"
                         onClick="playSound('sounds/smallPop.wav');">Email</a></li>
                     <li><a href="tel:3462910862" title="Call" target="_top" onClick="playSound('sounds/smallPop.wav');">Call</a></li>
@@ -56,6 +82,7 @@ class MenuComponent extends HTMLElement {
         this.closeMenu = this.closeMenu.bind(this);
         this.openMenu = this.openMenu.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.toggleDropdown = this.toggleDropdown.bind(this);
     }
 
     connectedCallback() {
@@ -76,10 +103,14 @@ class MenuComponent extends HTMLElement {
         `;
     
         const menuIcon = this.querySelector('.menu-icon');
-        const navLinks = this.querySelectorAll('main-nav a');
+        const navLinks = this.querySelectorAll('main-nav a:not(.dropdown-toggle)');
+        const dropdownToggles = this.querySelectorAll('.dropdown-toggle');
     
         menuIcon.addEventListener('click', this.toggleMenu);
         navLinks.forEach(link => link.addEventListener('click', this.closeMenu));
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', this.toggleDropdown);
+        });
     
         // Smooth scroll on link clicks
         this.setupSmoothScroll(isHomePage);
@@ -99,6 +130,17 @@ class MenuComponent extends HTMLElement {
         barTwo.style.marginTop = '5px';
         barOne.style.transform = 'rotate(0deg)';
         barTwo.style.transform = 'rotate(0deg)';
+
+        // Close all dropdowns
+        this.querySelectorAll('.dropdown.open').forEach(dropdown => {
+            dropdown.classList.remove('open');
+
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+
+            if (toggle) {
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         // Slide menu out
         mainNav.style.left = '-300px';
@@ -143,6 +185,34 @@ class MenuComponent extends HTMLElement {
             this.closeMenu();
         } else {
             this.openMenu();
+        }
+    }
+
+    toggleDropdown(event) {
+        event.preventDefault();
+
+        const toggle = event.currentTarget;
+        const dropdown = toggle.closest('.dropdown');
+
+        if (!dropdown) return;
+
+        const isOpen = dropdown.classList.contains('open');
+
+        // Close other dropdowns
+        this.querySelectorAll('.dropdown.open').forEach(item => {
+            item.classList.remove('open');
+
+            const itemToggle = item.querySelector('.dropdown-toggle');
+
+            if (itemToggle) {
+                itemToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Toggle the selected dropdown
+        if (!isOpen) {
+            dropdown.classList.add('open');
+            toggle.setAttribute('aria-expanded', 'true');
         }
     }
 
